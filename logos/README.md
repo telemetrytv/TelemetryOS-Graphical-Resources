@@ -93,14 +93,20 @@ This directory contains the complete TelemetryX brand asset toolkit including lo
 ## 🎨 Color Usage
 
 ### Amber (Primary)
+- **HEX:** `#F8B334`
+- **CMYK:** C:0% M:28% Y:79% K:3%
 - Use on white or light backgrounds
 - Primary brand color for most applications
 
 ### Black
+- **HEX:** `#000000`
+- **CMYK:** C:0% M:0% Y:0% K:100%
 - Use on white or very light backgrounds
 - Professional contexts, monochrome applications
 
 ### White
+- **HEX:** `#FFFFFF`
+- **CMYK:** C:0% M:0% Y:0% K:0%
 - Use on dark or colored backgrounds
 - Ensure sufficient contrast for accessibility
 

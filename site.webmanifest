@@ -1,0 +1,24 @@
+{
+    "name": "TelemetryOS",
+    "short_name": "TelemetryOS",
+    "description": "TelemetryOS - Advanced Analytics Platform",
+    "icons": [
+        {
+            "src": "/brandmarks/web/android-chrome-512x512.png",
+            "sizes": "512x512",
+            "type": "image/png",
+            "purpose": "maskable any"
+        },
+        {
+            "src": "/brandmarks/web/android-chrome-512x512.webp",
+            "sizes": "512x512",
+            "type": "image/webp",
+            "purpose": "maskable any"
+        }
+    ],
+    "theme_color": "#F8B334",
+    "background_color": "#ffffff",
+    "display": "standalone",
+    "start_url": "/",
+    "scope": "/"
+}

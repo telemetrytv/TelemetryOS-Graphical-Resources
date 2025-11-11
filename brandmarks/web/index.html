@@ -152,10 +152,56 @@
       font-size: 1.25rem;
     }
 
+    .code-block-container {
+      position: relative;
+      margin: 1.5rem 0;
+    }
+
+    .code-block-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.75rem 1rem;
+      background: rgba(27, 38, 50, 0.8);
+      border-radius: 8px 8px 0 0;
+      border-bottom: 1px solid rgba(238, 233, 223, 0.15);
+    }
+
+    .code-block-title {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: #F8B334;
+    }
+
+    .copy-button {
+      padding: 0.5rem 1rem;
+      background: #F8B334;
+      color: #1B2632;
+      border: none;
+      border-radius: 6px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .copy-button:hover {
+      background: #ffc14d;
+      transform: translateY(-1px);
+    }
+
+    .copy-button.copied {
+      background: #4caf50;
+      color: white;
+    }
+
     .code-block {
       background: rgba(0, 0, 0, 0.3);
       border: 1px solid rgba(238, 233, 223, 0.1);
-      border-radius: 8px;
+      border-radius: 0 0 8px 8px;
       padding: 1rem;
       overflow-x: auto;
       font-family: 'Courier New', monospace;
@@ -281,7 +327,14 @@
 
     <div class="code-section">
       <h3>HTML Implementation</h3>
-      <div class="code-block">&lt;!-- Favicon (Modern + Legacy) --&gt;
+      <div class="code-block-container">
+        <div class="code-block-header">
+          <span class="code-block-title">Favicon HTML</span>
+          <button class="copy-button" onclick="copyCode('html-code')">
+            <span>📋</span> Copy Code
+          </button>
+        </div>
+        <div class="code-block" id="html-code">&lt;!-- Favicon (Modern + Legacy) --&gt;
 &lt;link rel="icon" type="image/svg+xml" href="/favicon.svg"&gt;
 &lt;link rel="icon" type="image/x-icon" href="/favicon.ico"&gt;
 
@@ -290,11 +343,19 @@
 
 &lt;!-- PWA Manifest --&gt;
 &lt;link rel="manifest" href="/site.webmanifest"&gt;</div>
+      </div>
     </div>
 
     <div class="code-section">
       <h3>PWA Manifest (site.webmanifest)</h3>
-      <div class="code-block">{
+      <div class="code-block-container">
+        <div class="code-block-header">
+          <span class="code-block-title">site.webmanifest</span>
+          <button class="copy-button" onclick="copyCode('manifest-code')">
+            <span>📋</span> Copy Code
+          </button>
+        </div>
+        <div class="code-block" id="manifest-code">{
   "name": "TelemetryOS",
   "short_name": "TelemetryOS",
   "icons": [
@@ -308,7 +369,30 @@
   "background_color": "#2C3B4D",
   "display": "standalone"
 }</div>
+      </div>
     </div>
   </div>
+
+  <script>
+    function copyCode(elementId) {
+      const codeElement = document.getElementById(elementId);
+      const text = codeElement.textContent;
+
+      navigator.clipboard.writeText(text).then(() => {
+        const button = event.target.closest('.copy-button');
+        const originalHTML = button.innerHTML;
+        button.innerHTML = '<span>✓</span> Copied!';
+        button.classList.add('copied');
+
+        setTimeout(() => {
+          button.innerHTML = originalHTML;
+          button.classList.remove('copied');
+        }, 2000);
+      }).catch(err => {
+        console.error('Failed to copy:', err);
+        alert('Failed to copy code. Please try selecting and copying manually.');
+      });
+    }
+  </script>
 </body>
 </html>

@@ -419,10 +419,7 @@
         </h3>
         <div class="preview-container">
           <div class="preview-image logomark">
-            <picture>
-              <source srcset="logomarks/telemetryos-logomark-amber-256.webp 1x, logomarks/telemetryos-logomark-amber-512.webp 2x" type="image/webp">
-              <img src="logomarks/telemetryos-logomark-amber.svg" alt="TelemetryOS Logomark Amber" width="256" height="256">
-            </picture>
+            <img src="logomarks/telemetryos-logomark-amber.svg" alt="TelemetryOS Logomark Amber" width="256" height="256">
           </div>
           <div class="downloads-grid">
             <div class="size-card">
@@ -506,10 +503,7 @@
         </h3>
         <div class="preview-container">
           <div class="preview-image logomark black">
-            <picture>
-              <source srcset="logomarks/telemetryos-logomark-black-256.webp 1x, logomarks/telemetryos-logomark-black-512.webp 2x" type="image/webp">
-              <img src="logomarks/telemetryos-logomark-black.svg" alt="TelemetryOS Logomark Black" width="256" height="256">
-            </picture>
+            <img src="logomarks/telemetryos-logomark-black.svg" alt="TelemetryOS Logomark Black" width="256" height="256">
           </div>
           <div class="downloads-grid">
             <div class="size-card">
@@ -593,10 +587,7 @@
         </h3>
         <div class="preview-container">
           <div class="preview-image logomark white">
-            <picture>
-              <source srcset="logomarks/telemetryos-logomark-white-256.webp 1x, logomarks/telemetryos-logomark-white-512.webp 2x" type="image/webp">
-              <img src="logomarks/telemetryos-logomark-white.svg" alt="TelemetryOS Logomark White" width="256" height="256">
-            </picture>
+            <img src="logomarks/telemetryos-logomark-white.svg" alt="TelemetryOS Logomark White" width="256" height="256">
           </div>
           <div class="downloads-grid">
             <div class="size-card">
@@ -678,39 +669,22 @@
       <h3>Logomark Implementation</h3>
       <div class="code-block-container">
         <div class="code-block-header">
-          <span class="code-block-title">Picture Element (Responsive Logomark)</span>
+          <span class="code-block-title">Canonical Implementation</span>
           <button class="copy-button" onclick="copyCode('logomark-code')">
             <span>📋</span> Copy Code
           </button>
         </div>
-        <div class="code-block" id="logomark-code"><span class="code-comment">&lt;!-- Best practice: WebP (modern) → SVG (fallback) --&gt;</span>
+        <div class="code-block" id="logomark-code"><span class="code-tag">&lt;img</span>
 
-<span class="code-tag">&lt;picture&gt;</span>
+  <span class="code-attr">src</span>=<span class="code-string">"logomarks/telemetryos-logomark-amber.svg"</span>
 
-  <span class="code-tag">&lt;source</span>
+  <span class="code-attr">alt</span>=<span class="code-string">"TelemetryOS"</span>
 
-    <span class="code-attr">srcset</span>=<span class="code-string">"logomarks/telemetryos-logomark-amber-64.webp 64w,
-            logomarks/telemetryos-logomark-amber-128.webp 128w,
-            logomarks/telemetryos-logomark-amber-256.webp 256w,
-            logomarks/telemetryos-logomark-amber-512.webp 512w"</span>
+  <span class="code-attr">width</span>=<span class="code-value">"256"</span>
 
-    <span class="code-attr">sizes</span>=<span class="code-string">"(max-width: 640px) 64px, (max-width: 1024px) 128px, 256px"</span>
+  <span class="code-attr">height</span>=<span class="code-value">"256"</span>
 
-    <span class="code-attr">type</span>=<span class="code-string">"image/webp"</span><span class="code-tag">&gt;</span>
-
-  <span class="code-tag">&lt;img</span>
-
-    <span class="code-attr">src</span>=<span class="code-string">"logomarks/telemetryos-logomark-amber.svg"</span>
-
-    <span class="code-attr">alt</span>=<span class="code-string">"TelemetryOS"</span>
-
-    <span class="code-attr">width</span>=<span class="code-value">"256"</span>
-
-    <span class="code-attr">height</span>=<span class="code-value">"256"</span>
-
-    <span class="code-attr">loading</span>=<span class="code-string">"lazy"</span><span class="code-tag">&gt;</span>
-
-<span class="code-tag">&lt;/picture&gt;</span></div>
+  <span class="code-attr">loading</span>=<span class="code-string">"lazy"</span><span class="code-tag">&gt;</span></div>
       </div>
     </div>
 
@@ -729,10 +703,7 @@
         </h3>
         <div class="preview-container">
           <div class="preview-image wordmark">
-            <picture>
-              <source srcset="wordmarks/telemetryos-wordmark-color-256.webp 1x, wordmarks/telemetryos-wordmark-color-512.webp 2x" type="image/webp">
-              <img src="wordmarks/telemetryos-wordmark-color.svg" alt="TelemetryOS Wordmark Color" width="256" height="64">
-            </picture>
+            <img src="wordmarks/telemetryos-wordmark-color.svg" alt="TelemetryOS Wordmark Color" width="256" height="64">
           </div>
           <div class="downloads-grid">
             <div class="size-card">
@@ -806,10 +777,7 @@
         </h3>
         <div class="preview-container">
           <div class="preview-image wordmark">
-            <picture>
-              <source srcset="wordmarks/telemetryos-wordmark-amber-256.webp 1x, wordmarks/telemetryos-wordmark-amber-512.webp 2x" type="image/webp">
-              <img src="wordmarks/telemetryos-wordmark-amber.svg" alt="TelemetryOS Wordmark Amber" width="256" height="64">
-            </picture>
+            <img src="wordmarks/telemetryos-wordmark-amber.svg" alt="TelemetryOS Wordmark Amber" width="256" height="64">
           </div>
           <div class="downloads-grid">
             <div class="size-card">
@@ -883,10 +851,7 @@
         </h3>
         <div class="preview-container">
           <div class="preview-image wordmark black">
-            <picture>
-              <source srcset="wordmarks/telemetryos-wordmark-black-256.webp 1x, wordmarks/telemetryos-wordmark-black-512.webp 2x" type="image/webp">
-              <img src="wordmarks/telemetryos-wordmark-black.svg" alt="TelemetryOS Wordmark Black" width="256" height="64">
-            </picture>
+            <img src="wordmarks/telemetryos-wordmark-black.svg" alt="TelemetryOS Wordmark Black" width="256" height="64">
           </div>
           <div class="downloads-grid">
             <div class="size-card">
@@ -960,10 +925,7 @@
         </h3>
         <div class="preview-container">
           <div class="preview-image wordmark white">
-            <picture>
-              <source srcset="wordmarks/telemetryos-wordmark-white-256.webp 1x, wordmarks/telemetryos-wordmark-white-512.webp 2x" type="image/webp">
-              <img src="wordmarks/telemetryos-wordmark-white.svg" alt="TelemetryOS Wordmark White" width="256" height="64">
-            </picture>
+            <img src="wordmarks/telemetryos-wordmark-white.svg" alt="TelemetryOS Wordmark White" width="256" height="64">
           </div>
           <div class="downloads-grid">
             <div class="size-card">
@@ -1035,40 +997,22 @@
       <h3>Wordmark Implementation</h3>
       <div class="code-block-container">
         <div class="code-block-header">
-          <span class="code-block-title">Picture Element (Responsive Wordmark)</span>
+          <span class="code-block-title">Canonical Implementation</span>
           <button class="copy-button" onclick="copyCode('wordmark-code')">
             <span>📋</span> Copy Code
           </button>
         </div>
-        <div class="code-block" id="wordmark-code"><span class="code-comment">&lt;!-- Best practice: WebP (modern) → SVG (fallback) --&gt;</span>
+        <div class="code-block" id="wordmark-code"><span class="code-tag">&lt;img</span>
 
-<span class="code-tag">&lt;picture&gt;</span>
+  <span class="code-attr">src</span>=<span class="code-string">"wordmarks/telemetryos-wordmark-amber.svg"</span>
 
-  <span class="code-tag">&lt;source</span>
+  <span class="code-attr">alt</span>=<span class="code-string">"TelemetryOS"</span>
 
-    <span class="code-attr">srcset</span>=<span class="code-string">"wordmarks/telemetryos-wordmark-amber-64.webp 64w,
-            wordmarks/telemetryos-wordmark-amber-128.webp 128w,
-            wordmarks/telemetryos-wordmark-amber-256.webp 256w,
-            wordmarks/telemetryos-wordmark-amber-512.webp 512w,
-            wordmarks/telemetryos-wordmark-amber-1024.webp 1024w"</span>
+  <span class="code-attr">width</span>=<span class="code-value">"256"</span>
 
-    <span class="code-attr">sizes</span>=<span class="code-string">"(max-width: 640px) 128px, (max-width: 1024px) 256px, 512px"</span>
+  <span class="code-attr">height</span>=<span class="code-value">"64"</span>
 
-    <span class="code-attr">type</span>=<span class="code-string">"image/webp"</span><span class="code-tag">&gt;</span>
-
-  <span class="code-tag">&lt;img</span>
-
-    <span class="code-attr">src</span>=<span class="code-string">"wordmarks/telemetryos-wordmark-amber.svg"</span>
-
-    <span class="code-attr">alt</span>=<span class="code-string">"TelemetryOS"</span>
-
-    <span class="code-attr">width</span>=<span class="code-value">"256"</span>
-
-    <span class="code-attr">height</span>=<span class="code-value">"64"</span>
-
-    <span class="code-attr">loading</span>=<span class="code-string">"lazy"</span><span class="code-tag">&gt;</span>
-
-<span class="code-tag">&lt;/picture&gt;</span></div>
+  <span class="code-attr">loading</span>=<span class="code-string">"lazy"</span><span class="code-tag">&gt;</span></div>
       </div>
     </div>
 

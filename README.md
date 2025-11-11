@@ -7,7 +7,7 @@ Complete brand asset library for TelemetryOS, optimized for modern web and mobil
 
 ## 🎨 What's Inside
 
-- **Core Brand Assets** - Master logos and wordmarks in SVG, PNG, and WebP
+- **Core Brand Marks** - Master logomarks and wordmarks in SVG, PNG, and WebP
 - **Web Icons** - Modern favicon implementation with PWA support
 - **Mobile Assets** - iOS and Android app icons
 - **Social Media** - OpenGraph images for Twitter, Facebook, LinkedIn, Instagram
@@ -18,8 +18,8 @@ Complete brand asset library for TelemetryOS, optimized for modern web and mobil
 ```
 brandmarks/
 ├── core/           # Source of truth - master brand files
-│   ├── brandmarks/      # Square TelemetryOS logo (amber, black, white)
-│   └── wordmarks/  # Horizontal text logo (4:1 aspect ratio)
+│   ├── logomarks/  # Square TelemetryOS logomark (amber, black, white)
+│   └── wordmarks/  # Horizontal wordmark (4:1 aspect ratio)
 ├── web/            # Favicon and web icons
 ├── mobile/         # iOS and Android app icons
 │   ├── ios/        # Apple App Store assets
@@ -48,10 +48,10 @@ brandmarks/
 <!-- PWA Manifest -->
 <link rel="manifest" href="/site.webmanifest">
 
-<!-- Logo (responsive with WebP) -->
+<!-- Logomark (responsive with WebP) -->
 <picture>
-  <source srcset="/brandmarks/core/logos/telemetryos-logo-amber-256.webp" type="image/webp">
-  <img src="/brandmarks/core/logos/telemetryos-logo-amber-256.png" alt="TelemetryOS" width="256">
+  <source srcset="/brandmarks/core/logomarks/telemetryos-logomark-amber-256.webp" type="image/webp">
+  <img src="/brandmarks/core/logomarks/telemetryos-logomark-amber-256.png" alt="TelemetryOS" width="256">
 </picture>
 ```
 
@@ -68,7 +68,7 @@ brandmarks/
 ### For Designers
 
 **Core Assets** (`brandmarks/core/`):
-- **Logos**: 32px, 64px, 128px, 256px, 512px, 1024px (square)
+- **Logomarks**: 32px, 64px, 128px, 256px, 512px, 1024px (square)
 - **Wordmarks**: 64px, 128px, 256px, 512px (4:1 ratio)
 - **Colors**: Amber (#F8B334), Black (#000000), White (#FFFFFF)
 - **Formats**: SVG (scalable), PNG (universal), WebP (optimized)
@@ -107,9 +107,9 @@ brandmarks/
 
 ## 📐 File Naming
 
-### Logos (Square)
+### Logomarks (Square)
 ```
-telemetryos-logo-{color}-{size}.{format}
+telemetryos-logomark-{color}-{size}.{format}
 ```
 - **Colors**: amber, black, white
 - **Sizes**: 32, 64, 128, 256, 512, 1024 (pixels)
@@ -133,7 +133,7 @@ telemetryos-wordmark-{color}-{width}.{format}
 
 ### From SVG (Best Quality)
 ```bash
-sips -Z 256 brandmarks/core/logos/telemetryos-logo-amber.svg --out output-256.png
+sips -Z 256 brandmarks/core/logomarks/telemetryos-logomark-amber.svg --out output-256.png
 cwebp -q 90 output-256.png -o output-256.webp
 ```
 

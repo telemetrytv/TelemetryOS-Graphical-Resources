@@ -3,73 +3,18 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Brand Assets - TelemetryOS Graphical Resources</title>
+  <title>Brand Marks - TelemetryOS Graphical Resources</title>
   <link rel="icon" type="image/svg+xml" href="/brandmarks/web/favicon.svg">
   <link rel="icon" type="image/x-icon" href="/brandmarks/web/favicon.ico">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/common-styles.css">
   <style>
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-    }
-
-    .demo-nav {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      background: #1B2632;
-      border-bottom: 1px solid rgba(238, 233, 223, 0.15);
-      padding: 1rem 2rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      z-index: 1001;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
-    }
-
-    .demo-nav-breadcrumbs {
-      display: flex;
-      gap: 0.5rem;
-      align-items: center;
-    }
-
-    .demo-nav-brand {
-      font-size: 1rem;
-      color: rgba(238, 233, 223, 0.7);
-      text-decoration: none;
-      transition: color 0.2s;
-    }
-
-    .demo-nav-brand:hover {
-      color: #F8B334;
-    }
-
-    .demo-nav-current {
-      font-size: 1rem;
-      font-weight: 600;
-      color: #F8B334;
-      text-decoration: none;
-    }
-
-    #theme-toggle-nav {
-      padding: 8px 16px;
-      background: rgba(238, 233, 223, 0.1);
-      color: #F8B334;
-      border: 1px solid rgba(238, 233, 223, 0.2);
-      border-radius: 6px;
-      cursor: pointer;
-      font-size: 0.9rem;
-      transition: all 0.2s;
-      font-family: 'Rubik', sans-serif;
-    }
-
-    #theme-toggle-nav:hover {
-      background: rgba(238, 233, 223, 0.15);
-      border-color: #F8B334;
     }
 
     body {
@@ -295,8 +240,8 @@
     <div class="demo-nav-left">
       <div class="demo-nav-breadcrumbs">
         <a href="../index.html" class="demo-nav-brand">Home</a>
-        <span style="color: rgba(238, 233, 223, 0.4); font-size: 0.875rem;">/</span>
-        <span class="demo-nav-current">Brand Assets</span>
+        <span class="demo-nav-separator">/</span>
+        <span class="demo-nav-current">Brand Marks</span>
       </div>
     </div>
     <div class="demo-nav-center">
@@ -313,8 +258,8 @@
 
   <div class="container">
     <div class="header">
-      <h1>Brand Assets</h1>
-      <p class="subtitle">Source of truth for all TelemetryOS graphical resources</p>
+      <h1>Brand Marks</h1>
+      <p class="subtitle">Source of truth for all TelemetryOS logomarks, wordmarks, and platform assets</p>
     </div>
 
     <div class="sections">
@@ -322,7 +267,7 @@
         <div class="card-icon">✦</div>
         <h2>Core Assets</h2>
         <div class="card-meta">66 files • Source of Truth</div>
-        <p>Master brand files including logos (square format) and wordmarks (4:1 horizontal) in amber, black, and white.</p>
+        <p>Master brand files including logomarks (square format) and wordmarks (4:1 horizontal) in amber, black, and white.</p>
         <p style="margin-top: 0.5rem; font-size: 0.875rem;">SVG, PNG, WebP • 32px to 1024px</p>
       </a>
 
@@ -403,34 +348,13 @@
     </div>
 
     <div class="footer">
-      <p>TelemetryOS Brand Assets</p>
+      <p>TelemetryOS Brand Marks</p>
       <p style="margin-top: 0.5rem; font-size: 0.875rem;">
         All assets are proprietary to TelemetryOS
       </p>
     </div>
   </div>
 
-  <script>
-    // Theme toggle functionality
-    let currentTheme = 'dark';
-    document.body.className = 'dark-theme';
-
-    const themeToggle = document.getElementById('theme-toggle-nav');
-    const themeIcon = document.getElementById('theme-icon');
-    const themeText = document.getElementById('theme-text');
-
-    themeToggle.addEventListener('click', () => {
-      currentTheme = currentTheme === 'dark' ? 'light' : 'dark';
-      document.body.className = `${currentTheme}-theme`;
-
-      if (currentTheme === 'dark') {
-        themeIcon.textContent = '☀️';
-        themeText.textContent = 'Light';
-      } else {
-        themeIcon.textContent = '🌙';
-        themeText.textContent = 'Dark';
-      }
-    });
-  </script>
+  <script src="../assets/theme-toggle.js"></script>
 </body>
 </html>

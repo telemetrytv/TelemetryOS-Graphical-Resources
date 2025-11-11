@@ -772,37 +772,37 @@
                 </button>
               </div>
               <div className="code-block">
-                <code id="react-code">
-<span className="code-keyword">import</span> React <span className="code-keyword">from</span> <span className="code-string">'react'</span>;
+                <code id="react-code">{`
+`}<span className="code-keyword">import</span> React <span className="code-keyword">from</span> <span className="code-string">'react'</span>;{`
 
-<span className="code-comment">/**
+`}<span className="code-comment">/**
  * TelemetryOS animated logo loader component
  *
- * @param {`{`}Object{`}`} props
- * @param {`{`}number{`}`} [props.size=200] - Size of the logo in pixels (width/height)
- * @param {`{`}string{`}`} [props.className] - Additional CSS classes
- * @param {`{`}string{`}`} [props.color='#f7b434'] - Logo color (hex or CSS color)
- * @param {`{`}number{`}`} [props.animationDuration=2] - Animation duration in seconds
- */</span>
-<span className="code-keyword">const</span> <span className="code-function">TelemetryOSLoader</span> = ({`{`}
-  size = <span className="code-value">200</span>,
-  className = <span className="code-string">''</span>,
-  color = <span className="code-string">'#f7b434'</span>,
-  animationDuration = <span className="code-value">2</span>
-{`}`}) =&gt; {`{`}
-  <span className="code-keyword">const</span> containerId = React.<span className="code-function">useId</span>();
-  <span className="code-keyword">const</span> scopeClass = <span className="code-string">`telemetry-loader-$</span>{`{`}containerId.<span className="code-function">replace</span>(<span className="code-string">/:/g</span>, <span className="code-string">''</span>){`}`}<span className="code-string">`</span>;
+ * @param `}{`{`}`Object`}{`}`} props
+ * @param `}{`{`}`number`}{`}`} [props.size=200] - Size of the logo in pixels (width/height)
+ * @param `}{`{`}`string`}{`}`} [props.className] - Additional CSS classes
+ * @param `}{`{`}`string`}{`}`} [props.color='#f7b434'] - Logo color (hex or CSS color)
+ * @param `}{`{`}`number`}{`}`} [props.animationDuration=2] - Animation duration in seconds
+ */</span>{`
+`}<span className="code-keyword">const</span> <span className="code-function">TelemetryOSLoader</span> = ({`{`}{`
+`}  size = <span className="code-value">200</span>,{`
+`}  className = <span className="code-string">''</span>,{`
+`}  color = <span className="code-string">'#f7b434'</span>,{`
+`}  animationDuration = <span className="code-value">2</span>{`
+`}{`}`}) =&gt; {`{`}{`
+`}  <span className="code-keyword">const</span> containerId = React.<span className="code-function">useId</span>();{`
+`}  <span className="code-keyword">const</span> scopeClass = <span className="code-string">`telemetry-loader-$</span>{`{`}containerId.<span className="code-function">replace</span>(<span className="code-string">/:/g</span>, <span className="code-string">''</span>){`}`}<span className="code-string">`</span>;{`
 
-  <span className="code-keyword">const</span> containerStyle = {`{`}
-    width: <span className="code-string">`$</span>{`{`}size{`}`}<span className="code-string">px`</span>,
-    height: <span className="code-string">`$</span>{`{`}size{`}`}<span className="code-string">px`</span>,
-    <span className="code-string">'--logo-color'</span>: color,
-    <span className="code-string">'--animation-duration'</span>: <span className="code-string">`$</span>{`{`}animationDuration{`}`}<span className="code-string">s`</span>,
-  {`}`};
+`}  <span className="code-keyword">const</span> containerStyle = {`{`}{`
+`}    width: <span className="code-string">`$</span>{`{`}size{`}`}<span className="code-string">px`</span>,{`
+`}    height: <span className="code-string">`$</span>{`{`}size{`}`}<span className="code-string">px`</span>,{`
+`}    <span className="code-string">'--logo-color'</span>: color,{`
+`}    <span className="code-string">'--animation-duration'</span>: <span className="code-string">`$</span>{`{`}animationDuration{`}`}<span className="code-string">s`</span>,{`
+`}  {`}`};{`
 
-  <span className="code-keyword">return</span> (
-    <span className="code-tag">&lt;&gt;</span>
-      <span className="code-tag">&lt;style&gt;</span>{`{`}<span className="code-string">`
+`}  <span className="code-keyword">return</span> ({`
+`}    <span className="code-tag">&lt;&gt;</span>{`
+`}      <span className="code-tag">&lt;style&gt;</span>{`{`}<span className="code-string">`
         .$</span>{`{`}scopeClass{`}`}<span className="code-string"> {`{`}
           position: relative;
           display: flex;
@@ -910,41 +910,41 @@
             transform: translate(-50%, -50%) scale(1);
           {`}`}
         {`}`}
-      `</span>{`}`}<span className="code-tag">&lt;/style&gt;</span>
-      <span className="code-tag">&lt;div</span>
-        className={`{`}<span className="code-string">`$</span>{`{`}scopeClass{`}`} <span className="code-string">$</span>{`{`}className{`}`}<span className="code-string">`</span>{`}`}
-        style={`{`}containerStyle{`}`}
-      <span className="code-tag">&gt;</span>
-        <span className="code-tag">&lt;div</span> className=<span className="code-string">"telemetry-logo-wrapper"</span><span className="code-tag">&gt;</span>
-          <span className="code-tag">&lt;svg</span>
-            viewBox=<span className="code-string">"0 0 295 291.62"</span>
-            xmlns=<span className="code-string">"http://www.w3.org/2000/svg"</span>
-            className=<span className="code-string">"telemetry-logo-svg"</span>
-          <span className="code-tag">&gt;</span>
-            <span className="code-tag">&lt;path</span>
-              className=<span className="code-string">"telemetry-logo-part telemetry-main-t"</span>
-              d=<span className="code-string">"M245.1,107.09l6.77-25.27c1.05-3.92-1.9-7.77-5.96-7.77H112.48c-4.19,0-7.86,2.82-8.95,6.86l-6.77,25.27c-1.05,3.92,1.9,7.77,5.96,7.77h37.54c4.06,0,7.01,3.85,5.96,7.77l-23.6,88.07c-1.05,3.92,1.9,7.77,5.96,7.77h26.16c4.19,0,7.86-2.82,8.95-6.86l24.09-89.89c1.08-4.05,4.75-6.86,8.95-6.86h39.42c4.19,0,7.86-2.82,8.95-6.86Z"</span>
-              fill=<span className="code-string">"currentColor"</span>
-            <span className="code-tag">/&gt;</span>
-            <span className="code-tag">&lt;path</span>
-              className=<span className="code-string">"telemetry-logo-part telemetry-dot-top"</span>
-              d=<span className="code-string">"M84.19,107.09l6.77-25.27c1.05-3.92-1.9-7.77-5.96-7.77h-26.16c-4.19,0-7.86,2.82-8.95,6.86l-6.77,25.27c-1.05,3.92,1.9,7.77,5.96,7.77h26.16c4.19,0,7.86-2.82,8.95-6.86Z"</span>
-              fill=<span className="code-string">"currentColor"</span>
-            <span className="code-tag">/&gt;</span>
-            <span className="code-tag">&lt;path</span>
-              className=<span className="code-string">"telemetry-logo-part telemetry-dot-bottom"</span>
-              d=<span className="code-string">"M124.75,125.86h-26.16c-4.19,0-7.86,2.82-8.95,6.86l-6.77,25.27c-1.05,3.92,1.9,7.77,5.96,7.77h26.16c4.19,0,7.86-2.82,8.95-6.86l6.77-25.27c1.05-3.92-1.9-7.77-5.96-7.77Z"</span>
-              fill=<span className="code-string">"currentColor"</span>
-            <span className="code-tag">/&gt;</span>
-          <span className="code-tag">&lt;/svg&gt;</span>
-        <span className="code-tag">&lt;/div&gt;</span>
-      <span className="code-tag">&lt;/div&gt;</span>
-    <span className="code-tag">&lt;/&gt;</span>
-  );
-{`}`};
+      `</span>{`}`}<span className="code-tag">&lt;/style&gt;</span>{`
+`}      <span className="code-tag">&lt;div</span>{`
+`}        className={`{`}<span className="code-string">`$</span>{`{`}scopeClass{`}`} <span className="code-string">$</span>{`{`}className{`}`}<span className="code-string">`</span>{`}`}{`
+`}        style={`{`}containerStyle{`}`}{`
+`}      <span className="code-tag">&gt;</span>{`
+`}        <span className="code-tag">&lt;div</span> className=<span className="code-string">"telemetry-logo-wrapper"</span><span className="code-tag">&gt;</span>{`
+`}          <span className="code-tag">&lt;svg</span>{`
+`}            viewBox=<span className="code-string">"0 0 295 291.62"</span>{`
+`}            xmlns=<span className="code-string">"http://www.w3.org/2000/svg"</span>{`
+`}            className=<span className="code-string">"telemetry-logo-svg"</span>{`
+`}          <span className="code-tag">&gt;</span>{`
+`}            <span className="code-tag">&lt;path</span>{`
+`}              className=<span className="code-string">"telemetry-logo-part telemetry-main-t"</span>{`
+`}              d=<span className="code-string">"M245.1,107.09l6.77-25.27c1.05-3.92-1.9-7.77-5.96-7.77H112.48c-4.19,0-7.86,2.82-8.95,6.86l-6.77,25.27c-1.05,3.92,1.9,7.77,5.96,7.77h37.54c4.06,0,7.01,3.85,5.96,7.77l-23.6,88.07c-1.05,3.92,1.9,7.77,5.96,7.77h26.16c4.19,0,7.86-2.82,8.95-6.86l24.09-89.89c1.08-4.05,4.75-6.86,8.95-6.86h39.42c4.19,0,7.86-2.82,8.95-6.86Z"</span>{`
+`}              fill=<span className="code-string">"currentColor"</span>{`
+`}            <span className="code-tag">/&gt;</span>{`
+`}            <span className="code-tag">&lt;path</span>{`
+`}              className=<span className="code-string">"telemetry-logo-part telemetry-dot-top"</span>{`
+`}              d=<span className="code-string">"M84.19,107.09l6.77-25.27c1.05-3.92-1.9-7.77-5.96-7.77h-26.16c-4.19,0-7.86,2.82-8.95,6.86l-6.77,25.27c-1.05,3.92,1.9,7.77,5.96,7.77h26.16c4.19,0,7.86-2.82,8.95-6.86Z"</span>{`
+`}              fill=<span className="code-string">"currentColor"</span>{`
+`}            <span className="code-tag">/&gt;</span>{`
+`}            <span className="code-tag">&lt;path</span>{`
+`}              className=<span className="code-string">"telemetry-logo-part telemetry-dot-bottom"</span>{`
+`}              d=<span className="code-string">"M124.75,125.86h-26.16c-4.19,0-7.86,2.82-8.95,6.86l-6.77,25.27c-1.05,3.92,1.9,7.77,5.96,7.77h26.16c4.19,0,7.86-2.82,8.95-6.86l6.77-25.27c1.05-3.92-1.9-7.77-5.96-7.77Z"</span>{`
+`}              fill=<span className="code-string">"currentColor"</span>{`
+`}            <span className="code-tag">/&gt;</span>{`
+`}          <span className="code-tag">&lt;/svg&gt;</span>{`
+`}        <span className="code-tag">&lt;/div&gt;</span>{`
+`}      <span className="code-tag">&lt;/div&gt;</span>{`
+`}    <span className="code-tag">&lt;/&gt;</span>{`
+`}  );{`
+`}{`}`};{`
 
-<span className="code-keyword">export default</span> TelemetryOSLoader;
-</code>
+`}<span className="code-keyword">export default</span> TelemetryOSLoader;{`
+`}</code>
               </div>
             </div>
 
@@ -957,29 +957,29 @@
                 </button>
               </div>
               <div className="code-block">
-                <code id="usage-code">
-<span className="code-keyword">import</span> TelemetryOSLoader <span className="code-keyword">from</span> <span className="code-string">'./TelemetryOSLoader'</span>;
+                <code id="usage-code">{`
+`}<span className="code-keyword">import</span> TelemetryOSLoader <span className="code-keyword">from</span> <span className="code-string">'./TelemetryOSLoader'</span>;{`
 
-<span className="code-comment">// Default (200px, amber color)</span>
-<span className="code-tag">&lt;TelemetryOSLoader</span> <span className="code-tag">/&gt;</span>
+`}<span className="code-comment">// Default (200px, amber color)</span>{`
+`}<span className="code-tag">&lt;TelemetryOSLoader</span> <span className="code-tag">/&gt;</span>{`
 
-<span className="code-comment">// Custom size</span>
-<span className="code-tag">&lt;TelemetryOSLoader</span> size={`{`}<span className="code-value">100</span>{`}`} <span className="code-tag">/&gt;</span>
+`}<span className="code-comment">// Custom size</span>{`
+`}<span className="code-tag">&lt;TelemetryOSLoader</span> size={`{`}<span className="code-value">100</span>{`}`} <span className="code-tag">/&gt;</span>{`
 
-<span className="code-comment">// Custom color</span>
-<span className="code-tag">&lt;TelemetryOSLoader</span> color=<span className="code-string">"#00ffff"</span> <span className="code-tag">/&gt;</span>
+`}<span className="code-comment">// Custom color</span>{`
+`}<span className="code-tag">&lt;TelemetryOSLoader</span> color=<span className="code-string">"#00ffff"</span> <span className="code-tag">/&gt;</span>{`
 
-<span className="code-comment">// Custom animation speed</span>
-<span className="code-tag">&lt;TelemetryOSLoader</span> animationDuration={`{`}<span className="code-value">1</span>{`}`} <span className="code-tag">/&gt;</span>
+`}<span className="code-comment">// Custom animation speed</span>{`
+`}<span className="code-tag">&lt;TelemetryOSLoader</span> animationDuration={`{`}<span className="code-value">1</span>{`}`} <span className="code-tag">/&gt;</span>{`
 
-<span className="code-comment">// All props</span>
-<span className="code-tag">&lt;TelemetryOSLoader</span>
-  size={`{`}<span className="code-value">150</span>{`}`}
-  color=<span className="code-string">"#F8B334"</span>
-  animationDuration={`{`}<span className="code-value">2</span>{`}`}
-  className=<span className="code-string">"my-custom-class"</span>
-<span className="code-tag">/&gt;</span>
-</code>
+`}<span className="code-comment">// All props</span>{`
+`}<span className="code-tag">&lt;TelemetryOSLoader</span>{`
+`}  size={`{`}<span className="code-value">150</span>{`}`}{`
+`}  color=<span className="code-string">"#F8B334"</span>{`
+`}  animationDuration={`{`}<span className="code-value">2</span>{`}`}{`
+`}  className=<span className="code-string">"my-custom-class"</span>{`
+`}<span className="code-tag">/&gt;</span>{`
+`}</code>
               </div>
             </div>
           </div>

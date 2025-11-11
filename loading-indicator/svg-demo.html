@@ -414,93 +414,95 @@
           </button>
         </div>
         <div class="code-block">
-          <code id="svg-code"><span class="code-tag">&lt;svg</span> <span class="code-attr">viewBox</span>=<span class="code-string">"0 0 295 291.62"</span> <span class="code-attr">xmlns</span>=<span class="code-string">"http://www.w3.org/2000/svg"</span><span class="code-tag">&gt;</span>
-  <span class="code-tag">&lt;style&gt;</span>
-    <span class="code-comment">/* Animate the logo elements */</span>
-    <span class="code-keyword">.logo-part</span> {
-      <span class="code-attr">transform-origin</span>: <span class="code-value">center</span>;
+          <code id="svg-code">
+<span class="code-tag">&lt;svg</span> <span class="code-attr">viewBox</span>=<span class="code-string">"0 0 295 291.62"</span> <span class="code-attr">xmlns</span>=<span class="code-string">"http://www.w3.org/2000/svg"</span><span class="code-tag">&gt;</span>
+<span class="code-tag">&lt;style&gt;</span>
+  <span class="code-comment">/* Animate the logo elements */</span>
+  <span class="code-keyword">.logo-part</span> {
+    <span class="code-attr">transform-origin</span>: <span class="code-value">center</span>;
+  }
+
+  <span class="code-comment">/* Main T vertical stroke - pulses and scales */</span>
+  <span class="code-keyword">.main-t</span> {
+    <span class="code-attr">animation</span>: <span class="code-value">mainTPulse 2s ease-in-out infinite</span>;
+    <span class="code-attr">animation-delay</span>: <span class="code-value">0s</span>;
+  }
+
+  <span class="code-comment">/* Top left dot - bounces and scales */</span>
+  <span class="code-keyword">.dot-top</span> {
+    <span class="code-attr">animation</span>: <span class="code-value">dotBounce 2s ease-in-out infinite</span>;
+    <span class="code-attr">animation-delay</span>: <span class="code-value">0.25s</span>;
+  }
+
+  <span class="code-comment">/* Bottom left dot - bounces and scales */</span>
+  <span class="code-keyword">.dot-bottom</span> {
+    <span class="code-attr">animation</span>: <span class="code-value">dotBounce 2s ease-in-out infinite</span>;
+    <span class="code-attr">animation-delay</span>: <span class="code-value">0.5s</span>;
+  }
+
+  <span class="code-comment">/* Main T pulse animation */</span>
+  <span class="code-keyword">@keyframes</span> <span class="code-value">mainTPulse</span> {
+    <span class="code-value">0%, 100%</span> {
+      <span class="code-attr">transform</span>: <span class="code-value">scale(1)</span>;
+      <span class="code-attr">opacity</span>: <span class="code-value">0.75</span>;
     }
-
-    <span class="code-comment">/* Main T vertical stroke - pulses and scales */</span>
-    <span class="code-keyword">.main-t</span> {
-      <span class="code-attr">animation</span>: <span class="code-value">mainTPulse 2s ease-in-out infinite</span>;
-      <span class="code-attr">animation-delay</span>: <span class="code-value">0s</span>;
+    <span class="code-value">15%</span> {
+      <span class="code-attr">transform</span>: <span class="code-value">scale(1.15)</span>;
+      <span class="code-attr">opacity</span>: <span class="code-value">1</span>;
     }
-
-    <span class="code-comment">/* Top left dot - bounces and scales */</span>
-    <span class="code-keyword">.dot-top</span> {
-      <span class="code-attr">animation</span>: <span class="code-value">dotBounce 2s ease-in-out infinite</span>;
-      <span class="code-attr">animation-delay</span>: <span class="code-value">0.25s</span>;
+    <span class="code-value">30%</span> {
+      <span class="code-attr">transform</span>: <span class="code-value">scale(0.95)</span>;
+      <span class="code-attr">opacity</span>: <span class="code-value">0.85</span>;
     }
-
-    <span class="code-comment">/* Bottom left dot - bounces and scales */</span>
-    <span class="code-keyword">.dot-bottom</span> {
-      <span class="code-attr">animation</span>: <span class="code-value">dotBounce 2s ease-in-out infinite</span>;
-      <span class="code-attr">animation-delay</span>: <span class="code-value">0.5s</span>;
+    <span class="code-value">45%</span> {
+      <span class="code-attr">transform</span>: <span class="code-value">scale(1)</span>;
+      <span class="code-attr">opacity</span>: <span class="code-value">0.75</span>;
     }
+  }
 
-    <span class="code-comment">/* Main T pulse animation */</span>
-    <span class="code-keyword">@keyframes</span> <span class="code-value">mainTPulse</span> {
-      <span class="code-value">0%, 100%</span> {
-        <span class="code-attr">transform</span>: <span class="code-value">scale(1)</span>;
-        <span class="code-attr">opacity</span>: <span class="code-value">0.75</span>;
-      }
-      <span class="code-value">15%</span> {
-        <span class="code-attr">transform</span>: <span class="code-value">scale(1.15)</span>;
-        <span class="code-attr">opacity</span>: <span class="code-value">1</span>;
-      }
-      <span class="code-value">30%</span> {
-        <span class="code-attr">transform</span>: <span class="code-value">scale(0.95)</span>;
-        <span class="code-attr">opacity</span>: <span class="code-value">0.85</span>;
-      }
-      <span class="code-value">45%</span> {
-        <span class="code-attr">transform</span>: <span class="code-value">scale(1)</span>;
-        <span class="code-attr">opacity</span>: <span class="code-value">0.75</span>;
-      }
+  <span class="code-comment">/* Dot bounce animation */</span>
+  <span class="code-keyword">@keyframes</span> <span class="code-value">dotBounce</span> {
+    <span class="code-value">0%, 100%</span> {
+      <span class="code-attr">transform</span>: <span class="code-value">scale(1) translateY(0)</span>;
+      <span class="code-attr">opacity</span>: <span class="code-value">0.7</span>;
     }
-
-    <span class="code-comment">/* Dot bounce animation */</span>
-    <span class="code-keyword">@keyframes</span> <span class="code-value">dotBounce</span> {
-      <span class="code-value">0%, 100%</span> {
-        <span class="code-attr">transform</span>: <span class="code-value">scale(1) translateY(0)</span>;
-        <span class="code-attr">opacity</span>: <span class="code-value">0.7</span>;
-      }
-      <span class="code-value">15%</span> {
-        <span class="code-attr">transform</span>: <span class="code-value">scale(1.25) translateY(-8px)</span>;
-        <span class="code-attr">opacity</span>: <span class="code-value">1</span>;
-      }
-      <span class="code-value">30%</span> {
-        <span class="code-attr">transform</span>: <span class="code-value">scale(0.9) translateY(3px)</span>;
-        <span class="code-attr">opacity</span>: <span class="code-value">0.8</span>;
-      }
-      <span class="code-value">45%</span> {
-        <span class="code-attr">transform</span>: <span class="code-value">scale(1) translateY(0)</span>;
-        <span class="code-attr">opacity</span>: <span class="code-value">0.7</span>;
-      }
+    <span class="code-value">15%</span> {
+      <span class="code-attr">transform</span>: <span class="code-value">scale(1.25) translateY(-8px)</span>;
+      <span class="code-attr">opacity</span>: <span class="code-value">1</span>;
     }
-  <span class="code-tag">&lt;/style&gt;</span>
+    <span class="code-value">30%</span> {
+      <span class="code-attr">transform</span>: <span class="code-value">scale(0.9) translateY(3px)</span>;
+      <span class="code-attr">opacity</span>: <span class="code-value">0.8</span>;
+    }
+    <span class="code-value">45%</span> {
+      <span class="code-attr">transform</span>: <span class="code-value">scale(1) translateY(0)</span>;
+      <span class="code-attr">opacity</span>: <span class="code-value">0.7</span>;
+    }
+  }
+<span class="code-tag">&lt;/style&gt;</span>
 
-  <span class="code-comment">&lt;!-- Main T vertical stroke with top bar --&gt;</span>
-  <span class="code-tag">&lt;path</span>
-    <span class="code-attr">class</span>=<span class="code-string">"logo-part main-t"</span>
-    <span class="code-attr">d</span>=<span class="code-string">"M245.1,107.09l6.77-25.27c1.05-3.92-1.9-7.77-5.96-7.77H112.48c-4.19,0-7.86,2.82-8.95,6.86l-6.77,25.27c-1.05,3.92,1.9,7.77,5.96,7.77h37.54c4.06,0,7.01,3.85,5.96,7.77l-23.6,88.07c-1.05,3.92,1.9,7.77,5.96,7.77h26.16c4.19,0,7.86-2.82,8.95-6.86l24.09-89.89c1.08-4.05,4.75-6.86,8.95-6.86h39.42c4.19,0,7.86-2.82,8.95-6.86Z"</span>
-    <span class="code-attr">fill</span>=<span class="code-string">"#f7b434"</span>
-  <span class="code-tag">/&gt;</span>
+<span class="code-comment">&lt;!-- Main T vertical stroke with top bar --&gt;</span>
+<span class="code-tag">&lt;path</span>
+  <span class="code-attr">class</span>=<span class="code-string">"logo-part main-t"</span>
+  <span class="code-attr">d</span>=<span class="code-string">"M245.1,107.09l6.77-25.27c1.05-3.92-1.9-7.77-5.96-7.77H112.48c-4.19,0-7.86,2.82-8.95,6.86l-6.77,25.27c-1.05,3.92,1.9,7.77,5.96,7.77h37.54c4.06,0,7.01,3.85,5.96,7.77l-23.6,88.07c-1.05,3.92,1.9,7.77,5.96,7.77h26.16c4.19,0,7.86-2.82,8.95-6.86l24.09-89.89c1.08-4.05,4.75-6.86,8.95-6.86h39.42c4.19,0,7.86-2.82,8.95-6.86Z"</span>
+  <span class="code-attr">fill</span>=<span class="code-string">"#f7b434"</span>
+<span class="code-tag">/&gt;</span>
 
-  <span class="code-comment">&lt;!-- Top left dot --&gt;</span>
-  <span class="code-tag">&lt;path</span>
-    <span class="code-attr">class</span>=<span class="code-string">"logo-part dot-top"</span>
-    <span class="code-attr">d</span>=<span class="code-string">"M84.19,107.09l6.77-25.27c1.05-3.92-1.9-7.77-5.96-7.77h-26.16c-4.19,0-7.86,2.82-8.95,6.86l-6.77,25.27c-1.05,3.92,1.9,7.77,5.96,7.77h26.16c4.19,0,7.86-2.82,8.95-6.86Z"</span>
-    <span class="code-attr">fill</span>=<span class="code-string">"#f7b434"</span>
-  <span class="code-tag">/&gt;</span>
+<span class="code-comment">&lt;!-- Top left dot --&gt;</span>
+<span class="code-tag">&lt;path</span>
+  <span class="code-attr">class</span>=<span class="code-string">"logo-part dot-top"</span>
+  <span class="code-attr">d</span>=<span class="code-string">"M84.19,107.09l6.77-25.27c1.05-3.92-1.9-7.77-5.96-7.77h-26.16c-4.19,0-7.86,2.82-8.95,6.86l-6.77,25.27c-1.05,3.92,1.9,7.77,5.96,7.77h26.16c4.19,0,7.86-2.82,8.95-6.86Z"</span>
+  <span class="code-attr">fill</span>=<span class="code-string">"#f7b434"</span>
+<span class="code-tag">/&gt;</span>
 
-  <span class="code-comment">&lt;!-- Bottom left dot --&gt;</span>
-  <span class="code-tag">&lt;path</span>
-    <span class="code-attr">class</span>=<span class="code-string">"logo-part dot-bottom"</span>
-    <span class="code-attr">d</span>=<span class="code-string">"M124.75,125.86h-26.16c-4.19,0-7.86,2.82-8.95,6.86l-6.77,25.27c-1.05,3.92,1.9,7.77,5.96,7.77h26.16c4.19,0,7.86-2.82,8.95-6.86l6.77-25.27c1.05-3.92-1.9-7.77-5.96-7.77Z"</span>
-    <span class="code-attr">fill</span>=<span class="code-string">"#f7b434"</span>
-  <span class="code-tag">/&gt;</span>
-<span class="code-tag">&lt;/svg&gt;</span></code>
+<span class="code-comment">&lt;!-- Bottom left dot --&gt;</span>
+<span class="code-tag">&lt;path</span>
+  <span class="code-attr">class</span>=<span class="code-string">"logo-part dot-bottom"</span>
+  <span class="code-attr">d</span>=<span class="code-string">"M124.75,125.86h-26.16c-4.19,0-7.86,2.82-8.95,6.86l-6.77,25.27c-1.05,3.92,1.9,7.77,5.96,7.77h26.16c4.19,0,7.86-2.82,8.95-6.86l6.77-25.27c1.05-3.92-1.9-7.77-5.96-7.77Z"</span>
+  <span class="code-attr">fill</span>=<span class="code-string">"#f7b434"</span>
+<span class="code-tag">/&gt;</span>
+<span class="code-tag">&lt;/svg&gt;</span>
+</code>
         </div>
       </div>
     </div>

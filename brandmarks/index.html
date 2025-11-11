@@ -16,30 +16,93 @@
       box-sizing: border-box;
     }
 
-    body {
-      font-family: 'Rubik', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
-      background: #2C3B4D;
-      color: #EEE9DF;
-      padding: 40px 20px;
-      min-height: 100vh;
-    }
-
-    .nav {
-      max-width: 1200px;
-      margin: 0 auto 2rem;
-      padding-bottom: 1rem;
+    .demo-nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      background: #1B2632;
       border-bottom: 1px solid rgba(238, 233, 223, 0.15);
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 1001;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
     }
 
-    .nav a {
-      color: #F8B334;
+    .demo-nav-breadcrumbs {
+      display: flex;
+      gap: 0.5rem;
+      align-items: center;
+    }
+
+    .demo-nav-brand {
+      font-size: 1rem;
+      color: rgba(238, 233, 223, 0.7);
       text-decoration: none;
-      font-size: 0.875rem;
       transition: color 0.2s;
     }
 
-    .nav a:hover {
-      color: #ffc14d;
+    .demo-nav-brand:hover {
+      color: #F8B334;
+    }
+
+    .demo-nav-current {
+      font-size: 1rem;
+      font-weight: 600;
+      color: #F8B334;
+      text-decoration: none;
+    }
+
+    #theme-toggle-nav {
+      padding: 8px 16px;
+      background: rgba(238, 233, 223, 0.1);
+      color: #F8B334;
+      border: 1px solid rgba(238, 233, 223, 0.2);
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 0.9rem;
+      transition: all 0.2s;
+      font-family: 'Rubik', sans-serif;
+    }
+
+    #theme-toggle-nav:hover {
+      background: rgba(238, 233, 223, 0.15);
+      border-color: #F8B334;
+    }
+
+    body {
+      font-family: 'Rubik', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+      padding: 100px 20px 40px 20px;
+      min-height: 100vh;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    body.dark-theme {
+      background: #2C3B4D;
+      color: #EEE9DF;
+    }
+
+    body.light-theme {
+      background: #EEE9DF;
+      color: #1B2632;
+    }
+
+    .light-theme .demo-nav {
+      background: #fff;
+      border-bottom-color: rgba(27, 38, 50, 0.2);
+    }
+
+    .light-theme .card {
+      background: #fff;
+      border-color: rgba(27, 38, 50, 0.2);
+    }
+
+    .light-theme .info-section,
+    .light-theme .wordmark-container {
+      background: #fff;
+      border-color: rgba(27, 38, 50, 0.2);
     }
 
     .container {
@@ -227,10 +290,17 @@
     }
   </style>
 </head>
-<body>
-  <div class="nav">
-    <a href="../index.html">← Back to Home</a>
-  </div>
+<body class="dark-theme">
+  <nav class="demo-nav">
+    <div class="demo-nav-breadcrumbs">
+      <a href="../index.html" class="demo-nav-brand">Home</a>
+      <span style="color: rgba(238, 233, 223, 0.4); font-size: 0.875rem;">/</span>
+      <span class="demo-nav-current">Brand Assets</span>
+    </div>
+    <button id="theme-toggle-nav">
+      <span id="theme-icon">☀️</span> <span id="theme-text">Light</span>
+    </button>
+  </nav>
 
   <div class="container">
     <div class="header">
@@ -334,5 +404,28 @@
       </p>
     </div>
   </div>
+
+  <script>
+    // Theme toggle functionality
+    let currentTheme = 'dark';
+    document.body.className = 'dark-theme';
+
+    const themeToggle = document.getElementById('theme-toggle-nav');
+    const themeIcon = document.getElementById('theme-icon');
+    const themeText = document.getElementById('theme-text');
+
+    themeToggle.addEventListener('click', () => {
+      currentTheme = currentTheme === 'dark' ? 'light' : 'dark';
+      document.body.className = `${currentTheme}-theme`;
+
+      if (currentTheme === 'dark') {
+        themeIcon.textContent = '☀️';
+        themeText.textContent = 'Light';
+      } else {
+        themeIcon.textContent = '🌙';
+        themeText.textContent = 'Dark';
+      }
+    });
+  </script>
 </body>
 </html>

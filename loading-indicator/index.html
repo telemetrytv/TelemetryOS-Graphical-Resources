@@ -7,6 +7,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/common-styles.css">
   <style>
     * {
       margin: 0;
@@ -14,29 +15,9 @@
       box-sizing: border-box;
     }
 
-    .nav {
-      max-width: 900px;
-      margin: 0 auto 2rem;
-      padding: 1rem 0;
-      border-bottom: 1px solid rgba(238, 233, 223, 0.15);
-    }
-
-    .nav a {
-      color: #F8B334;
-      text-decoration: none;
-      font-size: 0.875rem;
-      transition: color 0.2s;
-    }
-
-    .nav a:hover {
-      color: #ffc14d;
-    }
-
     body {
       font-family: 'Rubik', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
-      background: #2C3B4D;
-      color: #EEE9DF;
-      padding: 40px 20px;
+      padding: 100px 20px 40px 20px;
       min-height: 100vh;
       display: flex;
       flex-direction: column;
@@ -191,10 +172,27 @@
     }
   </style>
 </head>
-<body>
-  <div class="nav">
-    <a href="../index.html">← Back to Home</a>
-  </div>
+<body class="dark-theme">
+  <nav class="demo-nav">
+    <div class="demo-nav-left">
+      <div class="demo-nav-breadcrumbs">
+        <a href="../index.html" class="demo-nav-brand">Home</a>
+        <span class="demo-nav-separator">/</span>
+        <span class="demo-nav-current">Logo Animation</span>
+      </div>
+    </div>
+    <div class="demo-nav-center">
+      <img src="../brandmarks/core/wordmarks/telemetryos-wordmark-amber-512.png"
+           alt="TelemetryOS"
+           class="demo-nav-wordmark">
+    </div>
+    <div class="demo-nav-right">
+      <button id="theme-toggle-nav">
+        <span id="theme-icon">☀️</span> <span id="theme-text">Light</span>
+      </button>
+    </div>
+  </nav>
+
   <div class="container">
     <h1>TelemetryOS Logo Animation</h1>
     <p class="subtitle">Choose your implementation</p>
@@ -277,5 +275,7 @@
       <p style="margin-top: 0.5rem; font-size: 0.875rem;">View <a href="README.md" style="color: #F8B334;">README.md</a> for detailed documentation</p>
     </div>
   </div>
+
+  <script src="../assets/theme-toggle.js"></script>
 </body>
 </html>

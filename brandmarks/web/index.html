@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Web Icons - TelemetryOS</title>
+  <link rel="icon" type="image/svg+xml" href="/brandmarks/web/favicon.svg">
+  <link rel="icon" type="image/x-icon" href="/brandmarks/web/favicon.ico">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Rubik', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+      background: #2C3B4D;
+      color: #EEE9DF;
+      padding: 40px 20px;
+      min-height: 100vh;
+    }
+
+    .nav {
+      max-width: 1200px;
+      margin: 0 auto 2rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid rgba(238, 233, 223, 0.15);
+    }
+
+    .nav a {
+      color: #F8B334;
+      text-decoration: none;
+      font-size: 0.875rem;
+      margin-right: 1.5rem;
+      transition: color 0.2s;
+    }
+
+    .nav a:hover {
+      color: #ffc14d;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+      color: #F8B334;
+      text-align: center;
+    }
+
+    .subtitle {
+      font-size: 1rem;
+      color: rgba(238, 233, 223, 0.7);
+      margin-bottom: 3rem;
+      text-align: center;
+    }
+
+    .asset-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      margin-bottom: 3rem;
+    }
+
+    .asset-card {
+      background: #1B2632;
+      border: 2px solid rgba(238, 233, 223, 0.15);
+      border-radius: 12px;
+      padding: 2rem;
+      text-align: center;
+      transition: all 0.3s ease;
+    }
+
+    .asset-card:hover {
+      border-color: #F8B334;
+      transform: translateY(-4px);
+      box-shadow: 0 8px 24px rgba(248, 179, 52, 0.2);
+    }
+
+    .asset-preview {
+      width: 100%;
+      height: 150px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.5rem;
+      background: rgba(238, 233, 223, 0.05);
+      border-radius: 8px;
+    }
+
+    .asset-preview img {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+    }
+
+    .asset-name {
+      font-size: 1.25rem;
+      color: #F8B334;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+
+    .asset-details {
+      font-size: 0.875rem;
+      color: rgba(238, 233, 223, 0.7);
+      line-height: 1.6;
+      margin-bottom: 1rem;
+    }
+
+    .download-links {
+      display: flex;
+      gap: 0.5rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .download-link {
+      padding: 0.5rem 1rem;
+      background: rgba(248, 179, 52, 0.2);
+      color: #F8B334;
+      text-decoration: none;
+      border-radius: 6px;
+      font-size: 0.875rem;
+      font-weight: 600;
+      transition: all 0.2s;
+    }
+
+    .download-link:hover {
+      background: rgba(248, 179, 52, 0.3);
+      transform: scale(1.05);
+    }
+
+    .code-section {
+      background: #1B2632;
+      border: 1px solid rgba(238, 233, 223, 0.15);
+      border-radius: 12px;
+      padding: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .code-section h3 {
+      color: #F8B334;
+      margin-bottom: 1rem;
+      font-size: 1.25rem;
+    }
+
+    .code-block {
+      background: rgba(0, 0, 0, 0.3);
+      border: 1px solid rgba(238, 233, 223, 0.1);
+      border-radius: 8px;
+      padding: 1rem;
+      overflow-x: auto;
+      font-family: 'Courier New', monospace;
+      font-size: 0.875rem;
+      color: #EEE9DF;
+      line-height: 1.6;
+    }
+
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 2rem;
+      }
+
+      .asset-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="nav">
+    <a href="/">← Home</a>
+    <a href="/brandmarks/">← Brand Assets</a>
+  </div>
+
+  <div class="container">
+    <h1>Web Icons & Favicons</h1>
+    <p class="subtitle">Modern favicon implementation • Optimized for 2025 web standards</p>
+
+    <div class="asset-grid">
+      <div class="asset-card">
+        <div class="asset-preview">
+          <img src="favicon.svg" alt="Favicon SVG" style="width: 100px;">
+        </div>
+        <div class="asset-name">favicon.svg</div>
+        <div class="asset-details">
+          Scalable vector favicon<br>
+          Modern browsers (97%+ support)<br>
+          <strong>Recommended primary favicon</strong>
+        </div>
+        <div class="download-links">
+          <a href="favicon.svg" download class="download-link">Download SVG</a>
+        </div>
+      </div>
+
+      <div class="asset-card">
+        <div class="asset-preview">
+          <img src="favicon-32x32.png" alt="Favicon 32x32">
+        </div>
+        <div class="asset-name">favicon.ico</div>
+        <div class="asset-details">
+          Multi-resolution ICO file<br>
+          Contains 16×16, 32×32, 48×48<br>
+          Legacy browser support
+        </div>
+        <div class="download-links">
+          <a href="favicon.ico" download class="download-link">Download ICO</a>
+        </div>
+      </div>
+
+      <div class="asset-card">
+        <div class="asset-preview">
+          <img src="favicon-16x16.png" alt="Favicon 16x16">
+        </div>
+        <div class="asset-name">favicon-16x16</div>
+        <div class="asset-details">
+          16×16 pixels<br>
+          Standard favicon size
+        </div>
+        <div class="download-links">
+          <a href="favicon-16x16.png" download class="download-link">PNG</a>
+          <a href="favicon-16x16.webp" download class="download-link">WebP</a>
+        </div>
+      </div>
+
+      <div class="asset-card">
+        <div class="asset-preview">
+          <img src="favicon-32x32.png" alt="Favicon 32x32">
+        </div>
+        <div class="asset-name">favicon-32x32</div>
+        <div class="asset-details">
+          32×32 pixels<br>
+          Retina favicon size
+        </div>
+        <div class="download-links">
+          <a href="favicon-32x32.png" download class="download-link">PNG</a>
+          <a href="favicon-32x32.webp" download class="download-link">WebP</a>
+        </div>
+      </div>
+
+      <div class="asset-card">
+        <div class="asset-preview">
+          <img src="apple-touch-icon.png" alt="Apple Touch Icon" style="width: 100px;">
+        </div>
+        <div class="asset-name">apple-touch-icon</div>
+        <div class="asset-details">
+          180×180 pixels<br>
+          iOS home screen icon<br>
+          Safari bookmarks
+        </div>
+        <div class="download-links">
+          <a href="apple-touch-icon.png" download class="download-link">PNG</a>
+          <a href="apple-touch-icon.webp" download class="download-link">WebP</a>
+        </div>
+      </div>
+
+      <div class="asset-card">
+        <div class="asset-preview">
+          <img src="android-chrome-512x512.png" alt="Android Chrome Icon" style="width: 100px;">
+        </div>
+        <div class="asset-name">android-chrome-512x512</div>
+        <div class="asset-details">
+          512×512 pixels<br>
+          PWA app icon<br>
+          Android Chrome
+        </div>
+        <div class="download-links">
+          <a href="android-chrome-512x512.png" download class="download-link">PNG</a>
+          <a href="android-chrome-512x512.webp" download class="download-link">WebP</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="code-section">
+      <h3>HTML Implementation</h3>
+      <div class="code-block">&lt;!-- Favicon (Modern + Legacy) --&gt;
+&lt;link rel="icon" type="image/svg+xml" href="/favicon.svg"&gt;
+&lt;link rel="icon" type="image/x-icon" href="/favicon.ico"&gt;
+
+&lt;!-- Apple Touch Icon --&gt;
+&lt;link rel="apple-touch-icon" href="/apple-touch-icon.png"&gt;
+
+&lt;!-- PWA Manifest --&gt;
+&lt;link rel="manifest" href="/site.webmanifest"&gt;</div>
+    </div>
+
+    <div class="code-section">
+      <h3>PWA Manifest (site.webmanifest)</h3>
+      <div class="code-block">{
+  "name": "TelemetryOS",
+  "short_name": "TelemetryOS",
+  "icons": [
+    {
+      "src": "/android-chrome-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "theme_color": "#F8B334",
+  "background_color": "#2C3B4D",
+  "display": "standalone"
+}</div>
+    </div>
+  </div>
+</body>
+</html>

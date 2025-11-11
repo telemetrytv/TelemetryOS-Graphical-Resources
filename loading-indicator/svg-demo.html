@@ -211,6 +211,124 @@
       border-radius: 8px;
       margin: 1rem 0;
     }
+
+    .code-block-container {
+      position: relative;
+      margin: 1.5rem 0;
+    }
+
+    .code-block-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.75rem 1rem;
+      background: rgba(27, 38, 50, 0.8);
+      border-radius: 8px 8px 0 0;
+      border-bottom: 1px solid rgba(238, 233, 223, 0.15);
+    }
+
+    .light-theme .code-block-header {
+      background: rgba(238, 233, 223, 0.6);
+      border-bottom-color: rgba(27, 38, 50, 0.2);
+    }
+
+    .code-block-title {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: #F8B334;
+    }
+
+    .copy-button {
+      padding: 0.5rem 1rem;
+      background: #F8B334;
+      color: #1B2632;
+      border: none;
+      border-radius: 6px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .copy-button:hover {
+      background: #ffc14d;
+      transform: translateY(-1px);
+    }
+
+    .copy-button.copied {
+      background: #4caf50;
+      color: white;
+    }
+
+    .code-block {
+      background: #0d1117;
+      padding: 1.5rem;
+      border-radius: 0 0 8px 8px;
+      overflow-x: auto;
+      max-height: 500px;
+      font-family: 'SF Mono', Monaco, 'Cascadia Code', 'Courier New', monospace;
+      font-size: 0.85rem;
+      line-height: 1.6;
+    }
+
+    .light-theme .code-block {
+      background: #f6f8fa;
+    }
+
+    .code-line {
+      display: block;
+    }
+
+    .code-comment {
+      color: #8b949e;
+    }
+
+    .light-theme .code-comment {
+      color: #6a737d;
+    }
+
+    .code-tag {
+      color: #7ee787;
+    }
+
+    .light-theme .code-tag {
+      color: #22863a;
+    }
+
+    .code-attr {
+      color: #79c0ff;
+    }
+
+    .light-theme .code-attr {
+      color: #005cc5;
+    }
+
+    .code-string {
+      color: #a5d6ff;
+    }
+
+    .light-theme .code-string {
+      color: #032f62;
+    }
+
+    .code-keyword {
+      color: #ff7b72;
+    }
+
+    .light-theme .code-keyword {
+      color: #d73a49;
+    }
+
+    .code-value {
+      color: #ffa657;
+    }
+
+    .light-theme .code-value {
+      color: #e36209;
+    }
   </style>
 </head>
 <body>
@@ -245,6 +363,105 @@
         <div class="demo-item">
           <img src="telemetryos-logo-animated.svg" alt="TelemetryOS" style="width: 200px;" />
           <span class="demo-label">Animated SVG (200px)</span>
+        </div>
+      </div>
+
+      <!-- Code Block -->
+      <div class="code-block-container">
+        <div class="code-block-header">
+          <span class="code-block-title">telemetryos-logo-animated.svg</span>
+          <button class="copy-button" onclick="copyCode('svg-code')">
+            <span>📋</span> Copy Code
+          </button>
+        </div>
+        <div class="code-block">
+          <code id="svg-code"><span class="code-tag">&lt;svg</span> <span class="code-attr">viewBox</span>=<span class="code-string">"0 0 295 291.62"</span> <span class="code-attr">xmlns</span>=<span class="code-string">"http://www.w3.org/2000/svg"</span><span class="code-tag">&gt;</span>
+  <span class="code-tag">&lt;style&gt;</span>
+    <span class="code-comment">/* Animate the logo elements */</span>
+    <span class="code-keyword">.logo-part</span> {
+      <span class="code-attr">transform-origin</span>: <span class="code-value">center</span>;
+    }
+
+    <span class="code-comment">/* Main T vertical stroke - pulses and scales */</span>
+    <span class="code-keyword">.main-t</span> {
+      <span class="code-attr">animation</span>: <span class="code-value">mainTPulse 2s ease-in-out infinite</span>;
+      <span class="code-attr">animation-delay</span>: <span class="code-value">0s</span>;
+    }
+
+    <span class="code-comment">/* Top left dot - bounces and scales */</span>
+    <span class="code-keyword">.dot-top</span> {
+      <span class="code-attr">animation</span>: <span class="code-value">dotBounce 2s ease-in-out infinite</span>;
+      <span class="code-attr">animation-delay</span>: <span class="code-value">0.25s</span>;
+    }
+
+    <span class="code-comment">/* Bottom left dot - bounces and scales */</span>
+    <span class="code-keyword">.dot-bottom</span> {
+      <span class="code-attr">animation</span>: <span class="code-value">dotBounce 2s ease-in-out infinite</span>;
+      <span class="code-attr">animation-delay</span>: <span class="code-value">0.5s</span>;
+    }
+
+    <span class="code-comment">/* Main T pulse animation */</span>
+    <span class="code-keyword">@keyframes</span> <span class="code-value">mainTPulse</span> {
+      <span class="code-value">0%, 100%</span> {
+        <span class="code-attr">transform</span>: <span class="code-value">scale(1)</span>;
+        <span class="code-attr">opacity</span>: <span class="code-value">0.75</span>;
+      }
+      <span class="code-value">15%</span> {
+        <span class="code-attr">transform</span>: <span class="code-value">scale(1.15)</span>;
+        <span class="code-attr">opacity</span>: <span class="code-value">1</span>;
+      }
+      <span class="code-value">30%</span> {
+        <span class="code-attr">transform</span>: <span class="code-value">scale(0.95)</span>;
+        <span class="code-attr">opacity</span>: <span class="code-value">0.85</span>;
+      }
+      <span class="code-value">45%</span> {
+        <span class="code-attr">transform</span>: <span class="code-value">scale(1)</span>;
+        <span class="code-attr">opacity</span>: <span class="code-value">0.75</span>;
+      }
+    }
+
+    <span class="code-comment">/* Dot bounce animation */</span>
+    <span class="code-keyword">@keyframes</span> <span class="code-value">dotBounce</span> {
+      <span class="code-value">0%, 100%</span> {
+        <span class="code-attr">transform</span>: <span class="code-value">scale(1) translateY(0)</span>;
+        <span class="code-attr">opacity</span>: <span class="code-value">0.7</span>;
+      }
+      <span class="code-value">15%</span> {
+        <span class="code-attr">transform</span>: <span class="code-value">scale(1.25) translateY(-8px)</span>;
+        <span class="code-attr">opacity</span>: <span class="code-value">1</span>;
+      }
+      <span class="code-value">30%</span> {
+        <span class="code-attr">transform</span>: <span class="code-value">scale(0.9) translateY(3px)</span>;
+        <span class="code-attr">opacity</span>: <span class="code-value">0.8</span>;
+      }
+      <span class="code-value">45%</span> {
+        <span class="code-attr">transform</span>: <span class="code-value">scale(1) translateY(0)</span>;
+        <span class="code-attr">opacity</span>: <span class="code-value">0.7</span>;
+      }
+    }
+  <span class="code-tag">&lt;/style&gt;</span>
+
+  <span class="code-comment">&lt;!-- Main T vertical stroke with top bar --&gt;</span>
+  <span class="code-tag">&lt;path</span>
+    <span class="code-attr">class</span>=<span class="code-string">"logo-part main-t"</span>
+    <span class="code-attr">d</span>=<span class="code-string">"M245.1,107.09l6.77-25.27c1.05-3.92-1.9-7.77-5.96-7.77H112.48c-4.19,0-7.86,2.82-8.95,6.86l-6.77,25.27c-1.05,3.92,1.9,7.77,5.96,7.77h37.54c4.06,0,7.01,3.85,5.96,7.77l-23.6,88.07c-1.05,3.92,1.9,7.77,5.96,7.77h26.16c4.19,0,7.86-2.82,8.95-6.86l24.09-89.89c1.08-4.05,4.75-6.86,8.95-6.86h39.42c4.19,0,7.86-2.82,8.95-6.86Z"</span>
+    <span class="code-attr">fill</span>=<span class="code-string">"#f7b434"</span>
+  <span class="code-tag">/&gt;</span>
+
+  <span class="code-comment">&lt;!-- Top left dot --&gt;</span>
+  <span class="code-tag">&lt;path</span>
+    <span class="code-attr">class</span>=<span class="code-string">"logo-part dot-top"</span>
+    <span class="code-attr">d</span>=<span class="code-string">"M84.19,107.09l6.77-25.27c1.05-3.92-1.9-7.77-5.96-7.77h-26.16c-4.19,0-7.86,2.82-8.95,6.86l-6.77,25.27c-1.05,3.92,1.9,7.77,5.96,7.77h26.16c4.19,0,7.86-2.82,8.95-6.86Z"</span>
+    <span class="code-attr">fill</span>=<span class="code-string">"#f7b434"</span>
+  <span class="code-tag">/&gt;</span>
+
+  <span class="code-comment">&lt;!-- Bottom left dot --&gt;</span>
+  <span class="code-tag">&lt;path</span>
+    <span class="code-attr">class</span>=<span class="code-string">"logo-part dot-bottom"</span>
+    <span class="code-attr">d</span>=<span class="code-string">"M124.75,125.86h-26.16c-4.19,0-7.86,2.82-8.95,6.86l-6.77,25.27c-1.05,3.92,1.9,7.77,5.96,7.77h26.16c4.19,0,7.86-2.82,8.95-6.86l6.77-25.27c1.05-3.92-1.9-7.77-5.96-7.77Z"</span>
+    <span class="code-attr">fill</span>=<span class="code-string">"#f7b434"</span>
+  <span class="code-tag">/&gt;</span>
+<span class="code-tag">&lt;/svg&gt;</span></code>
         </div>
       </div>
     </div>
@@ -389,6 +606,32 @@
         themeText.textContent = 'Dark';
       }
     });
+
+    // Copy code functionality
+    function copyCode(elementId) {
+      const codeElement = document.getElementById(elementId);
+      const button = event.target.closest('.copy-button');
+
+      // Get text content without HTML tags
+      const text = codeElement.textContent;
+
+      // Copy to clipboard
+      navigator.clipboard.writeText(text).then(() => {
+        // Update button state
+        const originalHTML = button.innerHTML;
+        button.innerHTML = '<span>✓</span> Copied!';
+        button.classList.add('copied');
+
+        // Reset after 2 seconds
+        setTimeout(() => {
+          button.innerHTML = originalHTML;
+          button.classList.remove('copied');
+        }, 2000);
+      }).catch(err => {
+        console.error('Failed to copy:', err);
+        alert('Failed to copy code. Please try selecting and copying manually.');
+      });
+    }
   </script>
 </body>
 </html>

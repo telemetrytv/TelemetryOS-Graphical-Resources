@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Core Brand Assets - TelemetryOS</title>
+  <link rel="icon" type="image/svg+xml" href="/brandmarks/web/favicon.svg">
+  <link rel="icon" type="image/x-icon" href="/brandmarks/web/favicon.ico">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Rubik', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+      background: #2C3B4D;
+      color: #EEE9DF;
+      padding: 40px 20px;
+      min-height: 100vh;
+    }
+
+    .nav {
+      max-width: 1400px;
+      margin: 0 auto 2rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid rgba(238, 233, 223, 0.15);
+    }
+
+    .nav a {
+      color: #F8B334;
+      text-decoration: none;
+      font-size: 0.875rem;
+      margin-right: 1.5rem;
+      transition: color 0.2s;
+    }
+
+    .nav a:hover {
+      color: #ffc14d;
+    }
+
+    .container {
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+      color: #F8B334;
+      text-align: center;
+    }
+
+    .subtitle {
+      font-size: 1rem;
+      color: rgba(238, 233, 223, 0.7);
+      margin-bottom: 3rem;
+      text-align: center;
+    }
+
+    .section {
+      margin-bottom: 4rem;
+    }
+
+    .section-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 2rem;
+      padding-bottom: 1rem;
+      border-bottom: 2px solid rgba(248, 179, 52, 0.3);
+    }
+
+    .section h2 {
+      font-size: 2rem;
+      color: #F8B334;
+    }
+
+    .section-meta {
+      font-size: 0.875rem;
+      color: rgba(238, 233, 223, 0.6);
+    }
+
+    .asset-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .asset-card {
+      background: #1B2632;
+      border: 2px solid rgba(238, 233, 223, 0.15);
+      border-radius: 12px;
+      padding: 1.5rem;
+      text-align: center;
+      transition: all 0.3s ease;
+    }
+
+    .asset-card:hover {
+      border-color: #F8B334;
+      transform: translateY(-4px);
+      box-shadow: 0 8px 24px rgba(248, 179, 52, 0.2);
+    }
+
+    .asset-preview {
+      width: 100%;
+      height: 150px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1rem;
+      background: rgba(238, 233, 223, 0.05);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    .asset-preview img {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+    }
+
+    .asset-name {
+      font-size: 0.875rem;
+      color: #F8B334;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      word-break: break-word;
+    }
+
+    .asset-details {
+      font-size: 0.75rem;
+      color: rgba(238, 233, 223, 0.6);
+      line-height: 1.4;
+    }
+
+    .download-links {
+      display: flex;
+      gap: 0.5rem;
+      justify-content: center;
+      margin-top: 0.75rem;
+      flex-wrap: wrap;
+    }
+
+    .download-link {
+      padding: 0.25rem 0.5rem;
+      background: rgba(248, 179, 52, 0.2);
+      color: #F8B334;
+      text-decoration: none;
+      border-radius: 4px;
+      font-size: 0.7rem;
+      font-weight: 600;
+      transition: all 0.2s;
+    }
+
+    .download-link:hover {
+      background: rgba(248, 179, 52, 0.3);
+      transform: scale(1.05);
+    }
+
+    .info-box {
+      background: #1B2632;
+      border: 1px solid rgba(238, 233, 223, 0.15);
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin-bottom: 3rem;
+    }
+
+    .info-box h3 {
+      color: #F8B334;
+      margin-bottom: 1rem;
+      font-size: 1.25rem;
+    }
+
+    .info-box ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .info-box li {
+      padding: 0.5rem 0;
+      color: rgba(238, 233, 223, 0.85);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .info-box li::before {
+      content: '•';
+      color: #F8B334;
+      font-weight: bold;
+      font-size: 1.5rem;
+    }
+
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 2rem;
+      }
+
+      .section h2 {
+        font-size: 1.5rem;
+      }
+
+      .asset-grid {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+      }
+
+      .nav a {
+        display: block;
+        margin-bottom: 0.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="nav">
+    <a href="/">← Home</a>
+    <a href="/brandmarks/">← Brand Assets</a>
+  </div>
+
+  <div class="container">
+    <h1>Core Brand Assets</h1>
+    <p class="subtitle">Source of truth • All platform assets derive from these master files</p>
+
+    <div class="info-box">
+      <h3>Usage Guidelines</h3>
+      <ul>
+        <li><strong>Logos:</strong> Square format (1:1 ratio) for app icons, avatars, and square placements</li>
+        <li><strong>Wordmarks:</strong> Horizontal format (4:1 ratio) for headers, banners, and wide spaces</li>
+        <li><strong>SVG First:</strong> Use SVG when possible for scalability and smallest file size (97%+ browser support)</li>
+        <li><strong>WebP + PNG:</strong> Use WebP with PNG fallback for optimal performance in raster images</li>
+        <li><strong>Colors:</strong> Amber (#F8B334) on light backgrounds, White on dark backgrounds, Black for print/professional</li>
+      </ul>
+    </div>
+
+    <!-- Logos Section -->
+    <div class="section">
+      <div class="section-header">
+        <h2>Logos (Square Format)</h2>
+        <span class="section-meta">39 files • 1:1 aspect ratio</span>
+      </div>
+
+      <div class="asset-grid">
+        <!-- Amber Logos -->
+        <div class="asset-card">
+          <div class="asset-preview">
+            <img src="logos/telemetryos-logo-amber-256.png" alt="TelemetryOS Logo Amber">
+          </div>
+          <div class="asset-name">Logo Amber SVG</div>
+          <div class="asset-details">Scalable vector<br>All sizes</div>
+          <div class="download-links">
+            <a href="logos/telemetryos-logo-amber.svg" download class="download-link">SVG</a>
+          </div>
+        </div>
+
+        <div class="asset-card">
+          <div class="asset-preview">
+            <img src="logos/telemetryos-logo-amber-32.png" alt="TelemetryOS Logo Amber 32px">
+          </div>
+          <div class="asset-name">Logo Amber 32px</div>
+          <div class="asset-details">32×32 pixels</div>
+          <div class="download-links">
+            <a href="logos/telemetryos-logo-amber-32.png" download class="download-link">PNG</a>
+            <a href="logos/telemetryos-logo-amber-32.webp" download class="download-link">WebP</a>
+          </div>
+        </div>
+
+        <div class="asset-card">
+          <div class="asset-preview">
+            <img src="logos/telemetryos-logo-amber-64.png" alt="TelemetryOS Logo Amber 64px">
+          </div>
+          <div class="asset-name">Logo Amber 64px</div>
+          <div class="asset-details">64×64 pixels</div>
+          <div class="download-links">
+            <a href="logos/telemetryos-logo-amber-64.png" download class="download-link">PNG</a>
+            <a href="logos/telemetryos-logo-amber-64.webp" download class="download-link">WebP</a>
+          </div>
+        </div>
+
+        <div class="asset-card">
+          <div class="asset-preview">
+            <img src="logos/telemetryos-logo-amber-128.png" alt="TelemetryOS Logo Amber 128px">
+          </div>
+          <div class="asset-name">Logo Amber 128px</div>
+          <div class="asset-details">128×128 pixels</div>
+          <div class="download-links">
+            <a href="logos/telemetryos-logo-amber-128.png" download class="download-link">PNG</a>
+            <a href="logos/telemetryos-logo-amber-128.webp" download class="download-link">WebP</a>
+          </div>
+        </div>
+
+        <div class="asset-card">
+          <div class="asset-preview">
+            <img src="logos/telemetryos-logo-amber-256.png" alt="TelemetryOS Logo Amber 256px">
+          </div>
+          <div class="asset-name">Logo Amber 256px</div>
+          <div class="asset-details">256×256 pixels</div>
+          <div class="download-links">
+            <a href="logos/telemetryos-logo-amber-256.png" download class="download-link">PNG</a>
+            <a href="logos/telemetryos-logo-amber-256.webp" download class="download-link">WebP</a>
+          </div>
+        </div>
+
+        <div class="asset-card">
+          <div class="asset-preview">
+            <img src="logos/telemetryos-logo-amber-512.png" alt="TelemetryOS Logo Amber 512px">
+          </div>
+          <div class="asset-name">Logo Amber 512px</div>
+          <div class="asset-details">512×512 pixels</div>
+          <div class="download-links">
+            <a href="logos/telemetryos-logo-amber-512.png" download class="download-link">PNG</a>
+            <a href="logos/telemetryos-logo-amber-512.webp" download class="download-link">WebP</a>
+          </div>
+        </div>
+
+        <div class="asset-card">
+          <div class="asset-preview">
+            <img src="logos/telemetryos-logo-amber-1024.png" alt="TelemetryOS Logo Amber 1024px">
+          </div>
+          <div class="asset-name">Logo Amber 1024px</div>
+          <div class="asset-details">1024×1024 pixels</div>
+          <div class="download-links">
+            <a href="logos/telemetryos-logo-amber-1024.png" download class="download-link">PNG</a>
+            <a href="logos/telemetryos-logo-amber-1024.webp" download class="download-link">WebP</a>
+          </div>
+        </div>
+
+        <!-- Black Logos -->
+        <div class="asset-card">
+          <div class="asset-preview" style="background: rgba(238, 233, 223, 0.9);">
+            <img src="logos/telemetryos-logo-black-256.png" alt="TelemetryOS Logo Black">
+          </div>
+          <div class="asset-name">Logo Black SVG</div>
+          <div class="asset-details">Scalable vector<br>All sizes</div>
+          <div class="download-links">
+            <a href="logos/telemetryos-logo-black.svg" download class="download-link">SVG</a>
+          </div>
+        </div>
+
+        <div class="asset-card">
+          <div class="asset-preview" style="background: rgba(238, 233, 223, 0.9);">
+            <img src="logos/telemetryos-logo-black-256.png" alt="TelemetryOS Logo Black 256px">
+          </div>
+          <div class="asset-name">Logo Black (All Sizes)</div>
+          <div class="asset-details">32, 64, 128, 256, 512, 1024px</div>
+          <div class="download-links">
+            <a href="logos/" class="download-link">Browse Sizes</a>
+          </div>
+        </div>
+
+        <!-- White Logos -->
+        <div class="asset-card">
+          <div class="asset-preview" style="background: rgba(0, 0, 0, 0.8);">
+            <img src="logos/telemetryos-logo-white-256.png" alt="TelemetryOS Logo White">
+          </div>
+          <div class="asset-name">Logo White SVG</div>
+          <div class="asset-details">Scalable vector<br>All sizes</div>
+          <div class="download-links">
+            <a href="logos/telemetryos-logo-white.svg" download class="download-link">SVG</a>
+          </div>
+        </div>
+
+        <div class="asset-card">
+          <div class="asset-preview" style="background: rgba(0, 0, 0, 0.8);">
+            <img src="logos/telemetryos-logo-white-256.png" alt="TelemetryOS Logo White 256px">
+          </div>
+          <div class="asset-name">Logo White (All Sizes)</div>
+          <div class="asset-details">32, 64, 128, 256, 512, 1024px</div>
+          <div class="download-links">
+            <a href="logos/" class="download-link">Browse Sizes</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Wordmarks Section -->
+    <div class="section">
+      <div class="section-header">
+        <h2>Wordmarks (Horizontal Format)</h2>
+        <span class="section-meta">27 files • 4:1 aspect ratio</span>
+      </div>
+
+      <div class="asset-grid">
+        <!-- Amber Wordmarks -->
+        <div class="asset-card">
+          <div class="asset-preview">
+            <img src="wordmarks/telemetryos-wordmark-amber-256.png" alt="TelemetryOS Wordmark Amber">
+          </div>
+          <div class="asset-name">Wordmark Amber SVG</div>
+          <div class="asset-details">Scalable vector<br>All sizes</div>
+          <div class="download-links">
+            <a href="wordmarks/telemetryos-wordmark-amber.svg" download class="download-link">SVG</a>
+          </div>
+        </div>
+
+        <div class="asset-card">
+          <div class="asset-preview">
+            <img src="wordmarks/telemetryos-wordmark-amber-64.png" alt="TelemetryOS Wordmark Amber 64px">
+          </div>
+          <div class="asset-name">Wordmark Amber 64px</div>
+          <div class="asset-details">64×16 pixels</div>
+          <div class="download-links">
+            <a href="wordmarks/telemetryos-wordmark-amber-64.png" download class="download-link">PNG</a>
+            <a href="wordmarks/telemetryos-wordmark-amber-64.webp" download class="download-link">WebP</a>
+          </div>
+        </div>
+
+        <div class="asset-card">
+          <div class="asset-preview">
+            <img src="wordmarks/telemetryos-wordmark-amber-128.png" alt="TelemetryOS Wordmark Amber 128px">
+          </div>
+          <div class="asset-name">Wordmark Amber 128px</div>
+          <div class="asset-details">128×32 pixels</div>
+          <div class="download-links">
+            <a href="wordmarks/telemetryos-wordmark-amber-128.png" download class="download-link">PNG</a>
+            <a href="wordmarks/telemetryos-wordmark-amber-128.webp" download class="download-link">WebP</a>
+          </div>
+        </div>
+
+        <div class="asset-card">
+          <div class="asset-preview">
+            <img src="wordmarks/telemetryos-wordmark-amber-256.png" alt="TelemetryOS Wordmark Amber 256px">
+          </div>
+          <div class="asset-name">Wordmark Amber 256px</div>
+          <div class="asset-details">256×64 pixels</div>
+          <div class="download-links">
+            <a href="wordmarks/telemetryos-wordmark-amber-256.png" download class="download-link">PNG</a>
+            <a href="wordmarks/telemetryos-wordmark-amber-256.webp" download class="download-link">WebP</a>
+          </div>
+        </div>
+
+        <div class="asset-card">
+          <div class="asset-preview">
+            <img src="wordmarks/telemetryos-wordmark-amber-512.png" alt="TelemetryOS Wordmark Amber 512px">
+          </div>
+          <div class="asset-name">Wordmark Amber 512px</div>
+          <div class="asset-details">512×128 pixels</div>
+          <div class="download-links">
+            <a href="wordmarks/telemetryos-wordmark-amber-512.png" download class="download-link">PNG</a>
+            <a href="wordmarks/telemetryos-wordmark-amber-512.webp" download class="download-link">WebP</a>
+          </div>
+        </div>
+
+        <!-- Black Wordmarks -->
+        <div class="asset-card">
+          <div class="asset-preview" style="background: rgba(238, 233, 223, 0.9);">
+            <img src="wordmarks/telemetryos-wordmark-black-256.png" alt="TelemetryOS Wordmark Black">
+          </div>
+          <div class="asset-name">Wordmark Black SVG</div>
+          <div class="asset-details">Scalable vector<br>All sizes</div>
+          <div class="download-links">
+            <a href="wordmarks/telemetryos-wordmark-black.svg" download class="download-link">SVG</a>
+          </div>
+        </div>
+
+        <div class="asset-card">
+          <div class="asset-preview" style="background: rgba(238, 233, 223, 0.9);">
+            <img src="wordmarks/telemetryos-wordmark-black-256.png" alt="TelemetryOS Wordmark Black">
+          </div>
+          <div class="asset-name">Wordmark Black (All Sizes)</div>
+          <div class="asset-details">64, 128, 256, 512px</div>
+          <div class="download-links">
+            <a href="wordmarks/" class="download-link">Browse Sizes</a>
+          </div>
+        </div>
+
+        <!-- White Wordmarks -->
+        <div class="asset-card">
+          <div class="asset-preview" style="background: rgba(0, 0, 0, 0.8);">
+            <img src="wordmarks/telemetryos-wordmark-white-256.png" alt="TelemetryOS Wordmark White">
+          </div>
+          <div class="asset-name">Wordmark White SVG</div>
+          <div class="asset-details">Scalable vector<br>All sizes</div>
+          <div class="download-links">
+            <a href="wordmarks/telemetryos-wordmark-white.svg" download class="download-link">SVG</a>
+          </div>
+        </div>
+
+        <div class="asset-card">
+          <div class="asset-preview" style="background: rgba(0, 0, 0, 0.8);">
+            <img src="wordmarks/telemetryos-wordmark-white-256.png" alt="TelemetryOS Wordmark White">
+          </div>
+          <div class="asset-name">Wordmark White (All Sizes)</div>
+          <div class="asset-details">64, 128, 256, 512px</div>
+          <div class="download-links">
+            <a href="wordmarks/" class="download-link">Browse Sizes</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Brand Assets - TelemetryOS Graphical Resources</title>
+  <link rel="icon" type="image/svg+xml" href="/brandmarks/web/favicon.svg">
+  <link rel="icon" type="image/x-icon" href="/brandmarks/web/favicon.ico">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Rubik', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+      background: #2C3B4D;
+      color: #EEE9DF;
+      padding: 40px 20px;
+      min-height: 100vh;
+    }
+
+    .nav {
+      max-width: 1200px;
+      margin: 0 auto 2rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid rgba(238, 233, 223, 0.15);
+    }
+
+    .nav a {
+      color: #F8B334;
+      text-decoration: none;
+      font-size: 0.875rem;
+      transition: color 0.2s;
+    }
+
+    .nav a:hover {
+      color: #ffc14d;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .header {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .wordmark-container {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 2rem;
+      padding: 2rem 0;
+    }
+
+    .wordmark-container img {
+      max-width: 400px;
+      width: 100%;
+      height: auto;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      color: #F8B334;
+    }
+
+    .subtitle {
+      font-size: 1.2rem;
+      color: rgba(238, 233, 223, 0.7);
+      margin-bottom: 2rem;
+    }
+
+    .sections {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      margin-bottom: 3rem;
+    }
+
+    .card {
+      background: #1B2632;
+      border: 2px solid rgba(238, 233, 223, 0.15);
+      border-radius: 12px;
+      padding: 2rem;
+      transition: all 0.3s ease;
+      cursor: pointer;
+      text-decoration: none;
+      color: inherit;
+      display: block;
+    }
+
+    .card:hover {
+      border-color: #F8B334;
+      transform: translateY(-4px);
+      box-shadow: 0 8px 24px rgba(248, 179, 52, 0.2);
+    }
+
+    .card-icon {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      text-align: center;
+    }
+
+    .card h2 {
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+      color: #F8B334;
+    }
+
+    .card-meta {
+      font-size: 0.875rem;
+      color: rgba(238, 233, 223, 0.7);
+      margin-bottom: 1rem;
+    }
+
+    .card p {
+      color: rgba(238, 233, 223, 0.85);
+      line-height: 1.6;
+      margin-bottom: 0.5rem;
+    }
+
+    .info-section {
+      background: #1B2632;
+      border-radius: 12px;
+      padding: 2rem;
+      border: 1px solid rgba(238, 233, 223, 0.15);
+      margin-bottom: 2rem;
+    }
+
+    .info-section h3 {
+      color: #F8B334;
+      margin-bottom: 1rem;
+      font-size: 1.5rem;
+    }
+
+    .color-palette {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.5rem;
+      margin-top: 1.5rem;
+    }
+
+    .color-card {
+      text-align: center;
+    }
+
+    .color-swatch {
+      width: 100%;
+      height: 100px;
+      border-radius: 8px;
+      margin-bottom: 1rem;
+      border: 1px solid rgba(238, 233, 223, 0.15);
+    }
+
+    .color-amber {
+      background: #F8B334;
+    }
+
+    .color-black {
+      background: #000000;
+    }
+
+    .color-white {
+      background: #FFFFFF;
+    }
+
+    .color-name {
+      font-weight: 600;
+      color: #F8B334;
+      margin-bottom: 0.5rem;
+    }
+
+    .color-details {
+      font-size: 0.875rem;
+      color: rgba(238, 233, 223, 0.7);
+      line-height: 1.6;
+    }
+
+    .formats {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-top: 1rem;
+    }
+
+    .format-badge {
+      padding: 0.5rem 1rem;
+      background: rgba(248, 179, 52, 0.2);
+      color: #F8B334;
+      border-radius: 6px;
+      font-size: 0.875rem;
+      font-weight: 600;
+    }
+
+    .footer {
+      text-align: center;
+      color: rgba(238, 233, 223, 0.5);
+      margin-top: 3rem;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(238, 233, 223, 0.15);
+    }
+
+    .footer a {
+      color: #F8B334;
+      text-decoration: none;
+    }
+
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 2rem;
+      }
+
+      .sections {
+        grid-template-columns: 1fr;
+      }
+
+      .color-palette {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="nav">
+    <a href="/">← Back to Home</a>
+  </div>
+
+  <div class="container">
+    <div class="header">
+      <div class="wordmark-container">
+        <img src="core/wordmarks/telemetryos-wordmark-amber-512.png"
+             alt="TelemetryOS" />
+      </div>
+      <h1>Brand Assets</h1>
+      <p class="subtitle">Source of truth for all TelemetryOS graphical resources</p>
+    </div>
+
+    <div class="sections">
+      <a href="core/" class="card">
+        <div class="card-icon">✦</div>
+        <h2>Core Assets</h2>
+        <div class="card-meta">66 files • Source of Truth</div>
+        <p>Master brand files including logos (square format) and wordmarks (4:1 horizontal) in amber, black, and white.</p>
+        <p style="margin-top: 0.5rem; font-size: 0.875rem;">SVG, PNG, WebP • 32px to 1024px</p>
+      </a>
+
+      <a href="web/" class="card">
+        <div class="card-icon">🌐</div>
+        <h2>Web Icons</h2>
+        <div class="card-meta">10 files • Modern Favicon</div>
+        <p>Favicon implementation with SVG and ICO formats, plus PWA icons. Optimized for 2025 web standards.</p>
+        <p style="margin-top: 0.5rem; font-size: 0.875rem;">16x16, 32x32, 180x180, 512x512</p>
+      </a>
+
+      <a href="mobile/" class="card">
+        <div class="card-icon">📱</div>
+        <h2>Mobile Assets</h2>
+        <div class="card-meta">12 files • iOS & Android</div>
+        <p>Native app icons for Apple App Store (1024x1024) and Google Play Store with adaptive icons.</p>
+        <p style="margin-top: 0.5rem; font-size: 0.875rem;">iOS: PNG • Android: PNG + WebP</p>
+      </a>
+
+      <a href="social/" class="card">
+        <div class="card-icon">🔗</div>
+        <h2>Social Media</h2>
+        <div class="card-meta">16 files • 4 Platforms</div>
+        <p>OpenGraph images for Twitter, Facebook, LinkedIn, and Instagram with platform-optimized dimensions.</p>
+        <p style="margin-top: 0.5rem; font-size: 0.875rem;">1080x1080 to 1584x396</p>
+      </a>
+
+      <a href="print/" class="card">
+        <div class="card-icon">🖨️</div>
+        <h2>Print Assets</h2>
+        <div class="card-meta">10 files • 300 DPI</div>
+        <p>High-resolution assets for professional printing including color and monochrome variants.</p>
+        <p style="margin-top: 0.5rem; font-size: 0.875rem;">Up to 4096x4096 • Business cards</p>
+      </a>
+    </div>
+
+    <div class="info-section">
+      <h3>Brand Colors</h3>
+      <div class="color-palette">
+        <div class="color-card">
+          <div class="color-swatch color-amber"></div>
+          <div class="color-name">Amber (Primary)</div>
+          <div class="color-details">
+            HEX: #F8B334<br>
+            RGB: 248, 179, 52<br>
+            CMYK: 0, 28, 79, 3
+          </div>
+        </div>
+        <div class="color-card">
+          <div class="color-swatch color-black"></div>
+          <div class="color-name">Black</div>
+          <div class="color-details">
+            HEX: #000000<br>
+            RGB: 0, 0, 0<br>
+            CMYK: 0, 0, 0, 100
+          </div>
+        </div>
+        <div class="color-card">
+          <div class="color-swatch color-white"></div>
+          <div class="color-name">White</div>
+          <div class="color-details">
+            HEX: #FFFFFF<br>
+            RGB: 255, 255, 255<br>
+            CMYK: 0, 0, 0, 0
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="info-section">
+      <h3>Available Formats</h3>
+      <div class="formats">
+        <div class="format-badge">SVG - Scalable Vector</div>
+        <div class="format-badge">PNG - Universal Raster</div>
+        <div class="format-badge">WebP - Optimized Web</div>
+        <div class="format-badge">ICO - Multi-resolution Favicon</div>
+      </div>
+    </div>
+
+    <div class="footer">
+      <p>TelemetryOS Brand Assets</p>
+      <p style="margin-top: 0.5rem; font-size: 0.875rem;">
+        All assets are proprietary to TelemetryOS
+      </p>
+    </div>
+  </div>
+</body>
+</html>

@@ -314,6 +314,136 @@
         flex-direction: column;
       }
     }
+
+    .code-block-container {
+      position: relative;
+      margin: 1.5rem 0;
+    }
+
+    .code-block-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.75rem 1rem;
+      border-radius: 8px 8px 0 0;
+      border-bottom: 1px solid rgba(238, 233, 223, 0.15);
+      transition: background-color 0.3s ease, border-color 0.3s ease;
+    }
+
+    .dark-theme .code-block-header {
+      background: rgba(27, 38, 50, 0.8);
+    }
+
+    .light-theme .code-block-header {
+      background: rgba(238, 233, 223, 0.6);
+      border-bottom-color: rgba(27, 38, 50, 0.2);
+    }
+
+    .code-block-title {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: #F8B334;
+    }
+
+    .copy-button {
+      padding: 0.5rem 1rem;
+      background: #F8B334;
+      color: #1B2632;
+      border: none;
+      border-radius: 6px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .copy-button:hover {
+      background: #ffc14d;
+      transform: translateY(-1px);
+    }
+
+    .copy-button.copied {
+      background: #4caf50;
+      color: white;
+    }
+
+    .code-block {
+      padding: 1.5rem;
+      border-radius: 0 0 8px 8px;
+      overflow-x: auto;
+      max-height: 500px;
+      font-family: 'SF Mono', Monaco, 'Cascadia Code', 'Courier New', monospace;
+      font-size: 0.85rem;
+      line-height: 1.6;
+      transition: background-color 0.3s ease;
+    }
+
+    .dark-theme .code-block {
+      background: #0d1117;
+    }
+
+    .light-theme .code-block {
+      background: #f6f8fa;
+    }
+
+    .code-comment {
+      color: #8b949e;
+    }
+
+    .light-theme .code-comment {
+      color: #6a737d;
+    }
+
+    .code-tag {
+      color: #7ee787;
+    }
+
+    .light-theme .code-tag {
+      color: #22863a;
+    }
+
+    .code-attr {
+      color: #79c0ff;
+    }
+
+    .light-theme .code-attr {
+      color: #005cc5;
+    }
+
+    .code-string {
+      color: #a5d6ff;
+    }
+
+    .light-theme .code-string {
+      color: #032f62;
+    }
+
+    .code-keyword {
+      color: #ff7b72;
+    }
+
+    .light-theme .code-keyword {
+      color: #d73a49;
+    }
+
+    .code-value {
+      color: #ffa657;
+    }
+
+    .light-theme .code-value {
+      color: #e36209;
+    }
+
+    .code-function {
+      color: #d2a8ff;
+    }
+
+    .light-theme .code-function {
+      color: #6f42c1;
+    }
   </style>
 </head>
 <body>
@@ -515,6 +645,42 @@
         document.body.className = `${newTheme}-theme`;
       };
 
+      const copyReactCode = () => {
+        const codeElement = document.getElementById('react-code');
+        const text = codeElement.textContent;
+        navigator.clipboard.writeText(text).then(() => {
+          const button = event.target.closest('.copy-button');
+          const originalHTML = button.innerHTML;
+          button.innerHTML = '<span>✓</span> Copied!';
+          button.classList.add('copied');
+          setTimeout(() => {
+            button.innerHTML = originalHTML;
+            button.classList.remove('copied');
+          }, 2000);
+        }).catch(err => {
+          console.error('Failed to copy:', err);
+          alert('Failed to copy code. Please try selecting and copying manually.');
+        });
+      };
+
+      const copyUsageCode = () => {
+        const codeElement = document.getElementById('usage-code');
+        const text = codeElement.textContent;
+        navigator.clipboard.writeText(text).then(() => {
+          const button = event.target.closest('.copy-button');
+          const originalHTML = button.innerHTML;
+          button.innerHTML = '<span>✓</span> Copied!';
+          button.classList.add('copied');
+          setTimeout(() => {
+            button.innerHTML = originalHTML;
+            button.classList.remove('copied');
+          }, 2000);
+        }).catch(err => {
+          console.error('Failed to copy:', err);
+          alert('Failed to copy code. Please try selecting and copying manually.');
+        });
+      };
+
       // Set initial theme on mount
       React.useEffect(() => {
         document.body.className = 'dark-theme';
@@ -547,6 +713,112 @@
         <div className="demo-container">
           <h1>TelemetryOS Loader</h1>
           <p className="subtitle">Fully scalable, responsive React component with CSS animations</p>
+
+          {/* Component Code */}
+          <div className="demo-section">
+            <h2>React Component Code</h2>
+            <p style={{ marginBottom: '1rem', opacity: 0.85 }}>
+              Copy this self-contained React component into your project:
+            </p>
+            <div className="code-block-container">
+              <div className="code-block-header">
+                <span className="code-block-title">TelemetryOSLoader.jsx</span>
+                <button className="copy-button" onClick={() => copyReactCode()}>
+                  <span>📋</span> Copy Code
+                </button>
+              </div>
+              <div className="code-block">
+                <code id="react-code"><span className="code-keyword">import</span> React <span className="code-keyword">from</span> <span className="code-string">'react'</span>;
+
+<span className="code-keyword">const</span> <span className="code-function">TelemetryOSLoader</span> = ({`{`}
+  size = <span className="code-value">200</span>,
+  className = <span className="code-string">''</span>,
+  color = <span className="code-string">'#f7b434'</span>,
+  animationDuration = <span className="code-value">2</span>
+{`}`}) =&gt; {`{`}
+  <span className="code-keyword">const</span> containerId = React.<span className="code-function">useId</span>();
+  <span className="code-keyword">const</span> scopeClass = <span className="code-string">`telemetry-loader-$</span>{`{`}containerId.<span className="code-function">replace</span>(<span className="code-string">/:/g</span>, <span className="code-string">''</span>){`}`}<span className="code-string">`</span>;
+
+  <span className="code-keyword">const</span> containerStyle = {`{`}
+    width: <span className="code-string">`$</span>{`{`}size{`}`}<span className="code-string">px`</span>,
+    height: <span className="code-string">`$</span>{`{`}size{`}`}<span className="code-string">px`</span>,
+    <span className="code-string">'--logo-color'</span>: color,
+    <span className="code-string">'--animation-duration'</span>: <span className="code-string">`$</span>{`{`}animationDuration{`}`}<span className="code-string">s`</span>,
+  {`}`};
+
+  <span className="code-keyword">return</span> (
+    <span className="code-tag">&lt;&gt;</span>
+      <span className="code-tag">&lt;style&gt;</span>{`{`}<span className="code-string">`
+        .$</span>{`{`}scopeClass{`}`}<span className="code-string"> {`{`}
+          position: relative;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          color: var(--logo-color, #f7b434);
+        {`}`}
+
+        @keyframes telemetryMainTPulse {`{`}
+          0%, 100% {`{`} transform: scale(1); opacity: 0.75; {`}`}
+          15% {`{`} transform: scale(1.15); opacity: 1; {`}`}
+          30% {`{`} transform: scale(0.95); opacity: 0.85; {`}`}
+          45% {`{`} transform: scale(1); opacity: 0.75; {`}`}
+        {`}`}
+
+        @keyframes telemetryDotBounce {`{`}
+          0%, 100% {`{`} transform: scale(1) translateY(0); opacity: 0.7; {`}`}
+          15% {`{`} transform: scale(1.25) translateY(-8px); opacity: 1; {`}`}
+          30% {`{`} transform: scale(0.9) translateY(3px); opacity: 0.8; {`}`}
+          45% {`{`} transform: scale(1) translateY(0); opacity: 0.7; {`}`}
+        {`}`}
+      `</span>{`}`}<span className="code-tag">&lt;/style&gt;</span>
+      <span className="code-tag">&lt;div</span> className={`{`}<span className="code-string">`$</span>{`{`}scopeClass{`}`} <span className="code-string">$</span>{`{`}className{`}`}<span className="code-string">`</span>{`}`} style={`{`}containerStyle{`}`}<span className="code-tag">&gt;</span>
+        <span className="code-tag">&lt;svg</span> viewBox=<span className="code-string">"0 0 295 291.62"</span><span className="code-tag">&gt;</span>
+          <span className="code-tag">&lt;path</span> className=<span className="code-string">"telemetry-main-t"</span> d=<span className="code-string">"M245.1,107.09l..."</span> fill=<span className="code-string">"currentColor"</span> <span className="code-tag">/&gt;</span>
+          <span className="code-tag">&lt;path</span> className=<span className="code-string">"telemetry-dot-top"</span> d=<span className="code-string">"M84.19,107.09l..."</span> fill=<span className="code-string">"currentColor"</span> <span className="code-tag">/&gt;</span>
+          <span className="code-tag">&lt;path</span> className=<span className="code-string">"telemetry-dot-bottom"</span> d=<span className="code-string">"M124.75,125.86h..."</span> fill=<span className="code-string">"currentColor"</span> <span className="code-tag">/&gt;</span>
+        <span className="code-tag">&lt;/svg&gt;</span>
+      <span className="code-tag">&lt;/div&gt;</span>
+    <span className="code-tag">&lt;/&gt;</span>
+  );
+{`}`};
+
+<span className="code-keyword">export default</span> TelemetryOSLoader;</code>
+              </div>
+            </div>
+
+            <h3 style={{ marginTop: '2rem', marginBottom: '1rem', color: '#F8B334', fontSize: '1.2rem' }}>Usage</h3>
+            <div className="code-block-container">
+              <div className="code-block-header">
+                <span className="code-block-title">Usage Examples</span>
+                <button className="copy-button" onClick={() => copyUsageCode()}>
+                  <span>📋</span> Copy Code
+                </button>
+              </div>
+              <div className="code-block">
+                <code id="usage-code"><span className="code-keyword">import</span> TelemetryOSLoader <span className="code-keyword">from</span> <span className="code-string">'./TelemetryOSLoader'</span>;
+
+<span className="code-comment">// Default (200px, amber color)</span>
+<span className="code-tag">&lt;TelemetryOSLoader</span> <span className="code-tag">/&gt;</span>
+
+<span className="code-comment">// Custom size</span>
+<span className="code-tag">&lt;TelemetryOSLoader</span> size={`{`}<span className="code-value">100</span>{`}`} <span className="code-tag">/&gt;</span>
+
+<span className="code-comment">// Custom color</span>
+<span className="code-tag">&lt;TelemetryOSLoader</span> color=<span className="code-string">"#00ffff"</span> <span className="code-tag">/&gt;</span>
+
+<span className="code-comment">// Custom animation speed</span>
+<span className="code-tag">&lt;TelemetryOSLoader</span> animationDuration={`{`}<span className="code-value">1</span>{`}`} <span className="code-tag">/&gt;</span>
+
+<span className="code-comment">// All props</span>
+<span className="code-tag">&lt;TelemetryOSLoader</span>
+  size={`{`}<span className="code-value">150</span>{`}`}
+  color=<span className="code-string">"#F8B334"</span>
+  animationDuration={`{`}<span className="code-value">2</span>{`}`}
+  className=<span className="code-string">"my-custom-class"</span>
+<span className="code-tag">/&gt;</span></code>
+              </div>
+            </div>
+          </div>
 
           {/* Size variations */}
           <div className="demo-section">

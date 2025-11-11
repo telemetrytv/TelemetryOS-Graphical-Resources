@@ -9,10 +9,10 @@ This repository contains the complete TelemetryOS brand asset library, optimized
 ### brandmarks/core/
 **Source of truth for all brand assets**
 
-#### brandmarks/core/logos/
-Primary TelemetryOS logo (square format) in three color variants:
-- `telemetryos-logo-{amber|black|white}-{32|64|128|256|512|1024}.{png|webp}`
-- `telemetryos-logo-{amber|black|white}.svg`
+#### brandmarks/core/logomarks/
+Primary TelemetryOS logomark (square format) in three color variants:
+- `telemetryos-logomark-{amber|black|white}-{32|64|128|256|512|1024}.{png|webp}`
+- `telemetryos-logomark-{amber|black|white}.svg`
 
 **Total**: 39 files (3 colors × 6 sizes × 2 formats + 3 SVG)
 
@@ -57,42 +57,11 @@ Essential favicon files for 2025 browsers:
 
 **Total**: 8 files
 
-### brandmarks/social/
-**OpenGraph images for social media sharing**
-
-Platform-specific optimized dimensions:
-- **facebook/**: `og-1200x630.{png|webp}` - Facebook/Meta Open Graph
-- **twitter/**: `card-1200x{675|1200}.{png|webp}` - Twitter summary cards
-- **linkedin/**: `cover-1584x396.{png|webp}` - LinkedIn company page
-- **instagram/**: `post-1080x1080.{png|webp}` - Instagram posts
-
-**Total**: ~16 files (4 platforms × ~2 variants × 2 formats)
-
-**Usage**:
-```html
-<meta property="og:image" content="/social/facebook/og-1200x630.png">
-<meta name="twitter:image" content="/social/twitter/card-1200x675.png">
-```
-
-### brandmarks/print/
-**High-resolution assets for print production**
-
-#### brandmarks/print/high-res/
-- `logo-{2048|4096}x{2048|4096}-300dpi.png` - Color logos for print
-- `logo-monochrome-{1024|2048}x{1024|2048}.png` - Black & white variants
-
-#### brandmarks/print/business-cards/
-- `business-card-logo-1050x600-300dpi.png`
-
-**Total**: ~10 files
-
-**Note**: Print assets are 300 DPI for professional quality. WebP versions included for digital previews.
-
 ## File Naming Conventions
 
-### Logos (Square Format)
+### Logomarks (Square Format)
 ```
-telemetryos-logo-{color}-{size}.{format}
+telemetryos-logomark-{color}-{size}.{format}
 ```
 - **color**: amber, black, white
 - **size**: 32, 64, 128, 256, 512, 1024 (pixels, square)
@@ -110,7 +79,6 @@ telemetryos-wordmark-{color}-{width}.{format}
 Follow platform naming conventions:
 - iOS: `app-icon-{size}x{size}.png`
 - Android: `chrome-{size}x{size}.{png|webp}`, `adaptive-icon-{layer}-{size}x{size}.{png|webp}`
-- Social: `{platform}-{dimensions}.{png|webp}`
 
 ## Color Palette
 
@@ -216,20 +184,17 @@ The following were removed as no longer necessary:
 
 ### Quality Standards
 - **Web images**: 90% quality for WebP, minimize file size
-- **Print assets**: 300 DPI, 95%+ quality
 - **Aspect ratios**: Always maintain, never stretch
 - **Transparency**: Maintain alpha channels where needed
 
 ## File Count Summary
 
-- **Core assets**: 66 files (39 logos + 27 wordmarks)
+- **Core assets**: 66 files (39 logomarks + 27 wordmarks)
 - **Web favicons**: 10 files
 - **Mobile assets**: 12 files (4 iOS + 8 Android)
-- **Social media**: 16 files
-- **Print assets**: 10 files
-- **Documentation**: 6 files (README, BRAND_GUIDELINES, etc.)
+- **Documentation**: 6 files (README, AGENTS.md, etc.)
 
-**Total**: ~120 files (down from 250+ before rationalization)
+**Total**: ~90 files
 
 ## Repository Maintenance
 

@@ -11,257 +11,62 @@
   <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../../assets/common-styles.css">
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      font-family: 'Rubik', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
-      padding: 100px 20px 40px 20px;
-      min-height: 100vh;
-    }
-
-    .container {
-      max-width: 1400px;
-      margin: 0 auto;
-    }
-
-    h1 {
-      font-size: 2.5rem;
-      margin-bottom: 0.5rem;
-      color: #F8B334;
-      text-align: center;
-    }
-
-    .subtitle {
-      font-size: 1rem;
-      color: rgba(238, 233, 223, 0.7);
-      margin-bottom: 3rem;
-      text-align: center;
-    }
-
-    .section {
-      margin-bottom: 4rem;
-    }
-
-    .section-header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      margin-bottom: 2rem;
-      padding-bottom: 1rem;
-      border-bottom: 2px solid rgba(248, 179, 52, 0.3);
-    }
-
-    .section h2 {
-      font-size: 2rem;
-      color: #F8B334;
-    }
-
-    .section-meta {
-      font-size: 0.875rem;
-      color: rgba(238, 233, 223, 0.6);
-    }
-
-    .asset-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-      gap: 1.5rem;
-    }
-
+    /* Page-specific styles for core assets page */
     .color-section {
-      margin-bottom: 3rem;
-      background: rgba(238, 233, 223, 0.03);
-      border-radius: 12px;
-      padding: 2rem;
-      border: 1px solid rgba(238, 233, 223, 0.1);
+      margin-bottom: 4rem;
+      padding: 0;
     }
 
     .color-section h3 {
-      color: #F8B334;
       font-size: 1.5rem;
-      margin-bottom: 1.5rem;
+      margin-bottom: 2rem;
       padding-bottom: 0.75rem;
-      border-bottom: 1px solid rgba(248, 179, 52, 0.2);
-    }
-
-    .color-content {
-      display: grid;
-      grid-template-columns: 250px 1fr;
-      gap: 2rem;
-      align-items: start;
-    }
-
-    .color-preview {
-      text-align: center;
-    }
-
-    .color-preview img {
-      width: 200px;
-      height: 200px;
-      object-fit: contain;
-      margin-bottom: 1rem;
-    }
-
-    .color-preview-wordmark img {
-      width: 100%;
-      height: auto;
-      max-width: 400px;
-      margin-bottom: 1rem;
-    }
-
-    .color-downloads {
+      border-bottom: 2px solid rgba(248, 179, 52, 0.3);
       display: flex;
-      flex-direction: column;
+      align-items: center;
       gap: 1rem;
     }
 
-    .size-group {
-      background: rgba(238, 233, 223, 0.05);
-      padding: 1rem;
-      border-radius: 8px;
-      border: 1px solid rgba(238, 233, 223, 0.1);
-    }
-
-    .size-group h4 {
-      color: #F8B334;
-      font-size: 1rem;
-      margin-bottom: 0.75rem;
-      font-weight: 600;
-    }
-
-    .download-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
-      gap: 0.5rem;
-    }
-
-    .download-btn {
-      padding: 0.5rem 0.75rem;
-      background: rgba(248, 179, 52, 0.15);
-      color: #F8B334;
-      text-decoration: none;
+    .color-badge {
+      padding: 0.25rem 0.75rem;
       border-radius: 6px;
       font-size: 0.875rem;
-      font-weight: 500;
-      transition: all 0.2s;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.5rem;
-      border: 1px solid rgba(248, 179, 52, 0.3);
-    }
-
-    .download-btn:hover {
-      background: rgba(248, 179, 52, 0.25);
-      transform: translateY(-1px);
-      border-color: #F8B334;
-    }
-
-    .download-btn::before {
-      content: '↓';
-      font-size: 1rem;
-    }
-
-    @media (max-width: 900px) {
-      .color-content {
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
-      }
-
-      .color-preview img {
-        width: 150px;
-        height: 150px;
-      }
-    }
-
-    .asset-card {
-      background: #1B2632;
-      border: 2px solid rgba(238, 233, 223, 0.15);
-      border-radius: 12px;
-      padding: 1.5rem;
-      text-align: center;
-      transition: all 0.3s ease;
-    }
-
-    .asset-card:hover {
-      border-color: #F8B334;
-      transform: translateY(-4px);
-      box-shadow: 0 8px 24px rgba(248, 179, 52, 0.2);
-    }
-
-    .asset-preview {
-      width: 100%;
-      min-height: 80px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: 1rem;
-      padding: 1rem;
-      background: rgba(238, 233, 223, 0.05);
-      border-radius: 8px;
-      overflow: hidden;
-    }
-
-    .asset-preview img {
-      width: auto;
-      height: auto;
-      max-width: 100%;
-      display: block;
-    }
-
-    .asset-name {
-      font-size: 0.875rem;
-      color: #F8B334;
       font-weight: 600;
-      margin-bottom: 0.5rem;
-      word-break: break-word;
     }
 
-    .asset-details {
-      font-size: 0.75rem;
-      color: rgba(238, 233, 223, 0.6);
-      line-height: 1.4;
-    }
-
-    .download-links {
-      display: flex;
-      gap: 0.5rem;
-      justify-content: center;
-      margin-top: 0.75rem;
-      flex-wrap: wrap;
-    }
-
-    .download-link {
-      padding: 0.25rem 0.5rem;
+    .color-badge.amber {
       background: rgba(248, 179, 52, 0.2);
       color: #F8B334;
-      text-decoration: none;
-      border-radius: 4px;
-      font-size: 0.7rem;
-      font-weight: 600;
-      transition: all 0.2s;
     }
 
-    .download-link:hover {
-      background: rgba(248, 179, 52, 0.3);
-      transform: scale(1.05);
+    .color-badge.black {
+      background: rgba(0, 0, 0, 0.3);
+      color: #EEE9DF;
+    }
+
+    .color-badge.white {
+      background: rgba(255, 255, 255, 0.2);
+      color: #EEE9DF;
+    }
+
+    .color-badge.color {
+      background: linear-gradient(135deg, rgba(248, 179, 52, 0.3), rgba(248, 179, 52, 0.1));
+      color: #F8B334;
+      border: 1px solid rgba(248, 179, 52, 0.4);
     }
 
     .info-box {
       background: #1B2632;
-      border: 1px solid rgba(238, 233, 223, 0.15);
       border-radius: 12px;
-      padding: 1.5rem;
+      padding: 2rem;
+      border: 1px solid rgba(238, 233, 223, 0.15);
       margin-bottom: 3rem;
     }
 
     .info-box h3 {
       color: #F8B334;
       margin-bottom: 1rem;
-      font-size: 1.25rem;
+      font-size: 1.5rem;
     }
 
     .info-box ul {
@@ -272,34 +77,286 @@
     .info-box li {
       padding: 0.5rem 0;
       color: rgba(238, 233, 223, 0.85);
+      line-height: 1.6;
+    }
+
+    .section {
+      background: #1B2632;
+      border-radius: 12px;
+      padding: 2rem;
+      border: 1px solid rgba(238, 233, 223, 0.15);
+      margin-bottom: 3rem;
+    }
+
+    body.light-theme .info-box {
+      background: #fff;
+      border-color: rgba(27, 38, 50, 0.2);
+    }
+
+    body.light-theme .info-box li {
+      color: rgba(27, 38, 50, 0.85);
+    }
+
+    body.light-theme .section {
+      background: #fff;
+      border-color: rgba(27, 38, 50, 0.2);
+    }
+
+    .preview-container {
+      display: flex;
+      align-items: flex-start;
+      gap: 3rem;
+      margin-bottom: 2.5rem;
+      padding: 0;
+    }
+
+    .preview-image {
+      flex-shrink: 0;
+    }
+
+    .preview-image.logomark img {
+      width: 150px;
+      height: 150px;
+      object-fit: contain;
+    }
+
+    .preview-image.wordmark img {
+      width: 300px;
+      height: auto;
+      max-width: 100%;
+      object-fit: contain;
+    }
+
+    .preview-image.black {
+      background: rgba(238, 233, 223, 0.9);
+      padding: 1.5rem;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .preview-image.white {
+      background: rgba(0, 0, 0, 0.8);
+      padding: 1.5rem;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .downloads-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 1rem;
+      flex: 1;
+    }
+
+    .size-card {
+      background: #1B2632;
+      border: 2px solid rgba(238, 233, 223, 0.15);
+      border-radius: 12px;
+      padding: 1rem;
+      transition: all 0.3s ease;
+    }
+
+    .size-card:hover {
+      border-color: #F8B334;
+      transform: translateY(-4px);
+      box-shadow: 0 8px 24px rgba(248, 179, 52, 0.2);
+    }
+
+    .size-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.75rem;
+    }
+
+    .size-label {
+      font-weight: 600;
+      color: #F8B334;
+      font-size: 0.875rem;
+    }
+
+    .size-dimensions {
+      font-size: 0.75rem;
+      color: rgba(238, 233, 223, 0.6);
+    }
+
+    .download-link {
+      flex: 1;
+      min-width: 70px;
+    }
+
+    /* Light theme adjustments */
+    body.light-theme .color-section h3 {
+      border-bottom-color: rgba(248, 179, 52, 0.4);
+    }
+
+    body.light-theme .size-card {
+      background: #fff;
+      border-color: rgba(27, 38, 50, 0.2);
+    }
+
+    body.light-theme .size-card:hover {
+      border-color: #F8B334;
+      box-shadow: 0 8px 24px rgba(248, 179, 52, 0.2);
+    }
+
+    body.light-theme .size-dimensions {
+      color: rgba(27, 38, 50, 0.6);
+    }
+
+    .code-section {
+      background: #1B2632;
+      border-radius: 12px;
+      padding: 2rem;
+      border: 1px solid rgba(238, 233, 223, 0.15);
+      margin-top: 3rem;
+      margin-bottom: 3rem;
+    }
+
+    .code-section h3 {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+      color: #F8B334;
+    }
+
+    body.light-theme .code-section {
+      background: #fff;
+      border-color: rgba(27, 38, 50, 0.2);
+    }
+
+    .code-block-container {
+      position: relative;
+      margin: 1.5rem 0;
+    }
+
+    .code-block-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.75rem 1rem;
+      background: rgba(27, 38, 50, 0.8);
+      border-radius: 8px 8px 0 0;
+      border-bottom: 1px solid rgba(238, 233, 223, 0.15);
+    }
+
+    body.light-theme .code-block-header {
+      background: rgba(238, 233, 223, 0.6);
+      border-bottom-color: rgba(27, 38, 50, 0.2);
+    }
+
+    .code-block-title {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: #F8B334;
+    }
+
+    .copy-button {
+      padding: 0.5rem 1rem;
+      background: #F8B334;
+      color: #1B2632;
+      border: none;
+      border-radius: 6px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
       display: flex;
       align-items: center;
       gap: 0.5rem;
     }
 
-    .info-box li::before {
-      content: '•';
-      color: #F8B334;
-      font-weight: bold;
-      font-size: 1.5rem;
+    .copy-button:hover {
+      background: #ffc14d;
+      transform: translateY(-1px);
     }
 
-    @media (max-width: 768px) {
-      h1 {
-        font-size: 2rem;
+    .copy-button.copied {
+      background: #4caf50;
+      color: white;
+    }
+
+    .code-block {
+      background: #0d1117;
+      border: 1px solid rgba(238, 233, 223, 0.1);
+      border-radius: 0 0 8px 8px;
+      padding: 1rem;
+      overflow-x: auto;
+      font-family: 'SF Mono', Monaco, 'Cascadia Code', 'Courier New', monospace;
+      font-size: 0.875rem;
+      color: #EEE9DF;
+      line-height: 1.6;
+      white-space: pre;
+    }
+
+    body.light-theme .code-block {
+      background: #f6f8fa;
+      border-color: rgba(27, 38, 50, 0.2);
+      color: #1B2632;
+    }
+
+    .code-comment {
+      color: #8b949e;
+    }
+
+    body.light-theme .code-comment {
+      color: #6a737d;
+    }
+
+    .code-tag {
+      color: #7ee787;
+    }
+
+    body.light-theme .code-tag {
+      color: #22863a;
+    }
+
+    .code-attr {
+      color: #79c0ff;
+    }
+
+    body.light-theme .code-attr {
+      color: #005cc5;
+    }
+
+    .code-string {
+      color: #a5d6ff;
+    }
+
+    body.light-theme .code-string {
+      color: #032f62;
+    }
+
+    .code-value {
+      color: #ffa657;
+    }
+
+    body.light-theme .code-value {
+      color: #e36209;
+    }
+
+    @media (max-width: 900px) {
+      .preview-container {
+        flex-direction: column;
+        text-align: center;
+        gap: 2rem;
       }
 
-      .section h2 {
-        font-size: 1.5rem;
+      .preview-image.logomark img {
+        width: 120px;
+        height: 120px;
       }
 
-      .asset-grid {
+      .preview-image.wordmark img {
+        width: 100%;
+        max-width: 300px;
+      }
+
+      .downloads-grid {
         grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
       }
 
-      .nav a {
-        display: block;
-        margin-bottom: 0.5rem;
+      .color-section {
+        margin-bottom: 3rem;
       }
     }
   </style>
@@ -316,7 +373,7 @@
       </div>
     </div>
     <div class="demo-nav-center">
-      <img src="../../brandmarks/core/wordmarks/telemetryos-wordmark-amber-512.png"
+      <img src="wordmarks/telemetryos-wordmark-color-512.png"
            alt="TelemetryOS"
            class="demo-nav-wordmark">
     </div>
@@ -345,260 +402,621 @@
     <!-- Logomarks Section -->
     <div class="section">
       <div class="section-header">
-        <h2>Logomarks (Square Format)</h2>
-        <span class="section-meta">39 files • 1:1 aspect ratio</span>
+        <h2>Logomarks</h2>
+        <span class="section-meta">Square format (1:1 ratio) • 39 files</span>
       </div>
 
-      <div class="asset-grid">
-        <!-- Amber Logomarks -->
-        <div class="asset-card">
-          <div class="asset-preview">
+      <!-- Amber Logomarks -->
+      <div class="color-section">
+        <h3>
+          <span class="color-badge amber">Amber</span>
+          <span style="font-size: 0.875rem; font-weight: normal; color: rgba(238, 233, 223, 0.6);">Primary brand color</span>
+        </h3>
+        <div class="preview-container">
+          <div class="preview-image logomark">
             <img src="logomarks/telemetryos-logomark-amber-256.png" alt="TelemetryOS Logomark Amber">
           </div>
-          <div class="asset-name">Logomark Amber SVG</div>
-          <div class="asset-details">Scalable vector<br>All sizes</div>
-          <div class="download-links">
-            <a href="logomarks/telemetryos-logomark-amber.svg" download class="download-link">SVG</a>
+          <div class="downloads-grid">
+            <div class="size-card">
+              <div class="size-header">
+                <span class="size-label">SVG</span>
+                <span class="size-dimensions">Vector</span>
+              </div>
+              <div class="download-links">
+                <a href="logomarks/telemetryos-logomark-amber.svg" download class="download-link svg">SVG</a>
+              </div>
+            </div>
+            <div class="size-card">
+              <div class="size-header">
+                <span class="size-label">32px</span>
+                <span class="size-dimensions">32×32</span>
+              </div>
+              <div class="download-links">
+                <a href="logomarks/telemetryos-logomark-amber-32.png" download class="download-link">PNG</a>
+                <a href="logomarks/telemetryos-logomark-amber-32.webp" download class="download-link">WebP</a>
+              </div>
+            </div>
+            <div class="size-card">
+              <div class="size-header">
+                <span class="size-label">64px</span>
+                <span class="size-dimensions">64×64</span>
+              </div>
+              <div class="download-links">
+                <a href="logomarks/telemetryos-logomark-amber-64.png" download class="download-link">PNG</a>
+                <a href="logomarks/telemetryos-logomark-amber-64.webp" download class="download-link">WebP</a>
+              </div>
+            </div>
+            <div class="size-card">
+              <div class="size-header">
+                <span class="size-label">128px</span>
+                <span class="size-dimensions">128×128</span>
+              </div>
+              <div class="download-links">
+                <a href="logomarks/telemetryos-logomark-amber-128.png" download class="download-link">PNG</a>
+                <a href="logomarks/telemetryos-logomark-amber-128.webp" download class="download-link">WebP</a>
+              </div>
+            </div>
+            <div class="size-card">
+              <div class="size-header">
+                <span class="size-label">256px</span>
+                <span class="size-dimensions">256×256</span>
+              </div>
+              <div class="download-links">
+                <a href="logomarks/telemetryos-logomark-amber-256.png" download class="download-link">PNG</a>
+                <a href="logomarks/telemetryos-logomark-amber-256.webp" download class="download-link">WebP</a>
+              </div>
+            </div>
+            <div class="size-card">
+              <div class="size-header">
+                <span class="size-label">512px</span>
+                <span class="size-dimensions">512×512</span>
+              </div>
+              <div class="download-links">
+                <a href="logomarks/telemetryos-logomark-amber-512.png" download class="download-link">PNG</a>
+                <a href="logomarks/telemetryos-logomark-amber-512.webp" download class="download-link">WebP</a>
+              </div>
+            </div>
+            <div class="size-card">
+              <div class="size-header">
+                <span class="size-label">1024px</span>
+                <span class="size-dimensions">1024×1024</span>
+              </div>
+              <div class="download-links">
+                <a href="logomarks/telemetryos-logomark-amber-1024.png" download class="download-link">PNG</a>
+                <a href="logomarks/telemetryos-logomark-amber-1024.webp" download class="download-link">WebP</a>
+              </div>
+            </div>
           </div>
         </div>
+      </div>
 
-        <div class="asset-card">
-          <div class="asset-preview">
-            <img src="logomarks/telemetryos-logomark-amber-32.png" alt="TelemetryOS Logomark Amber 32px">
-          </div>
-          <div class="asset-name">Logomark Amber 32px</div>
-          <div class="asset-details">32×32 pixels</div>
-          <div class="download-links">
-            <a href="logomarks/telemetryos-logomark-amber-32.png" download class="download-link">PNG</a>
-            <a href="logomarks/telemetryos-logomark-amber-32.webp" download class="download-link">WebP</a>
-          </div>
-        </div>
-
-        <div class="asset-card">
-          <div class="asset-preview">
-            <img src="logomarks/telemetryos-logomark-amber-64.png" alt="TelemetryOS Logomark Amber 64px">
-          </div>
-          <div class="asset-name">Logomark Amber 64px</div>
-          <div class="asset-details">64×64 pixels</div>
-          <div class="download-links">
-            <a href="logomarks/telemetryos-logomark-amber-64.png" download class="download-link">PNG</a>
-            <a href="logomarks/telemetryos-logomark-amber-64.webp" download class="download-link">WebP</a>
-          </div>
-        </div>
-
-        <div class="asset-card">
-          <div class="asset-preview">
-            <img src="logomarks/telemetryos-logomark-amber-128.png" alt="TelemetryOS Logomark Amber 128px">
-          </div>
-          <div class="asset-name">Logomark Amber 128px</div>
-          <div class="asset-details">128×128 pixels</div>
-          <div class="download-links">
-            <a href="logomarks/telemetryos-logomark-amber-128.png" download class="download-link">PNG</a>
-            <a href="logomarks/telemetryos-logomark-amber-128.webp" download class="download-link">WebP</a>
-          </div>
-        </div>
-
-        <div class="asset-card">
-          <div class="asset-preview">
-            <img src="logomarks/telemetryos-logomark-amber-256.png" alt="TelemetryOS Logomark Amber 256px">
-          </div>
-          <div class="asset-name">Logomark Amber 256px</div>
-          <div class="asset-details">256×256 pixels</div>
-          <div class="download-links">
-            <a href="logomarks/telemetryos-logomark-amber-256.png" download class="download-link">PNG</a>
-            <a href="logomarks/telemetryos-logomark-amber-256.webp" download class="download-link">WebP</a>
-          </div>
-        </div>
-
-        <div class="asset-card">
-          <div class="asset-preview">
-            <img src="logomarks/telemetryos-logomark-amber-512.png" alt="TelemetryOS Logomark Amber 512px">
-          </div>
-          <div class="asset-name">Logomark Amber 512px</div>
-          <div class="asset-details">512×512 pixels</div>
-          <div class="download-links">
-            <a href="logomarks/telemetryos-logomark-amber-512.png" download class="download-link">PNG</a>
-            <a href="logomarks/telemetryos-logomark-amber-512.webp" download class="download-link">WebP</a>
-          </div>
-        </div>
-
-        <div class="asset-card">
-          <div class="asset-preview">
-            <img src="logomarks/telemetryos-logomark-amber-1024.png" alt="TelemetryOS Logomark Amber 1024px">
-          </div>
-          <div class="asset-name">Logomark Amber 1024px</div>
-          <div class="asset-details">1024×1024 pixels</div>
-          <div class="download-links">
-            <a href="logomarks/telemetryos-logomark-amber-1024.png" download class="download-link">PNG</a>
-            <a href="logomarks/telemetryos-logomark-amber-1024.webp" download class="download-link">WebP</a>
-          </div>
-        </div>
-
-        <!-- Black Logomarks -->
-        <div class="asset-card">
-          <div class="asset-preview" style="background: rgba(238, 233, 223, 0.9);">
+      <!-- Black Logomarks -->
+      <div class="color-section">
+        <h3>
+          <span class="color-badge black">Black</span>
+          <span style="font-size: 0.875rem; font-weight: normal; color: rgba(238, 233, 223, 0.6);">Professional & print</span>
+        </h3>
+        <div class="preview-container">
+          <div class="preview-image logomark black">
             <img src="logomarks/telemetryos-logomark-black-256.png" alt="TelemetryOS Logomark Black">
           </div>
-          <div class="asset-name">Logomark Black SVG</div>
-          <div class="asset-details">Scalable vector<br>All sizes</div>
-          <div class="download-links">
-            <a href="logomarks/telemetryos-logomark-black.svg" download class="download-link">SVG</a>
+          <div class="downloads-grid">
+            <div class="size-card">
+              <div class="size-header">
+                <span class="size-label">SVG</span>
+                <span class="size-dimensions">Vector</span>
+              </div>
+              <div class="download-links">
+                <a href="logomarks/telemetryos-logomark-black.svg" download class="download-link svg">SVG</a>
+              </div>
+            </div>
+            <div class="size-card">
+              <div class="size-header">
+                <span class="size-label">32px</span>
+                <span class="size-dimensions">32×32</span>
+              </div>
+              <div class="download-links">
+                <a href="logomarks/telemetryos-logomark-black-32.png" download class="download-link">PNG</a>
+                <a href="logomarks/telemetryos-logomark-black-32.webp" download class="download-link">WebP</a>
+              </div>
+            </div>
+            <div class="size-card">
+              <div class="size-header">
+                <span class="size-label">64px</span>
+                <span class="size-dimensions">64×64</span>
+              </div>
+              <div class="download-links">
+                <a href="logomarks/telemetryos-logomark-black-64.png" download class="download-link">PNG</a>
+                <a href="logomarks/telemetryos-logomark-black-64.webp" download class="download-link">WebP</a>
+              </div>
+            </div>
+            <div class="size-card">
+              <div class="size-header">
+                <span class="size-label">128px</span>
+                <span class="size-dimensions">128×128</span>
+              </div>
+              <div class="download-links">
+                <a href="logomarks/telemetryos-logomark-black-128.png" download class="download-link">PNG</a>
+                <a href="logomarks/telemetryos-logomark-black-128.webp" download class="download-link">WebP</a>
+              </div>
+            </div>
+            <div class="size-card">
+              <div class="size-header">
+                <span class="size-label">256px</span>
+                <span class="size-dimensions">256×256</span>
+              </div>
+              <div class="download-links">
+                <a href="logomarks/telemetryos-logomark-black-256.png" download class="download-link">PNG</a>
+                <a href="logomarks/telemetryos-logomark-black-256.webp" download class="download-link">WebP</a>
+              </div>
+            </div>
+            <div class="size-card">
+              <div class="size-header">
+                <span class="size-label">512px</span>
+                <span class="size-dimensions">512×512</span>
+              </div>
+              <div class="download-links">
+                <a href="logomarks/telemetryos-logomark-black-512.png" download class="download-link">PNG</a>
+                <a href="logomarks/telemetryos-logomark-black-512.webp" download class="download-link">WebP</a>
+              </div>
+            </div>
+            <div class="size-card">
+              <div class="size-header">
+                <span class="size-label">1024px</span>
+                <span class="size-dimensions">1024×1024</span>
+              </div>
+              <div class="download-links">
+                <a href="logomarks/telemetryos-logomark-black-1024.png" download class="download-link">PNG</a>
+                <a href="logomarks/telemetryos-logomark-black-1024.webp" download class="download-link">WebP</a>
+              </div>
+            </div>
           </div>
         </div>
+      </div>
 
-        <div class="asset-card">
-          <div class="asset-preview" style="background: rgba(238, 233, 223, 0.9);">
-            <img src="logomarks/telemetryos-logomark-black-256.png" alt="TelemetryOS Logomark Black 256px">
-          </div>
-          <div class="asset-name">Logomark Black (All Sizes)</div>
-          <div class="asset-details">32, 64, 128, 256, 512, 1024px</div>
-          <div class="download-links">
-            <a href="logomarks/" class="download-link">Browse Sizes</a>
-          </div>
-        </div>
-
-        <!-- White Logomarks -->
-        <div class="asset-card">
-          <div class="asset-preview" style="background: rgba(0, 0, 0, 0.8);">
+      <!-- White Logomarks -->
+      <div class="color-section">
+        <h3>
+          <span class="color-badge white">White</span>
+          <span style="font-size: 0.875rem; font-weight: normal; color: rgba(238, 233, 223, 0.6);">Dark backgrounds</span>
+        </h3>
+        <div class="preview-container">
+          <div class="preview-image logomark white">
             <img src="logomarks/telemetryos-logomark-white-256.png" alt="TelemetryOS Logomark White">
           </div>
-          <div class="asset-name">Logomark White SVG</div>
-          <div class="asset-details">Scalable vector<br>All sizes</div>
-          <div class="download-links">
-            <a href="logomarks/telemetryos-logomark-white.svg" download class="download-link">SVG</a>
+          <div class="downloads-grid">
+            <div class="size-card">
+              <div class="size-header">
+                <span class="size-label">SVG</span>
+                <span class="size-dimensions">Vector</span>
+              </div>
+              <div class="download-links">
+                <a href="logomarks/telemetryos-logomark-white.svg" download class="download-link svg">SVG</a>
+              </div>
+            </div>
+            <div class="size-card">
+              <div class="size-header">
+                <span class="size-label">32px</span>
+                <span class="size-dimensions">32×32</span>
+              </div>
+              <div class="download-links">
+                <a href="logomarks/telemetryos-logomark-white-32.png" download class="download-link">PNG</a>
+                <a href="logomarks/telemetryos-logomark-white-32.webp" download class="download-link">WebP</a>
+              </div>
+            </div>
+            <div class="size-card">
+              <div class="size-header">
+                <span class="size-label">64px</span>
+                <span class="size-dimensions">64×64</span>
+              </div>
+              <div class="download-links">
+                <a href="logomarks/telemetryos-logomark-white-64.png" download class="download-link">PNG</a>
+                <a href="logomarks/telemetryos-logomark-white-64.webp" download class="download-link">WebP</a>
+              </div>
+            </div>
+            <div class="size-card">
+              <div class="size-header">
+                <span class="size-label">128px</span>
+                <span class="size-dimensions">128×128</span>
+              </div>
+              <div class="download-links">
+                <a href="logomarks/telemetryos-logomark-white-128.png" download class="download-link">PNG</a>
+                <a href="logomarks/telemetryos-logomark-white-128.webp" download class="download-link">WebP</a>
+              </div>
+            </div>
+            <div class="size-card">
+              <div class="size-header">
+                <span class="size-label">256px</span>
+                <span class="size-dimensions">256×256</span>
+              </div>
+              <div class="download-links">
+                <a href="logomarks/telemetryos-logomark-white-256.png" download class="download-link">PNG</a>
+                <a href="logomarks/telemetryos-logomark-white-256.webp" download class="download-link">WebP</a>
+              </div>
+            </div>
+            <div class="size-card">
+              <div class="size-header">
+                <span class="size-label">512px</span>
+                <span class="size-dimensions">512×512</span>
+              </div>
+              <div class="download-links">
+                <a href="logomarks/telemetryos-logomark-white-512.png" download class="download-link">PNG</a>
+                <a href="logomarks/telemetryos-logomark-white-512.webp" download class="download-link">WebP</a>
+              </div>
+            </div>
+            <div class="size-card">
+              <div class="size-header">
+                <span class="size-label">1024px</span>
+                <span class="size-dimensions">1024×1024</span>
+              </div>
+              <div class="download-links">
+                <a href="logomarks/telemetryos-logomark-white-1024.png" download class="download-link">PNG</a>
+                <a href="logomarks/telemetryos-logomark-white-1024.webp" download class="download-link">WebP</a>
+              </div>
+            </div>
           </div>
         </div>
+      </div>
+    </div>
 
-        <div class="asset-card">
-          <div class="asset-preview" style="background: rgba(0, 0, 0, 0.8);">
-            <img src="logomarks/telemetryos-logomark-white-256.png" alt="TelemetryOS Logomark White 256px">
-          </div>
-          <div class="asset-name">Logomark White (All Sizes)</div>
-          <div class="asset-details">32, 64, 128, 256, 512, 1024px</div>
-          <div class="download-links">
-            <a href="logomarks/" class="download-link">Browse Sizes</a>
-          </div>
+    <!-- Logomarks Code Example -->
+    <div class="code-section">
+      <h3>Logomark Implementation</h3>
+      <div class="code-block-container">
+        <div class="code-block-header">
+          <span class="code-block-title">Picture Element (Responsive Logomark)</span>
+          <button class="copy-button" onclick="copyCode('logomark-code')">
+            <span>📋</span> Copy Code
+          </button>
         </div>
+        <div class="code-block" id="logomark-code"><span class="code-comment">&lt;!-- Best practice: WebP (modern) → PNG (fallback) → SVG (ultimate fallback) --&gt;</span>
+<span class="code-tag">&lt;picture&gt;</span>
+  <span class="code-tag">&lt;source</span> 
+    <span class="code-attr">srcset</span>=<span class="code-string">"logomarks/telemetryos-logomark-amber-64.webp 64w,
+            logomarks/telemetryos-logomark-amber-128.webp 128w,
+            logomarks/telemetryos-logomark-amber-256.webp 256w,
+            logomarks/telemetryos-logomark-amber-512.webp 512w"</span>
+    <span class="code-attr">sizes</span>=<span class="code-string">"(max-width: 640px) 64px, (max-width: 1024px) 128px, 256px"</span>
+    <span class="code-attr">type</span>=<span class="code-string">"image/webp"</span><span class="code-tag">&gt;</span>
+  <span class="code-tag">&lt;source</span> 
+    <span class="code-attr">srcset</span>=<span class="code-string">"logomarks/telemetryos-logomark-amber-64.png 64w,
+            logomarks/telemetryos-logomark-amber-128.png 128w,
+            logomarks/telemetryos-logomark-amber-256.png 256w,
+            logomarks/telemetryos-logomark-amber-512.png 512w"</span>
+    <span class="code-attr">sizes</span>=<span class="code-string">"(max-width: 640px) 64px, (max-width: 1024px) 128px, 256px"</span>
+    <span class="code-attr">type</span>=<span class="code-string">"image/png"</span><span class="code-tag">&gt;</span>
+  <span class="code-tag">&lt;img</span> 
+    <span class="code-attr">src</span>=<span class="code-string">"logomarks/telemetryos-logomark-amber.svg"</span> 
+    <span class="code-attr">alt</span>=<span class="code-string">"TelemetryOS"</span> 
+    <span class="code-attr">width</span>=<span class="code-value">"256"</span> 
+    <span class="code-attr">height</span>=<span class="code-value">"256"</span>
+    <span class="code-attr">loading</span>=<span class="code-string">"lazy"</span><span class="code-tag">&gt;</span>
+<span class="code-tag">&lt;/picture&gt;</span></div>
       </div>
     </div>
 
     <!-- Wordmarks Section -->
     <div class="section">
       <div class="section-header">
-        <h2>Wordmarks (Horizontal Format)</h2>
-        <span class="section-meta">27 files • 4:1 aspect ratio</span>
+        <h2>Wordmarks</h2>
+        <span class="section-meta">Horizontal format (4:1 ratio) • 36 files</span>
       </div>
 
-      <div class="asset-grid">
-        <!-- Amber Wordmarks -->
-        <div class="asset-card">
-          <div class="asset-preview">
+      <!-- Amber Wordmarks -->
+      <div class="color-section">
+        <h3>
+          <span class="color-badge amber">Amber</span>
+          <span style="font-size: 0.875rem; font-weight: normal; color: rgba(238, 233, 223, 0.6);">Primary brand color</span>
+        </h3>
+        <div class="preview-container">
+          <div class="preview-image wordmark">
             <img src="wordmarks/telemetryos-wordmark-amber-256.png" alt="TelemetryOS Wordmark Amber">
           </div>
-          <div class="asset-name">Wordmark Amber SVG</div>
-          <div class="asset-details">Scalable vector<br>All sizes</div>
-          <div class="download-links">
-            <a href="wordmarks/telemetryos-wordmark-amber.svg" download class="download-link">SVG</a>
+          <div class="downloads-grid">
+            <div class="size-card">
+              <div class="size-header">
+                <span class="size-label">SVG</span>
+                <span class="size-dimensions">Vector</span>
+              </div>
+              <div class="download-links">
+                <a href="wordmarks/telemetryos-wordmark-amber.svg" download class="download-link svg">SVG</a>
+              </div>
+            </div>
+            <div class="size-card">
+              <div class="size-header">
+                <span class="size-label">64px</span>
+                <span class="size-dimensions">64×16</span>
+              </div>
+              <div class="download-links">
+                <a href="wordmarks/telemetryos-wordmark-amber-64.png" download class="download-link">PNG</a>
+                <a href="wordmarks/telemetryos-wordmark-amber-64.webp" download class="download-link">WebP</a>
+              </div>
+            </div>
+            <div class="size-card">
+              <div class="size-header">
+                <span class="size-label">128px</span>
+                <span class="size-dimensions">128×32</span>
+              </div>
+              <div class="download-links">
+                <a href="wordmarks/telemetryos-wordmark-amber-128.png" download class="download-link">PNG</a>
+                <a href="wordmarks/telemetryos-wordmark-amber-128.webp" download class="download-link">WebP</a>
+              </div>
+            </div>
+            <div class="size-card">
+              <div class="size-header">
+                <span class="size-label">256px</span>
+                <span class="size-dimensions">256×64</span>
+              </div>
+              <div class="download-links">
+                <a href="wordmarks/telemetryos-wordmark-amber-256.png" download class="download-link">PNG</a>
+                <a href="wordmarks/telemetryos-wordmark-amber-256.webp" download class="download-link">WebP</a>
+              </div>
+            </div>
+            <div class="size-card">
+              <div class="size-header">
+                <span class="size-label">512px</span>
+                <span class="size-dimensions">512×128</span>
+              </div>
+              <div class="download-links">
+                <a href="wordmarks/telemetryos-wordmark-amber-512.png" download class="download-link">PNG</a>
+                <a href="wordmarks/telemetryos-wordmark-amber-512.webp" download class="download-link">WebP</a>
+              </div>
+            </div>
           </div>
         </div>
+      </div>
 
-        <div class="asset-card">
-          <div class="asset-preview">
-            <img src="wordmarks/telemetryos-wordmark-amber-64.png" alt="TelemetryOS Wordmark Amber 64px">
-          </div>
-          <div class="asset-name">Wordmark Amber 64px</div>
-          <div class="asset-details">64×16 pixels</div>
-          <div class="download-links">
-            <a href="wordmarks/telemetryos-wordmark-amber-64.png" download class="download-link">PNG</a>
-            <a href="wordmarks/telemetryos-wordmark-amber-64.webp" download class="download-link">WebP</a>
-          </div>
-        </div>
-
-        <div class="asset-card">
-          <div class="asset-preview">
-            <img src="wordmarks/telemetryos-wordmark-amber-128.png" alt="TelemetryOS Wordmark Amber 128px">
-          </div>
-          <div class="asset-name">Wordmark Amber 128px</div>
-          <div class="asset-details">128×32 pixels</div>
-          <div class="download-links">
-            <a href="wordmarks/telemetryos-wordmark-amber-128.png" download class="download-link">PNG</a>
-            <a href="wordmarks/telemetryos-wordmark-amber-128.webp" download class="download-link">WebP</a>
-          </div>
-        </div>
-
-        <div class="asset-card">
-          <div class="asset-preview">
-            <img src="wordmarks/telemetryos-wordmark-amber-256.png" alt="TelemetryOS Wordmark Amber 256px">
-          </div>
-          <div class="asset-name">Wordmark Amber 256px</div>
-          <div class="asset-details">256×64 pixels</div>
-          <div class="download-links">
-            <a href="wordmarks/telemetryos-wordmark-amber-256.png" download class="download-link">PNG</a>
-            <a href="wordmarks/telemetryos-wordmark-amber-256.webp" download class="download-link">WebP</a>
-          </div>
-        </div>
-
-        <div class="asset-card">
-          <div class="asset-preview">
-            <img src="wordmarks/telemetryos-wordmark-amber-512.png" alt="TelemetryOS Wordmark Amber 512px">
-          </div>
-          <div class="asset-name">Wordmark Amber 512px</div>
-          <div class="asset-details">512×128 pixels</div>
-          <div class="download-links">
-            <a href="wordmarks/telemetryos-wordmark-amber-512.png" download class="download-link">PNG</a>
-            <a href="wordmarks/telemetryos-wordmark-amber-512.webp" download class="download-link">WebP</a>
-          </div>
-        </div>
-
-        <!-- Black Wordmarks -->
-        <div class="asset-card">
-          <div class="asset-preview" style="background: rgba(238, 233, 223, 0.9);">
+      <!-- Black Wordmarks -->
+      <div class="color-section">
+        <h3>
+          <span class="color-badge black">Black</span>
+          <span style="font-size: 0.875rem; font-weight: normal; color: rgba(238, 233, 223, 0.6);">Professional & print</span>
+        </h3>
+        <div class="preview-container">
+          <div class="preview-image wordmark black">
             <img src="wordmarks/telemetryos-wordmark-black-256.png" alt="TelemetryOS Wordmark Black">
           </div>
-          <div class="asset-name">Wordmark Black SVG</div>
-          <div class="asset-details">Scalable vector<br>All sizes</div>
-          <div class="download-links">
-            <a href="wordmarks/telemetryos-wordmark-black.svg" download class="download-link">SVG</a>
+          <div class="downloads-grid">
+            <div class="size-card">
+              <div class="size-header">
+                <span class="size-label">SVG</span>
+                <span class="size-dimensions">Vector</span>
+              </div>
+              <div class="download-links">
+                <a href="wordmarks/telemetryos-wordmark-black.svg" download class="download-link svg">SVG</a>
+              </div>
+            </div>
+            <div class="size-card">
+              <div class="size-header">
+                <span class="size-label">64px</span>
+                <span class="size-dimensions">64×16</span>
+              </div>
+              <div class="download-links">
+                <a href="wordmarks/telemetryos-wordmark-black-64.png" download class="download-link">PNG</a>
+                <a href="wordmarks/telemetryos-wordmark-black-64.webp" download class="download-link">WebP</a>
+              </div>
+            </div>
+            <div class="size-card">
+              <div class="size-header">
+                <span class="size-label">128px</span>
+                <span class="size-dimensions">128×32</span>
+              </div>
+              <div class="download-links">
+                <a href="wordmarks/telemetryos-wordmark-black-128.png" download class="download-link">PNG</a>
+                <a href="wordmarks/telemetryos-wordmark-black-128.webp" download class="download-link">WebP</a>
+              </div>
+            </div>
+            <div class="size-card">
+              <div class="size-header">
+                <span class="size-label">256px</span>
+                <span class="size-dimensions">256×64</span>
+              </div>
+              <div class="download-links">
+                <a href="wordmarks/telemetryos-wordmark-black-256.png" download class="download-link">PNG</a>
+                <a href="wordmarks/telemetryos-wordmark-black-256.webp" download class="download-link">WebP</a>
+              </div>
+            </div>
+            <div class="size-card">
+              <div class="size-header">
+                <span class="size-label">512px</span>
+                <span class="size-dimensions">512×128</span>
+              </div>
+              <div class="download-links">
+                <a href="wordmarks/telemetryos-wordmark-black-512.png" download class="download-link">PNG</a>
+                <a href="wordmarks/telemetryos-wordmark-black-512.webp" download class="download-link">WebP</a>
+              </div>
+            </div>
           </div>
         </div>
+      </div>
 
-        <div class="asset-card">
-          <div class="asset-preview" style="background: rgba(238, 233, 223, 0.9);">
-            <img src="wordmarks/telemetryos-wordmark-black-256.png" alt="TelemetryOS Wordmark Black">
-          </div>
-          <div class="asset-name">Wordmark Black (All Sizes)</div>
-          <div class="asset-details">64, 128, 256, 512px</div>
-          <div class="download-links">
-            <a href="wordmarks/" class="download-link">Browse Sizes</a>
-          </div>
-        </div>
-
-        <!-- White Wordmarks -->
-        <div class="asset-card">
-          <div class="asset-preview" style="background: rgba(0, 0, 0, 0.8);">
+      <!-- White Wordmarks -->
+      <div class="color-section">
+        <h3>
+          <span class="color-badge white">White</span>
+          <span style="font-size: 0.875rem; font-weight: normal; color: rgba(238, 233, 223, 0.6);">Dark backgrounds</span>
+        </h3>
+        <div class="preview-container">
+          <div class="preview-image wordmark white">
             <img src="wordmarks/telemetryos-wordmark-white-256.png" alt="TelemetryOS Wordmark White">
           </div>
-          <div class="asset-name">Wordmark White SVG</div>
-          <div class="asset-details">Scalable vector<br>All sizes</div>
-          <div class="download-links">
-            <a href="wordmarks/telemetryos-wordmark-white.svg" download class="download-link">SVG</a>
+          <div class="downloads-grid">
+            <div class="size-card">
+              <div class="size-header">
+                <span class="size-label">SVG</span>
+                <span class="size-dimensions">Vector</span>
+              </div>
+              <div class="download-links">
+                <a href="wordmarks/telemetryos-wordmark-white.svg" download class="download-link svg">SVG</a>
+              </div>
+            </div>
+            <div class="size-card">
+              <div class="size-header">
+                <span class="size-label">64px</span>
+                <span class="size-dimensions">64×16</span>
+              </div>
+              <div class="download-links">
+                <a href="wordmarks/telemetryos-wordmark-white-64.png" download class="download-link">PNG</a>
+                <a href="wordmarks/telemetryos-wordmark-white-64.webp" download class="download-link">WebP</a>
+              </div>
+            </div>
+            <div class="size-card">
+              <div class="size-header">
+                <span class="size-label">128px</span>
+                <span class="size-dimensions">128×32</span>
+              </div>
+              <div class="download-links">
+                <a href="wordmarks/telemetryos-wordmark-white-128.png" download class="download-link">PNG</a>
+                <a href="wordmarks/telemetryos-wordmark-white-128.webp" download class="download-link">WebP</a>
+              </div>
+            </div>
+            <div class="size-card">
+              <div class="size-header">
+                <span class="size-label">256px</span>
+                <span class="size-dimensions">256×64</span>
+              </div>
+              <div class="download-links">
+                <a href="wordmarks/telemetryos-wordmark-white-256.png" download class="download-link">PNG</a>
+                <a href="wordmarks/telemetryos-wordmark-white-256.webp" download class="download-link">WebP</a>
+              </div>
+            </div>
+            <div class="size-card">
+              <div class="size-header">
+                <span class="size-label">512px</span>
+                <span class="size-dimensions">512×128</span>
+              </div>
+              <div class="download-links">
+                <a href="wordmarks/telemetryos-wordmark-white-512.png" download class="download-link">PNG</a>
+                <a href="wordmarks/telemetryos-wordmark-white-512.webp" download class="download-link">WebP</a>
+              </div>
+            </div>
           </div>
         </div>
+      </div>
 
-        <div class="asset-card">
-          <div class="asset-preview" style="background: rgba(0, 0, 0, 0.8);">
-            <img src="wordmarks/telemetryos-wordmark-white-256.png" alt="TelemetryOS Wordmark White">
+      <!-- Color Wordmarks -->
+      <div class="color-section">
+        <h3>
+          <span class="color-badge color">Color</span>
+          <span style="font-size: 0.875rem; font-weight: normal; color: rgba(238, 233, 223, 0.6);">Full color variant</span>
+        </h3>
+        <div class="preview-container">
+          <div class="preview-image wordmark">
+            <img src="wordmarks/telemetryos-wordmark-color-256.png" alt="TelemetryOS Wordmark Color">
           </div>
-          <div class="asset-name">Wordmark White (All Sizes)</div>
-          <div class="asset-details">64, 128, 256, 512px</div>
-          <div class="download-links">
-            <a href="wordmarks/" class="download-link">Browse Sizes</a>
+          <div class="downloads-grid">
+            <div class="size-card">
+              <div class="size-header">
+                <span class="size-label">SVG</span>
+                <span class="size-dimensions">Vector</span>
+              </div>
+              <div class="download-links">
+                <a href="wordmarks/telemetryos-wordmark-color.svg" download class="download-link svg">SVG</a>
+              </div>
+            </div>
+            <div class="size-card">
+              <div class="size-header">
+                <span class="size-label">64px</span>
+                <span class="size-dimensions">64×16</span>
+              </div>
+              <div class="download-links">
+                <a href="wordmarks/telemetryos-wordmark-color-64.png" download class="download-link">PNG</a>
+                <a href="wordmarks/telemetryos-wordmark-color-64.webp" download class="download-link">WebP</a>
+              </div>
+            </div>
+            <div class="size-card">
+              <div class="size-header">
+                <span class="size-label">128px</span>
+                <span class="size-dimensions">128×32</span>
+              </div>
+              <div class="download-links">
+                <a href="wordmarks/telemetryos-wordmark-color-128.png" download class="download-link">PNG</a>
+                <a href="wordmarks/telemetryos-wordmark-color-128.webp" download class="download-link">WebP</a>
+              </div>
+            </div>
+            <div class="size-card">
+              <div class="size-header">
+                <span class="size-label">256px</span>
+                <span class="size-dimensions">256×64</span>
+              </div>
+              <div class="download-links">
+                <a href="wordmarks/telemetryos-wordmark-color-256.png" download class="download-link">PNG</a>
+                <a href="wordmarks/telemetryos-wordmark-color-256.webp" download class="download-link">WebP</a>
+              </div>
+            </div>
+            <div class="size-card">
+              <div class="size-header">
+                <span class="size-label">512px</span>
+                <span class="size-dimensions">512×128</span>
+              </div>
+              <div class="download-links">
+                <a href="wordmarks/telemetryos-wordmark-color-512.png" download class="download-link">PNG</a>
+                <a href="wordmarks/telemetryos-wordmark-color-512.webp" download class="download-link">WebP</a>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </div>
+
+    <!-- Wordmarks Code Example -->
+    <div class="code-section">
+      <h3>Wordmark Implementation</h3>
+      <div class="code-block-container">
+        <div class="code-block-header">
+          <span class="code-block-title">Picture Element (Responsive Wordmark)</span>
+          <button class="copy-button" onclick="copyCode('wordmark-code')">
+            <span>📋</span> Copy Code
+          </button>
+        </div>
+        <div class="code-block" id="wordmark-code"><span class="code-comment">&lt;!-- Best practice: WebP (modern) → PNG (fallback) → SVG (ultimate fallback) --&gt;</span>
+<span class="code-tag">&lt;picture&gt;</span>
+  <span class="code-tag">&lt;source</span> 
+    <span class="code-attr">srcset</span>=<span class="code-string">"wordmarks/telemetryos-wordmark-amber-64.webp 64w,
+            wordmarks/telemetryos-wordmark-amber-128.webp 128w,
+            wordmarks/telemetryos-wordmark-amber-256.webp 256w,
+            wordmarks/telemetryos-wordmark-amber-512.webp 512w"</span>
+    <span class="code-attr">sizes</span>=<span class="code-string">"(max-width: 640px) 128px, (max-width: 1024px) 256px, 512px"</span>
+    <span class="code-attr">type</span>=<span class="code-string">"image/webp"</span><span class="code-tag">&gt;</span>
+  <span class="code-tag">&lt;source</span> 
+    <span class="code-attr">srcset</span>=<span class="code-string">"wordmarks/telemetryos-wordmark-amber-64.png 64w,
+            wordmarks/telemetryos-wordmark-amber-128.png 128w,
+            wordmarks/telemetryos-wordmark-amber-256.png 256w,
+            wordmarks/telemetryos-wordmark-amber-512.png 512w"</span>
+    <span class="code-attr">sizes</span>=<span class="code-string">"(max-width: 640px) 128px, (max-width: 1024px) 256px, 512px"</span>
+    <span class="code-attr">type</span>=<span class="code-string">"image/png"</span><span class="code-tag">&gt;</span>
+  <span class="code-tag">&lt;img</span> 
+    <span class="code-attr">src</span>=<span class="code-string">"wordmarks/telemetryos-wordmark-amber.svg"</span> 
+    <span class="code-attr">alt</span>=<span class="code-string">"TelemetryOS"</span> 
+    <span class="code-attr">width</span>=<span class="code-value">"256"</span> 
+    <span class="code-attr">height</span>=<span class="code-value">"64"</span>
+    <span class="code-attr">loading</span>=<span class="code-string">"lazy"</span><span class="code-tag">&gt;</span>
+<span class="code-tag">&lt;/picture&gt;</span></div>
+      </div>
+    </div>
   </div>
 
+  <script>
+    function copyCode(elementId) {
+      const codeElement = document.getElementById(elementId);
+      const text = codeElement.textContent;
+
+      navigator.clipboard.writeText(text).then(() => {
+        const button = event.target.closest('.copy-button');
+        const originalHTML = button.innerHTML;
+        button.innerHTML = '<span>✓</span> Copied!';
+        button.classList.add('copied');
+
+        setTimeout(() => {
+          button.innerHTML = originalHTML;
+          button.classList.remove('copied');
+        }, 2000);
+      }).catch(err => {
+        console.error('Failed to copy:', err);
+        alert('Failed to copy code. Please try selecting and copying manually.');
+      });
+    }
+  </script>
   <script src="../../assets/theme-toggle.js"></script>
 </body>
 </html>

@@ -30,8 +30,30 @@
       box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
     }
 
+    .demo-nav-breadcrumbs {
+      display: flex;
+      gap: 0.5rem;
+      align-items: center;
+    }
+
     .demo-nav-brand {
-      font-size: 1.25rem;
+      font-size: 1rem;
+      color: rgba(238, 233, 223, 0.7);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .demo-nav-brand:hover {
+      color: #F8B334;
+    }
+
+    .demo-nav-separator {
+      color: rgba(238, 233, 223, 0.4);
+      font-size: 0.875rem;
+    }
+
+    .demo-nav-current {
+      font-size: 1rem;
       font-weight: 600;
       color: #F8B334;
       text-decoration: none;
@@ -333,7 +355,11 @@
 </head>
 <body>
   <nav class="demo-nav">
-    <a href="index.html" class="demo-nav-brand">← TelemetryOS Logo</a>
+    <div class="demo-nav-breadcrumbs">
+      <a href="../index.html" class="demo-nav-brand">Home</a>
+      <span class="demo-nav-separator">/</span>
+      <a href="index.html" class="demo-nav-current">Logo Animations</a>
+    </div>
     <div class="demo-nav-links">
       <a href="react-demo.html" class="demo-nav-link">React</a>
       <a href="svg-demo.html" class="demo-nav-link active">SVG + CSS</a>

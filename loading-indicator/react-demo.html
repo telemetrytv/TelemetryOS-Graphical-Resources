@@ -32,8 +32,30 @@
       box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
     }
 
+    .demo-nav-breadcrumbs {
+      display: flex;
+      gap: 0.5rem;
+      align-items: center;
+    }
+
     .demo-nav-brand {
-      font-size: 1.25rem;
+      font-size: 1rem;
+      color: rgba(238, 233, 223, 0.7);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .demo-nav-brand:hover {
+      color: #F8B334;
+    }
+
+    .demo-nav-separator {
+      color: rgba(238, 233, 223, 0.4);
+      font-size: 0.875rem;
+    }
+
+    .demo-nav-current {
+      font-size: 1rem;
       font-weight: 600;
       color: #F8B334;
       text-decoration: none;
@@ -448,7 +470,11 @@
 </head>
 <body>
   <nav class="demo-nav">
-    <a href="index.html" class="demo-nav-brand">← TelemetryOS Logo</a>
+    <div class="demo-nav-breadcrumbs">
+      <a href="../index.html" class="demo-nav-brand">Home</a>
+      <span class="demo-nav-separator">/</span>
+      <a href="index.html" class="demo-nav-current">Logo Animations</a>
+    </div>
     <div class="demo-nav-links">
       <a href="react-demo.html" class="demo-nav-link active">React</a>
       <a href="svg-demo.html" class="demo-nav-link">SVG + CSS</a>
@@ -730,6 +756,15 @@
               <div className="code-block">
                 <code id="react-code"><span className="code-keyword">import</span> React <span className="code-keyword">from</span> <span className="code-string">'react'</span>;
 
+<span className="code-comment">/**
+ * TelemetryOS animated logo loader component
+ *
+ * @param {`{`}Object{`}`} props
+ * @param {`{`}number{`}`} [props.size=200] - Size of the logo in pixels (width/height)
+ * @param {`{`}string{`}`} [props.className] - Additional CSS classes
+ * @param {`{`}string{`}`} [props.color='#f7b434'] - Logo color (hex or CSS color)
+ * @param {`{`}number{`}`} [props.animationDuration=2] - Animation duration in seconds
+ */</span>
 <span className="code-keyword">const</span> <span className="code-function">TelemetryOSLoader</span> = ({`{`}
   size = <span className="code-value">200</span>,
   className = <span className="code-string">''</span>,
@@ -757,28 +792,138 @@
           color: var(--logo-color, #f7b434);
         {`}`}
 
+        .$</span>{`{`}scopeClass{`}`}<span className="code-string"> .telemetry-logo-wrapper {`{`}
+          position: relative;
+          width: 100%;
+          height: 100%;
+        {`}`}
+
+        .$</span>{`{`}scopeClass{`}`}<span className="code-string"> .telemetry-logo-svg {`{`}
+          width: 100%;
+          height: 100%;
+        {`}`}
+
+        .$</span>{`{`}scopeClass{`}`}<span className="code-string"> .telemetry-logo-part {`{`}
+          transform-origin: center;
+        {`}`}
+
+        .$</span>{`{`}scopeClass{`}`}<span className="code-string"> .telemetry-main-t {`{`}
+          animation: telemetryMainTPulse var(--animation-duration, 2s) ease-in-out infinite;
+          animation-delay: 0s;
+        {`}`}
+
+        .$</span>{`{`}scopeClass{`}`}<span className="code-string"> .telemetry-dot-top {`{`}
+          animation: telemetryDotBounce var(--animation-duration, 2s) ease-in-out infinite;
+          animation-delay: calc(var(--animation-duration, 2s) * 0.125);
+        {`}`}
+
+        .$</span>{`{`}scopeClass{`}`}<span className="code-string"> .telemetry-dot-bottom {`{`}
+          animation: telemetryDotBounce var(--animation-duration, 2s) ease-in-out infinite;
+          animation-delay: calc(var(--animation-duration, 2s) * 0.25);
+        {`}`}
+
         @keyframes telemetryMainTPulse {`{`}
-          0%, 100% {`{`} transform: scale(1); opacity: 0.75; {`}`}
-          15% {`{`} transform: scale(1.15); opacity: 1; {`}`}
-          30% {`{`} transform: scale(0.95); opacity: 0.85; {`}`}
-          45% {`{`} transform: scale(1); opacity: 0.75; {`}`}
+          0%, 100% {`{`}
+            transform: scale(1);
+            opacity: 0.75;
+          {`}`}
+          15% {`{`}
+            transform: scale(1.15);
+            opacity: 1;
+          {`}`}
+          30% {`{`}
+            transform: scale(0.95);
+            opacity: 0.85;
+          {`}`}
+          45% {`{`}
+            transform: scale(1);
+            opacity: 0.75;
+          {`}`}
         {`}`}
 
         @keyframes telemetryDotBounce {`{`}
-          0%, 100% {`{`} transform: scale(1) translateY(0); opacity: 0.7; {`}`}
-          15% {`{`} transform: scale(1.25) translateY(-8px); opacity: 1; {`}`}
-          30% {`{`} transform: scale(0.9) translateY(3px); opacity: 0.8; {`}`}
-          45% {`{`} transform: scale(1) translateY(0); opacity: 0.7; {`}`}
+          0%, 100% {`{`}
+            transform: scale(1) translateY(0);
+            opacity: 0.7;
+          {`}`}
+          15% {`{`}
+            transform: scale(1.25) translateY(-8px);
+            opacity: 1;
+          {`}`}
+          30% {`{`}
+            transform: scale(0.9) translateY(3px);
+            opacity: 0.8;
+          {`}`}
+          45% {`{`}
+            transform: scale(1) translateY(0);
+            opacity: 0.7;
+          {`}`}
+        {`}`}
+
+        .$</span>{`{`}scopeClass{`}`}<span className="code-string"> .telemetry-logo-wrapper::before {`{`}
+          content: '';
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          width: 140%;
+          height: 140%;
+          background: radial-gradient(
+            circle,
+            color-mix(in srgb, var(--logo-color, #f7b434) 20%, transparent) 0%,
+            transparent 70%
+          );
+          animation: telemetryGlow var(--animation-duration, 2s) ease-in-out infinite;
+          pointer-events: none;
+        {`}`}
+
+        @keyframes telemetryGlow {`{`}
+          0%, 100% {`{`}
+            opacity: 0.4;
+            transform: translate(-50%, -50%) scale(1);
+          {`}`}
+          30% {`{`}
+            opacity: 0.7;
+            transform: translate(-50%, -50%) scale(1.12);
+          {`}`}
+          60% {`{`}
+            opacity: 0.4;
+            transform: translate(-50%, -50%) scale(1);
+          {`}`}
         {`}`}
       `</span>{`}`}<span className="code-tag">&lt;/style&gt;</span>
-      <span className="code-tag">&lt;div</span> className={`{`}<span className="code-string">`$</span>{`{`}scopeClass{`}`} <span className="code-string">$</span>{`{`}className{`}`}<span className="code-string">`</span>{`}`} style={`{`}containerStyle{`}`}<span className="code-tag">&gt;</span>
-        <span className="code-tag">&lt;svg</span> viewBox=<span className="code-string">"0 0 295 291.62"</span><span className="code-tag">&gt;</span>
-          <span className="code-tag">&lt;path</span> className=<span className="code-string">"telemetry-main-t"</span> d=<span className="code-string">"M245.1,107.09l..."</span> fill=<span className="code-string">"currentColor"</span> <span className="code-tag">/&gt;</span>
-          <span className="code-tag">&lt;path</span> className=<span className="code-string">"telemetry-dot-top"</span> d=<span className="code-string">"M84.19,107.09l..."</span> fill=<span className="code-string">"currentColor"</span> <span className="code-tag">/&gt;</span>
-          <span className="code-tag">&lt;path</span> className=<span className="code-string">"telemetry-dot-bottom"</span> d=<span className="code-string">"M124.75,125.86h..."</span> fill=<span className="code-string">"currentColor"</span> <span className="code-tag">/&gt;</span>
-        <span className="code-tag">&lt;/svg&gt;</span>
+      <span className="code-tag">&lt;div</span>
+        className={`{`}<span className="code-string">`$</span>{`{`}scopeClass{`}`} <span className="code-string">$</span>{`{`}className{`}`}<span className="code-string">`</span>{`}`}
+        style={`{`}containerStyle{`}`}
+      <span className="code-tag">&gt;</span>
+        <span className="code-tag">&lt;div</span> className=<span className="code-string">"telemetry-logo-wrapper"</span><span className="code-tag">&gt;</span>
+          <span className="code-tag">&lt;svg</span>
+            viewBox=<span className="code-string">"0 0 295 291.62"</span>
+            xmlns=<span className="code-string">"http://www.w3.org/2000/svg"</span>
+            className=<span className="code-string">"telemetry-logo-svg"</span>
+          <span className="code-tag">&gt;</span>
+            <span className="code-tag">&lt;path</span>
+              className=<span className="code-string">"telemetry-logo-part telemetry-main-t"</span>
+              d=<span className="code-string">"M245.1,107.09l6.77-25.27c1.05-3.92-1.9-7.77-5.96-7.77H112.48c-4.19,0-7.86,2.82-8.95,6.86l-6.77,25.27c-1.05,3.92,1.9,7.77,5.96,7.77h37.54c4.06,0,7.01,3.85,5.96,7.77l-23.6,88.07c-1.05,3.92,1.9,7.77,5.96,7.77h26.16c4.19,0,7.86-2.82,8.95-6.86l24.09-89.89c1.08-4.05,4.75-6.86,8.95-6.86h39.42c4.19,0,7.86-2.82,8.95-6.86Z"</span>
+              fill=<span className="code-string">"currentColor"</span>
+            <span className="code-tag">/&gt;</span>
+
+            <span className="code-tag">&lt;path</span>
+              className=<span className="code-string">"telemetry-logo-part telemetry-dot-top"</span>
+              d=<span className="code-string">"M84.19,107.09l6.77-25.27c1.05-3.92-1.9-7.77-5.96-7.77h-26.16c-4.19,0-7.86,2.82-8.95,6.86l-6.77,25.27c-1.05,3.92,1.9,7.77,5.96,7.77h26.16c4.19,0,7.86-2.82,8.95-6.86Z"</span>
+              fill=<span className="code-string">"currentColor"</span>
+            <span className="code-tag">/&gt;</span>
+
+            <span className="code-tag">&lt;path</span>
+              className=<span className="code-string">"telemetry-logo-part telemetry-dot-bottom"</span>
+              d=<span className="code-string">"M124.75,125.86h-26.16c-4.19,0-7.86,2.82-8.95,6.86l-6.77,25.27c-1.05,3.92,1.9,7.77,5.96,7.77h26.16c4.19,0,7.86-2.82,8.95-6.86l6.77-25.27c1.05-3.92-1.9-7.77-5.96-7.77Z"</span>
+              fill=<span className="code-string">"currentColor"</span>
+            <span className="code-tag">/&gt;</span>
+          <span className="code-tag">&lt;/svg&gt;</span>
+        <span className="code-tag">&lt;/div&gt;</span>
       <span className="code-tag">&lt;/div&gt;</span>
-    <span className="code-tag">&lt;/&gt;</span>
+      <span className="code-tag">&lt;/&gt;</span>
+
   );
 {`}`};
 

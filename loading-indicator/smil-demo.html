@@ -29,8 +29,30 @@
       box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
     }
 
+    .demo-nav-breadcrumbs {
+      display: flex;
+      gap: 0.5rem;
+      align-items: center;
+    }
+
     .demo-nav-brand {
-      font-size: 1.25rem;
+      font-size: 1rem;
+      color: rgba(238, 233, 223, 0.7);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .demo-nav-brand:hover {
+      color: #F8B334;
+    }
+
+    .demo-nav-separator {
+      color: rgba(238, 233, 223, 0.4);
+      font-size: 0.875rem;
+    }
+
+    .demo-nav-current {
+      font-size: 1rem;
       font-weight: 600;
       color: #F8B334;
       text-decoration: none;
@@ -383,7 +405,11 @@
 </head>
 <body>
   <nav class="demo-nav">
-    <a href="index.html" class="demo-nav-brand">← TelemetryOS Logo</a>
+    <div class="demo-nav-breadcrumbs">
+      <a href="../index.html" class="demo-nav-brand">Home</a>
+      <span class="demo-nav-separator">/</span>
+      <a href="index.html" class="demo-nav-current">Logo Animations</a>
+    </div>
     <div class="demo-nav-links">
       <a href="react-demo.html" class="demo-nav-link">React</a>
       <a href="svg-demo.html" class="demo-nav-link">SVG + CSS</a>
@@ -435,7 +461,7 @@
       <!-- Code Block -->
       <div class="code-block-container">
         <div class="code-block-header">
-          <span class="code-block-title">telemetryos-logo-smil.svg (excerpt)</span>
+          <span class="code-block-title">telemetryos-logo-smil.svg</span>
           <button class="copy-button" onclick="copyCode('smil-code')">
             <span>📋</span> Copy Code
           </button>
@@ -447,14 +473,16 @@
     <span class="code-comment">&lt;!-- Scale animation --&gt;</span>
     <span class="code-tag">&lt;animateTransform</span>
       <span class="code-attr">attributeName</span>=<span class="code-string">"transform"</span>
+      <span class="code-attr">attributeType</span>=<span class="code-string">"XML"</span>
       <span class="code-attr">type</span>=<span class="code-string">"scale"</span>
       <span class="code-attr">values</span>=<span class="code-string">"1; 1.15; 0.95; 1; 1"</span>
       <span class="code-attr">keyTimes</span>=<span class="code-string">"0; 0.15; 0.3; 0.45; 1"</span>
       <span class="code-attr">dur</span>=<span class="code-string">"2s"</span>
       <span class="code-attr">repeatCount</span>=<span class="code-string">"indefinite"</span>
       <span class="code-attr">additive</span>=<span class="code-string">"sum"</span>
+      <span class="code-attr">calcMode</span>=<span class="code-string">"spline"</span>
+      <span class="code-attr">keySplines</span>=<span class="code-string">"0.42 0 0.58 1; 0.42 0 0.58 1; 0.42 0 0.58 1; 0.42 0 0.58 1"</span>
     <span class="code-tag">/&gt;</span>
-
     <span class="code-comment">&lt;!-- Opacity animation --&gt;</span>
     <span class="code-tag">&lt;animate</span>
       <span class="code-attr">attributeName</span>=<span class="code-string">"opacity"</span>
@@ -462,10 +490,11 @@
       <span class="code-attr">keyTimes</span>=<span class="code-string">"0; 0.15; 0.3; 0.45; 1"</span>
       <span class="code-attr">dur</span>=<span class="code-string">"2s"</span>
       <span class="code-attr">repeatCount</span>=<span class="code-string">"indefinite"</span>
+      <span class="code-attr">calcMode</span>=<span class="code-string">"spline"</span>
+      <span class="code-attr">keySplines</span>=<span class="code-string">"0.42 0 0.58 1; 0.42 0 0.58 1; 0.42 0 0.58 1; 0.42 0 0.58 1"</span>
     <span class="code-tag">/&gt;</span>
-
     <span class="code-tag">&lt;path</span>
-      <span class="code-attr">d</span>=<span class="code-string">"M245.1,107.09l6.77-25.27c1.05-3.92..."</span>
+      <span class="code-attr">d</span>=<span class="code-string">"M245.1,107.09l6.77-25.27c1.05-3.92-1.9-7.77-5.96-7.77H112.48c-4.19,0-7.86,2.82-8.95,6.86l-6.77,25.27c-1.05,3.92,1.9,7.77,5.96,7.77h37.54c4.06,0,7.01,3.85,5.96,7.77l-23.6,88.07c-1.05,3.92,1.9,7.77,5.96,7.77h26.16c4.19,0,7.86-2.82,8.95-6.86l24.09-89.89c1.08-4.05,4.75-6.86,8.95-6.86h39.42c4.19,0,7.86-2.82,8.95-6.86Z"</span>
       <span class="code-attr">fill</span>=<span class="code-string">"#f7b434"</span>
     <span class="code-tag">/&gt;</span>
   <span class="code-tag">&lt;/g&gt;</span>
@@ -474,30 +503,94 @@
   <span class="code-tag">&lt;g</span> <span class="code-attr">transform-origin</span>=<span class="code-string">"56.09 88.395"</span><span class="code-tag">&gt;</span>
     <span class="code-comment">&lt;!-- Translate animation --&gt;</span>
     <span class="code-tag">&lt;animateTransform</span>
+      <span class="code-attr">attributeName</span>=<span class="code-string">"transform"</span>
+      <span class="code-attr">attributeType</span>=<span class="code-string">"XML"</span>
       <span class="code-attr">type</span>=<span class="code-string">"translate"</span>
       <span class="code-attr">values</span>=<span class="code-string">"0,0; 0,-8; 0,3; 0,0; 0,0"</span>
-      <span class="code-attr">begin</span>=<span class="code-string">"0.25s"</span>
+      <span class="code-attr">keyTimes</span>=<span class="code-string">"0; 0.15; 0.3; 0.45; 1"</span>
       <span class="code-attr">dur</span>=<span class="code-string">"2s"</span>
+      <span class="code-attr">begin</span>=<span class="code-string">"0.25s"</span>
       <span class="code-attr">repeatCount</span>=<span class="code-string">"indefinite"</span>
+      <span class="code-attr">additive</span>=<span class="code-string">"sum"</span>
+      <span class="code-attr">calcMode</span>=<span class="code-string">"spline"</span>
+      <span class="code-attr">keySplines</span>=<span class="code-string">"0.42 0 0.58 1; 0.42 0 0.58 1; 0.42 0 0.58 1; 0.42 0 0.58 1"</span>
     <span class="code-tag">/&gt;</span>
-
     <span class="code-comment">&lt;!-- Scale animation --&gt;</span>
     <span class="code-tag">&lt;animateTransform</span>
+      <span class="code-attr">attributeName</span>=<span class="code-string">"transform"</span>
+      <span class="code-attr">attributeType</span>=<span class="code-string">"XML"</span>
       <span class="code-attr">type</span>=<span class="code-string">"scale"</span>
       <span class="code-attr">values</span>=<span class="code-string">"1; 1.25; 0.9; 1; 1"</span>
-      <span class="code-attr">begin</span>=<span class="code-string">"0.25s"</span>
+      <span class="code-attr">keyTimes</span>=<span class="code-string">"0; 0.15; 0.3; 0.45; 1"</span>
       <span class="code-attr">dur</span>=<span class="code-string">"2s"</span>
+      <span class="code-attr">begin</span>=<span class="code-string">"0.25s"</span>
       <span class="code-attr">repeatCount</span>=<span class="code-string">"indefinite"</span>
+      <span class="code-attr">additive</span>=<span class="code-string">"sum"</span>
+      <span class="code-attr">calcMode</span>=<span class="code-string">"spline"</span>
+      <span class="code-attr">keySplines</span>=<span class="code-string">"0.42 0 0.58 1; 0.42 0 0.58 1; 0.42 0 0.58 1; 0.42 0 0.58 1"</span>
     <span class="code-tag">/&gt;</span>
-
-    <span class="code-tag">&lt;path</span> <span class="code-attr">d</span>=<span class="code-string">"M84.19,107.09l6.77..."</span> <span class="code-attr">fill</span>=<span class="code-string">"#f7b434"</span> <span class="code-tag">/&gt;</span>
+    <span class="code-comment">&lt;!-- Opacity animation --&gt;</span>
+    <span class="code-tag">&lt;animate</span>
+      <span class="code-attr">attributeName</span>=<span class="code-string">"opacity"</span>
+      <span class="code-attr">values</span>=<span class="code-string">"0.7; 1; 0.8; 0.7; 0.7"</span>
+      <span class="code-attr">keyTimes</span>=<span class="code-string">"0; 0.15; 0.3; 0.45; 1"</span>
+      <span class="code-attr">dur</span>=<span class="code-string">"2s"</span>
+      <span class="code-attr">begin</span>=<span class="code-string">"0.25s"</span>
+      <span class="code-attr">repeatCount</span>=<span class="code-string">"indefinite"</span>
+      <span class="code-attr">calcMode</span>=<span class="code-string">"spline"</span>
+      <span class="code-attr">keySplines</span>=<span class="code-string">"0.42 0 0.58 1; 0.42 0 0.58 1; 0.42 0 0.58 1; 0.42 0 0.58 1"</span>
+    <span class="code-tag">/&gt;</span>
+    <span class="code-tag">&lt;path</span>
+      <span class="code-attr">d</span>=<span class="code-string">"M84.19,107.09l6.77-25.27c1.05-3.92-1.9-7.77-5.96-7.77h-26.16c-4.19,0-7.86,2.82-8.95,6.86l-6.77,25.27c-1.05,3.92,1.9,7.77,5.96,7.77h26.16c4.19,0,7.86-2.82,8.95-6.86Z"</span>
+      <span class="code-attr">fill</span>=<span class="code-string">"#f7b434"</span>
+    <span class="code-tag">/&gt;</span>
   <span class="code-tag">&lt;/g&gt;</span>
 
-  <span class="code-comment">&lt;!-- Bottom left dot (similar structure with begin="0.5s") --&gt;</span>
+  <span class="code-comment">&lt;!-- Bottom left dot --&gt;</span>
   <span class="code-tag">&lt;g</span> <span class="code-attr">transform-origin</span>=<span class="code-string">"103.79 144.895"</span><span class="code-tag">&gt;</span>
-    <span class="code-tag">&lt;animateTransform</span> <span class="code-attr">type</span>=<span class="code-string">"translate"</span> <span class="code-attr">begin</span>=<span class="code-string">"0.5s"</span> ... <span class="code-tag">/&gt;</span>
-    <span class="code-tag">&lt;animateTransform</span> <span class="code-attr">type</span>=<span class="code-string">"scale"</span> <span class="code-attr">begin</span>=<span class="code-string">"0.5s"</span> ... <span class="code-tag">/&gt;</span>
-    <span class="code-tag">&lt;path</span> <span class="code-attr">d</span>=<span class="code-string">"M124.75,125.86h..."</span> <span class="code-attr">fill</span>=<span class="code-string">"#f7b434"</span> <span class="code-tag">/&gt;</span>
+    <span class="code-comment">&lt;!-- Translate animation --&gt;</span>
+    <span class="code-tag">&lt;animateTransform</span>
+      <span class="code-attr">attributeName</span>=<span class="code-string">"transform"</span>
+      <span class="code-attr">attributeType</span>=<span class="code-string">"XML"</span>
+      <span class="code-attr">type</span>=<span class="code-string">"translate"</span>
+      <span class="code-attr">values</span>=<span class="code-string">"0,0; 0,-8; 0,3; 0,0; 0,0"</span>
+      <span class="code-attr">keyTimes</span>=<span class="code-string">"0; 0.15; 0.3; 0.45; 1"</span>
+      <span class="code-attr">dur</span>=<span class="code-string">"2s"</span>
+      <span class="code-attr">begin</span>=<span class="code-string">"0.5s"</span>
+      <span class="code-attr">repeatCount</span>=<span class="code-string">"indefinite"</span>
+      <span class="code-attr">additive</span>=<span class="code-string">"sum"</span>
+      <span class="code-attr">calcMode</span>=<span class="code-string">"spline"</span>
+      <span class="code-attr">keySplines</span>=<span class="code-string">"0.42 0 0.58 1; 0.42 0 0.58 1; 0.42 0 0.58 1; 0.42 0 0.58 1"</span>
+    <span class="code-tag">/&gt;</span>
+    <span class="code-comment">&lt;!-- Scale animation --&gt;</span>
+    <span class="code-tag">&lt;animateTransform</span>
+      <span class="code-attr">attributeName</span>=<span class="code-string">"transform"</span>
+      <span class="code-attr">attributeType</span>=<span class="code-string">"XML"</span>
+      <span class="code-attr">type</span>=<span class="code-string">"scale"</span>
+      <span class="code-attr">values</span>=<span class="code-string">"1; 1.25; 0.9; 1; 1"</span>
+      <span class="code-attr">keyTimes</span>=<span class="code-string">"0; 0.15; 0.3; 0.45; 1"</span>
+      <span class="code-attr">dur</span>=<span class="code-string">"2s"</span>
+      <span class="code-attr">begin</span>=<span class="code-string">"0.5s"</span>
+      <span class="code-attr">repeatCount</span>=<span class="code-string">"indefinite"</span>
+      <span class="code-attr">additive</span>=<span class="code-string">"sum"</span>
+      <span class="code-attr">calcMode</span>=<span class="code-string">"spline"</span>
+      <span class="code-attr">keySplines</span>=<span class="code-string">"0.42 0 0.58 1; 0.42 0 0.58 1; 0.42 0 0.58 1; 0.42 0 0.58 1"</span>
+    <span class="code-tag">/&gt;</span>
+    <span class="code-comment">&lt;!-- Opacity animation --&gt;</span>
+    <span class="code-tag">&lt;animate</span>
+      <span class="code-attr">attributeName</span>=<span class="code-string">"opacity"</span>
+      <span class="code-attr">values</span>=<span class="code-string">"0.7; 1; 0.8; 0.7; 0.7"</span>
+      <span class="code-attr">keyTimes</span>=<span class="code-string">"0; 0.15; 0.3; 0.45; 1"</span>
+      <span class="code-attr">dur</span>=<span class="code-string">"2s"</span>
+      <span class="code-attr">begin</span>=<span class="code-string">"0.5s"</span>
+      <span class="code-attr">repeatCount</span>=<span class="code-string">"indefinite"</span>
+      <span class="code-attr">calcMode</span>=<span class="code-string">"spline"</span>
+      <span class="code-attr">keySplines</span>=<span class="code-string">"0.42 0 0.58 1; 0.42 0 0.58 1; 0.42 0 0.58 1; 0.42 0 0.58 1"</span>
+    <span class="code-tag">/&gt;</span>
+    <span class="code-tag">&lt;path</span>
+      <span class="code-attr">d</span>=<span class="code-string">"M124.75,125.86h-26.16c-4.19,0-7.86,2.82-8.95,6.86l-6.77,25.27c-1.05,3.92,1.9,7.77,5.96,7.77h26.16c4.19,0,7.86-2.82,8.95-6.86l6.77-25.27c1.05-3.92-1.9-7.77-5.96-7.77Z"</span>
+      <span class="code-attr">fill</span>=<span class="code-string">"#f7b434"</span>
+    <span class="code-tag">/&gt;</span>
   <span class="code-tag">&lt;/g&gt;</span>
 <span class="code-tag">&lt;/svg&gt;</span></code>
         </div>

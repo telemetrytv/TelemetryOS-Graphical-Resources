@@ -405,6 +405,11 @@
       white-space: pre;
     }
 
+    .code-block code {
+      white-space: pre;
+      display: block;
+    }
+
     .dark-theme .code-block {
       background: #0d1117;
     }
@@ -767,7 +772,8 @@
                 </button>
               </div>
               <div className="code-block">
-                <code id="react-code"><span className="code-keyword">import</span> React <span className="code-keyword">from</span> <span className="code-string">'react'</span>;
+                <code id="react-code">
+<span className="code-keyword">import</span> React <span className="code-keyword">from</span> <span className="code-string">'react'</span>;
 
 <span className="code-comment">/**
  * TelemetryOS animated logo loader component
@@ -937,7 +943,9 @@
   );
 {`}`};
 
-<span className="code-keyword">export default</span> TelemetryOSLoader;</code>
+<span className="code-keyword">export default</span> TelemetryOSLoader;
+</code>
+              </div>
               </div>
             </div>
 
@@ -950,7 +958,8 @@
                 </button>
               </div>
               <div className="code-block">
-                <code id="usage-code"><span className="code-keyword">import</span> TelemetryOSLoader <span className="code-keyword">from</span> <span className="code-string">'./TelemetryOSLoader'</span>;
+                <code id="usage-code">
+<span className="code-keyword">import</span> TelemetryOSLoader <span className="code-keyword">from</span> <span className="code-string">'./TelemetryOSLoader'</span>;
 
 <span className="code-comment">// Default (200px, amber color)</span>
 <span className="code-tag">&lt;TelemetryOSLoader</span> <span className="code-tag">/&gt;</span>
@@ -970,7 +979,8 @@
   color=<span className="code-string">"#F8B334"</span>
   animationDuration={`{`}<span className="code-value">2</span>{`}`}
   className=<span className="code-string">"my-custom-class"</span>
-<span className="code-tag">/&gt;</span></code>
+<span className="code-tag">/&gt;</span>
+</code>
               </div>
             </div>
           </div>

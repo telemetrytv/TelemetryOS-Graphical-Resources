@@ -10,8 +10,6 @@ Complete brand asset library for TelemetryOS, optimized for modern web and mobil
 - **Core Brand Marks** - Master logomarks and wordmarks in SVG, PNG, and WebP
 - **Web Icons** - Modern favicon implementation with PWA support
 - **Mobile Assets** - iOS and Android app icons
-- **Social Media** - OpenGraph images for Twitter, Facebook, LinkedIn, Instagram
-- **Print Ready** - High-resolution 300 DPI assets for professional printing
 
 ## 📁 Structure
 
@@ -21,17 +19,9 @@ brandmarks/
 │   ├── logomarks/  # Square TelemetryOS logomark (amber, black, white)
 │   └── wordmarks/  # Horizontal wordmark (4:1 aspect ratio)
 ├── web/            # Favicon and web icons
-├── mobile/         # iOS and Android app icons
-│   ├── ios/        # Apple App Store assets
-│   └── android/    # Google Play Store assets
-├── social/         # Social media OpenGraph images
-│   ├── twitter/    # Twitter cards
-│   ├── facebook/   # Facebook Open Graph
-│   ├── linkedin/   # LinkedIn covers
-│   └── instagram/  # Instagram posts
-└── print/          # High-res assets for printing
-    ├── high-res/   # 2048px and 4096px at 300 DPI
-    └── business-cards/
+└── mobile/         # iOS and Android app icons
+    ├── ios/        # Apple App Store assets
+    └── android/    # Google Play Store assets
 ```
 
 ## 🚀 Quick Start
@@ -53,16 +43,6 @@ brandmarks/
   <source srcset="/brandmarks/core/logomarks/telemetryos-logomark-amber-256.webp" type="image/webp">
   <img src="/brandmarks/core/logomarks/telemetryos-logomark-amber-256.png" alt="TelemetryOS" width="256">
 </picture>
-```
-
-**Social Media Meta Tags**:
-```html
-<!-- Twitter -->
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="/brandmarks/social/twitter/card-1200x675.png">
-
-<!-- Facebook/OpenGraph -->
-<meta property="og:image" content="/brandmarks/social/facebook/og-1200x630.png">
 ```
 
 ### For Designers
@@ -99,11 +79,6 @@ brandmarks/
 - Include `site.webmanifest` in your root directory
 - Reference icons from `brandmarks/web/`
 - Theme color: `#F8B334` (amber)
-
-### Print Materials
-- Use `brandmarks/print/high-res/` for professional printing
-- 300 DPI quality for sharp reproduction
-- Monochrome variants available for B&W printing
 
 ## 📐 File Naming
 
@@ -147,11 +122,9 @@ sips -Z 512 source.png --out output-512.png
 
 ## 📊 Asset Summary
 
-- **Total Files**: ~120 (down from 250+ after rationalization)
+- **Total Files**: ~90 files
 - **Core Assets**: 66 files (source of truth)
 - **Web/Mobile**: 22 files (favicons + app icons)
-- **Social Media**: 16 files (4 major platforms)
-- **Print**: 10 files (high-resolution)
 
 ## ✨ 2025 Optimizations
 

@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TelemetryOS Loader - React Demo</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    .demo-nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      background: #1B2632;
+      border-bottom: 1px solid rgba(238, 233, 223, 0.15);
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 1001;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    }
+
+    .demo-nav-brand {
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: #F8B334;
+      text-decoration: none;
+    }
+
+    .demo-nav-links {
+      display: flex;
+      gap: 1.5rem;
+      align-items: center;
+    }
+
+    .demo-nav-link {
+      color: rgba(238, 233, 223, 0.7);
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: color 0.2s;
+    }
+
+    .demo-nav-link:hover {
+      color: #F8B334;
+    }
+
+    .demo-nav-link.active {
+      color: #F8B334;
+      font-weight: 600;
+    }
+
+    body {
+      font-family: 'Rubik', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+      padding: 100px 20px 40px 20px;
+      min-height: 100vh;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    @media (max-width: 768px) {
+      .demo-nav {
+        flex-direction: column;
+        gap: 1rem;
+        padding: 1rem;
+      }
+
+      .demo-nav-links {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 1rem;
+      }
+
+      body {
+        padding-top: 160px;
+      }
+    }
+
+    body.dark-theme {
+      background: #2C3B4D;
+      color: #EEE9DF;
+    }
+
+    body.light-theme {
+      background: #EEE9DF;
+      color: #1B2632;
+    }
+
+    .demo-container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    #theme-toggle-nav:hover {
+      background: rgba(238, 233, 223, 0.1);
+      border-color: #F8B334;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+      color: #F8B334;
+    }
+
+    .subtitle {
+      font-size: 1.1rem;
+      margin-bottom: 3rem;
+      transition: color 0.3s ease;
+    }
+
+    .dark-theme .subtitle {
+      color: rgba(238, 233, 223, 0.7);
+    }
+
+    .light-theme .subtitle {
+      color: rgba(27, 38, 50, 0.7);
+    }
+
+    .demo-section {
+      border-radius: 12px;
+      padding: 2rem;
+      margin-bottom: 2rem;
+      transition: background-color 0.3s ease, border-color 0.3s ease;
+    }
+
+    .dark-theme .demo-section {
+      background: #1B2632;
+      border: 1px solid rgba(238, 233, 223, 0.15);
+    }
+
+    .light-theme .demo-section {
+      background: #fff;
+      border: 1px solid rgba(27, 38, 50, 0.2);
+    }
+
+    .demo-section h2 {
+      font-size: 1.5rem;
+      margin-bottom: 1.5rem;
+      color: #F8B334;
+    }
+
+    .demo-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+      border-radius: 8px;
+      margin-bottom: 1rem;
+      transition: background-color 0.3s ease;
+    }
+
+    .dark-theme .demo-row {
+      background: #2C3B4D;
+    }
+
+    .light-theme .demo-row {
+      background: rgba(238, 233, 223, 0.4);
+    }
+
+    .demo-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .demo-label {
+      font-size: 0.875rem;
+      text-align: center;
+      transition: color 0.3s ease;
+    }
+
+    .dark-theme .demo-label {
+      color: rgba(238, 233, 223, 0.7);
+    }
+
+    .light-theme .demo-label {
+      color: rgba(27, 38, 50, 0.7);
+    }
+
+    .inline-demo {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 1.5rem;
+      border-radius: 8px;
+      margin-bottom: 1rem;
+      transition: background-color 0.3s ease;
+    }
+
+    .dark-theme .inline-demo {
+      background: #2C3B4D;
+    }
+
+    .light-theme .inline-demo {
+      background: rgba(238, 233, 223, 0.4);
+    }
+
+    .button-demo {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      padding: 1.5rem;
+      border-radius: 8px;
+      transition: background-color 0.3s ease;
+    }
+
+    .dark-theme .button-demo {
+      background: #2C3B4D;
+    }
+
+    .light-theme .button-demo {
+      background: rgba(238, 233, 223, 0.4);
+    }
+
+    .demo-button {
+      padding: 12px 24px;
+      background: #F8B334;
+      color: #1B2632;
+      border: none;
+      border-radius: 6px;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      transition: all 0.2s;
+    }
+
+    .demo-button:hover {
+      background: #ffc14d;
+      transform: translateY(-2px);
+    }
+
+    .demo-button:disabled {
+      background: rgba(238, 233, 223, 0.3);
+      cursor: not-allowed;
+      transform: none;
+    }
+
+    .overlay-demo-trigger {
+      padding: 12px 24px;
+      background: #F8B334;
+      color: #1B2632;
+      border: none;
+      border-radius: 6px;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      margin-bottom: 1rem;
+    }
+
+    .overlay-demo-trigger:hover {
+      background: #ffc14d;
+    }
+
+    .full-page-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(44, 59, 77, 0.95);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+    }
+
+    .overlay-message {
+      color: #F8B334;
+      font-size: 1.5rem;
+      margin-top: 2rem;
+      font-weight: 500;
+    }
+
+    .responsive-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 2rem;
+      padding: 2rem;
+      border-radius: 8px;
+      transition: background-color 0.3s ease;
+    }
+
+    .dark-theme .responsive-grid {
+      background: #2C3B4D;
+    }
+
+    .light-theme .responsive-grid {
+      background: rgba(238, 233, 223, 0.4);
+    }
+
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 2rem;
+      }
+
+      .demo-row {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav class="demo-nav">
+    <a href="index.html" class="demo-nav-brand">← TelemetryOS Logo</a>
+    <div class="demo-nav-links">
+      <a href="react-demo.html" class="demo-nav-link active">React</a>
+      <a href="svg-demo.html" class="demo-nav-link">SVG + CSS</a>
+      <a href="smil-demo.html" class="demo-nav-link">SMIL</a>
+      <button id="theme-toggle-nav" style="padding: 8px 16px; background: rgba(238, 233, 223, 0.1); color: #F8B334; border: 1px solid rgba(238, 233, 223, 0.2); border-radius: 6px; cursor: pointer; font-size: 0.9rem; transition: all 0.2s;">
+        <span id="theme-icon">🌙</span> <span id="theme-text">Dark</span>
+      </button>
+    </div>
+  </nav>
+  <div id="root"></div>
+
+  <script type="text/babel">
+    const { useState, useId } = React;
+
+    // TelemetryOS Loader Component (inline)
+    const TelemetryOSLoader = ({
+      size = 200,
+      className = '',
+      color = '#F8B334',
+      animationDuration = 2
+    }) => {
+      const containerId = useId();
+      const scopeClass = `telemetry-loader-${containerId.replace(/:/g, '')}`;
+
+      const containerStyle = {
+        width: `${size}px`,
+        height: `${size}px`,
+        '--logo-color': color,
+        '--animation-duration': `${animationDuration}s`,
+      };
+
+      return (
+        <>
+          <style>{`
+            .${scopeClass} {
+              position: relative;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              color: var(--logo-color, #f7b434);
+            }
+
+            .${scopeClass} .telemetry-logo-wrapper {
+              position: relative;
+              width: 100%;
+              height: 100%;
+            }
+
+            .${scopeClass} .telemetry-logo-svg {
+              width: 100%;
+              height: 100%;
+            }
+
+            .${scopeClass} .telemetry-logo-part {
+              transform-origin: center;
+            }
+
+            .${scopeClass} .telemetry-main-t {
+              animation: telemetryMainTPulse var(--animation-duration, 2s) ease-in-out infinite;
+              animation-delay: 0s;
+            }
+
+            .${scopeClass} .telemetry-dot-top {
+              animation: telemetryDotBounce var(--animation-duration, 2s) ease-in-out infinite;
+              animation-delay: calc(var(--animation-duration, 2s) * 0.125);
+            }
+
+            .${scopeClass} .telemetry-dot-bottom {
+              animation: telemetryDotBounce var(--animation-duration, 2s) ease-in-out infinite;
+              animation-delay: calc(var(--animation-duration, 2s) * 0.25);
+            }
+
+            @keyframes telemetryMainTPulse {
+              0%, 100% {
+                transform: scale(1);
+                opacity: 0.75;
+              }
+              15% {
+                transform: scale(1.15);
+                opacity: 1;
+              }
+              30% {
+                transform: scale(0.95);
+                opacity: 0.85;
+              }
+              45% {
+                transform: scale(1);
+                opacity: 0.75;
+              }
+            }
+
+            @keyframes telemetryDotBounce {
+              0%, 100% {
+                transform: scale(1) translateY(0);
+                opacity: 0.7;
+              }
+              15% {
+                transform: scale(1.25) translateY(-8px);
+                opacity: 1;
+              }
+              30% {
+                transform: scale(0.9) translateY(3px);
+                opacity: 0.8;
+              }
+              45% {
+                transform: scale(1) translateY(0);
+                opacity: 0.7;
+              }
+            }
+
+            .${scopeClass} .telemetry-logo-wrapper::before {
+              content: '';
+              position: absolute;
+              top: 50%;
+              left: 50%;
+              transform: translate(-50%, -50%);
+              width: 140%;
+              height: 140%;
+              background: radial-gradient(
+                circle,
+                color-mix(in srgb, var(--logo-color, #f7b434) 20%, transparent) 0%,
+                transparent 70%
+              );
+              animation: telemetryGlow var(--animation-duration, 2s) ease-in-out infinite;
+              pointer-events: none;
+            }
+
+            @keyframes telemetryGlow {
+              0%, 100% {
+                opacity: 0.4;
+                transform: translate(-50%, -50%) scale(1);
+              }
+              30% {
+                opacity: 0.7;
+                transform: translate(-50%, -50%) scale(1.12);
+              }
+              60% {
+                opacity: 0.4;
+                transform: translate(-50%, -50%) scale(1);
+              }
+            }
+          `}</style>
+          <div
+            className={`${scopeClass} ${className}`}
+            style={containerStyle}
+          >
+            <div className="telemetry-logo-wrapper">
+              <svg
+                viewBox="0 0 295 291.62"
+                xmlns="http://www.w3.org/2000/svg"
+                className="telemetry-logo-svg"
+              >
+                <path
+                  className="telemetry-logo-part telemetry-main-t"
+                  d="M245.1,107.09l6.77-25.27c1.05-3.92-1.9-7.77-5.96-7.77H112.48c-4.19,0-7.86,2.82-8.95,6.86l-6.77,25.27c-1.05,3.92,1.9,7.77,5.96,7.77h37.54c4.06,0,7.01,3.85,5.96,7.77l-23.6,88.07c-1.05,3.92,1.9,7.77,5.96,7.77h26.16c4.19,0,7.86-2.82,8.95-6.86l24.09-89.89c1.08-4.05,4.75-6.86,8.95-6.86h39.42c4.19,0,7.86-2.82,8.95-6.86Z"
+                  fill="currentColor"
+                />
+                <path
+                  className="telemetry-logo-part telemetry-dot-top"
+                  d="M84.19,107.09l6.77-25.27c1.05-3.92-1.9-7.77-5.96-7.77h-26.16c-4.19,0-7.86,2.82-8.95,6.86l-6.77,25.27c-1.05,3.92,1.9,7.77,5.96,7.77h26.16c4.19,0,7.86-2.82,8.95-6.86Z"
+                  fill="currentColor"
+                />
+                <path
+                  className="telemetry-logo-part telemetry-dot-bottom"
+                  d="M124.75,125.86h-26.16c-4.19,0-7.86,2.82-8.95,6.86l-6.77,25.27c-1.05,3.92,1.9,7.77,5.96,7.77h26.16c4.19,0,7.86-2.82,8.95-6.86l6.77-25.27c1.05-3.92-1.9-7.77-5.96-7.77Z"
+                  fill="currentColor"
+                />
+              </svg>
+            </div>
+          </div>
+        </>
+      );
+    };
+
+    // Demo Application
+    const DemoApp = () => {
+      const [loading, setLoading] = useState(false);
+      const [showOverlay, setShowOverlay] = useState(false);
+      const [theme, setTheme] = useState('dark');
+
+      const handleButtonClick = () => {
+        setLoading(true);
+        setTimeout(() => setLoading(false), 3000);
+      };
+
+      const handleOverlayDemo = () => {
+        setShowOverlay(true);
+        setTimeout(() => setShowOverlay(false), 3000);
+      };
+
+      const toggleTheme = () => {
+        const newTheme = theme === 'dark' ? 'light' : 'dark';
+        setTheme(newTheme);
+        document.body.className = `${newTheme}-theme`;
+      };
+
+      // Set initial theme on mount
+      React.useEffect(() => {
+        document.body.className = 'dark-theme';
+      }, []);
+
+      // Set up nav theme toggle
+      React.useEffect(() => {
+        const navToggle = document.getElementById('theme-toggle-nav');
+        const themeIcon = document.getElementById('theme-icon');
+        const themeText = document.getElementById('theme-text');
+
+        const updateNavButton = () => {
+          if (theme === 'dark') {
+            themeIcon.textContent = '☀️';
+            themeText.textContent = 'Light';
+          } else {
+            themeIcon.textContent = '🌙';
+            themeText.textContent = 'Dark';
+          }
+        };
+
+        updateNavButton();
+
+        if (navToggle) {
+          navToggle.onclick = toggleTheme;
+        }
+      }, [theme]);
+
+      return (
+        <div className="demo-container">
+          <h1>TelemetryOS Loader</h1>
+          <p className="subtitle">Fully scalable, responsive React component with CSS animations</p>
+
+          {/* Size variations */}
+          <div className="demo-section">
+            <h2>Responsive Sizes</h2>
+            <div className="responsive-grid">
+              <div className="demo-item">
+                <TelemetryOSLoader size={40} />
+                <span className="demo-label">40px</span>
+              </div>
+              <div className="demo-item">
+                <TelemetryOSLoader size={64} />
+                <span className="demo-label">64px</span>
+              </div>
+              <div className="demo-item">
+                <TelemetryOSLoader size={100} />
+                <span className="demo-label">100px</span>
+              </div>
+              <div className="demo-item">
+                <TelemetryOSLoader size={150} />
+                <span className="demo-label">150px</span>
+              </div>
+              <div className="demo-item">
+                <TelemetryOSLoader size={200} />
+                <span className="demo-label">200px (default)</span>
+              </div>
+              <div className="demo-item">
+                <TelemetryOSLoader size={300} />
+                <span className="demo-label">300px</span>
+              </div>
+            </div>
+          </div>
+
+          {/* Color variations */}
+          <div className="demo-section">
+            <h2>Custom Colors</h2>
+            <div className="demo-row">
+              <div className="demo-item">
+                <TelemetryOSLoader size={120} color="#F8B334" />
+                <span className="demo-label">Default</span>
+              </div>
+              <div className="demo-item">
+                <TelemetryOSLoader size={120} color="#00ffff" />
+                <span className="demo-label">Cyan</span>
+              </div>
+              <div className="demo-item">
+                <TelemetryOSLoader size={120} color="#ff00ff" />
+                <span className="demo-label">Magenta</span>
+              </div>
+              <div className="demo-item">
+                <TelemetryOSLoader size={120} color="#00ff00" />
+                <span className="demo-label">Green</span>
+              </div>
+            </div>
+          </div>
+
+          {/* Animation speed */}
+          <div className="demo-section">
+            <h2>Animation Speed</h2>
+            <div className="demo-row">
+              <div className="demo-item">
+                <TelemetryOSLoader size={120} animationDuration={3} />
+                <span className="demo-label">Slow (3s)</span>
+              </div>
+              <div className="demo-item">
+                <TelemetryOSLoader size={120} animationDuration={2} />
+                <span className="demo-label">Normal (2s)</span>
+              </div>
+              <div className="demo-item">
+                <TelemetryOSLoader size={120} animationDuration={1} />
+                <span className="demo-label">Fast (1s)</span>
+              </div>
+            </div>
+          </div>
+
+          {/* Inline usage */}
+          <div className="demo-section">
+            <h2>Inline Usage</h2>
+            <div className="inline-demo">
+              <span style={{ fontSize: '1.2rem' }}>Loading your data</span>
+              <TelemetryOSLoader size={40} />
+            </div>
+            <div className="inline-demo">
+              <span style={{ fontSize: '1.2rem' }}>Processing request</span>
+              <TelemetryOSLoader size={32} />
+            </div>
+          </div>
+
+          {/* Button with loader */}
+          <div className="demo-section">
+            <h2>Interactive Button</h2>
+            <div className="button-demo">
+              <button
+                onClick={handleButtonClick}
+                disabled={loading}
+                className="demo-button"
+              >
+                {loading && <TelemetryOSLoader size={24} color="#1B2632" />}
+                {loading ? 'Loading...' : 'Click to Load'}
+              </button>
+            </div>
+          </div>
+
+          {/* Full page overlay */}
+          <div className="demo-section">
+            <h2>Full Page Overlay</h2>
+            <button onClick={handleOverlayDemo} className="overlay-demo-trigger">
+              Show Full Page Loader
+            </button>
+          </div>
+
+          {showOverlay && (
+            <div className="full-page-overlay">
+              <TelemetryOSLoader size={200} />
+              <div className="overlay-message">Loading your content...</div>
+            </div>
+          )}
+        </div>
+      );
+    };
+
+    // Render the app
+    const root = ReactDOM.createRoot(document.getElementById('root'));
+    root.render(<DemoApp />);
+  </script>
+</body>
+</html>

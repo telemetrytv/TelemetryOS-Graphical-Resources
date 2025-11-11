@@ -1,0 +1,112 @@
+.telemetry-loader-container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--logo-color, #f7b434);
+}
+
+.telemetry-logo-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.telemetry-logo-svg {
+  width: 100%;
+  height: 100%;
+}
+
+/* Animate the logo elements */
+.telemetry-logo-part {
+  transform-origin: center;
+}
+
+/* Main T vertical stroke - pulses and rotates first */
+.telemetry-main-t {
+  animation: telemetryMainTPulse var(--animation-duration, 2s) ease-in-out infinite;
+  animation-delay: 0s;
+}
+
+/* Top left dot - bounces and scales */
+.telemetry-dot-top {
+  animation: telemetryDotBounce var(--animation-duration, 2s) ease-in-out infinite;
+  animation-delay: calc(var(--animation-duration, 2s) * 0.125);
+}
+
+/* Bottom left dot - bounces and scales */
+.telemetry-dot-bottom {
+  animation: telemetryDotBounce var(--animation-duration, 2s) ease-in-out infinite;
+  animation-delay: calc(var(--animation-duration, 2s) * 0.25);
+}
+
+@keyframes telemetryMainTPulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.75;
+  }
+  15% {
+    transform: scale(1.15);
+    opacity: 1;
+  }
+  30% {
+    transform: scale(0.95);
+    opacity: 0.85;
+  }
+  45% {
+    transform: scale(1);
+    opacity: 0.75;
+  }
+}
+
+@keyframes telemetryDotBounce {
+  0%, 100% {
+    transform: scale(1) translateY(0);
+    opacity: 0.7;
+  }
+  15% {
+    transform: scale(1.25) translateY(-8px);
+    opacity: 1;
+  }
+  30% {
+    transform: scale(0.9) translateY(3px);
+    opacity: 0.8;
+  }
+  45% {
+    transform: scale(1) translateY(0);
+    opacity: 0.7;
+  }
+}
+
+/* Subtle glow effect */
+.telemetry-logo-wrapper::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 140%;
+  height: 140%;
+  background: radial-gradient(
+    circle,
+    color-mix(in srgb, var(--logo-color, #f7b434) 20%, transparent) 0%,
+    transparent 70%
+  );
+  animation: telemetryGlow var(--animation-duration, 2s) ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes telemetryGlow {
+  0%, 100% {
+    opacity: 0.4;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  30% {
+    opacity: 0.7;
+    transform: translate(-50%, -50%) scale(1.12);
+  }
+  60% {
+    opacity: 0.4;
+    transform: translate(-50%, -50%) scale(1);
+  }
+}

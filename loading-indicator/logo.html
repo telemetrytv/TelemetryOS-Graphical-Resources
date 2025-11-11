@@ -1,0 +1,150 @@
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TelemetryOS Logo Preloader</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #0a0a0a;
+            overflow: hidden;
+        }
+
+        .preloader-container {
+            position: relative;
+            width: 300px;
+            height: 300px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .logo-wrapper {
+            position: relative;
+            width: 200px;
+            height: 200px;
+        }
+
+        svg {
+            width: 100%;
+            height: 100%;
+        }
+
+        /* Animate the logo elements */
+        .logo-part {
+            transform-origin: center;
+        }
+
+        /* Main T vertical stroke - pulses and rotates first */
+        .logo-part:nth-child(1) {
+            animation: mainTPulse 2s ease-in-out infinite;
+            animation-delay: 0s;
+        }
+
+        /* Top left dot - bounces and scales */
+        .logo-part:nth-child(2) {
+            animation: dotBounce 2s ease-in-out infinite;
+            animation-delay: 0.25s;
+        }
+
+        /* Bottom left dot - bounces and scales */
+        .logo-part:nth-child(3) {
+            animation: dotBounce 2s ease-in-out infinite;
+            animation-delay: 0.5s;
+        }
+
+        @keyframes mainTPulse {
+            0%, 100% {
+                transform: scale(1);
+                opacity: 0.75;
+            }
+            15% {
+                transform: scale(1.15);
+                opacity: 1;
+            }
+            30% {
+                transform: scale(0.95);
+                opacity: 0.85;
+            }
+            45% {
+                transform: scale(1);
+                opacity: 0.75;
+            }
+        }
+
+        @keyframes dotBounce {
+            0%, 100% {
+                transform: scale(1) translateY(0);
+                opacity: 0.7;
+            }
+            15% {
+                transform: scale(1.25) translateY(-8px);
+                opacity: 1;
+            }
+            30% {
+                transform: scale(0.9) translateY(3px);
+                opacity: 0.8;
+            }
+            45% {
+                transform: scale(1) translateY(0);
+                opacity: 0.7;
+            }
+        }
+
+        /* Subtle glow effect */
+        .logo-wrapper::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 280px;
+            height: 280px;
+            background: radial-gradient(circle, rgba(247, 180, 52, 0.2) 0%, transparent 70%);
+            animation: glow 2s ease-in-out infinite;
+        }
+
+        @keyframes glow {
+            0%, 100% {
+                opacity: 0.4;
+                transform: translate(-50%, -50%) scale(1);
+            }
+            30% {
+                opacity: 0.7;
+                transform: translate(-50%, -50%) scale(1.12);
+            }
+            60% {
+                opacity: 0.4;
+                transform: translate(-50%, -50%) scale(1);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="preloader-container">
+        <div class="logo-wrapper">
+            <svg viewBox="0 0 295 291.62" xmlns="http://www.w3.org/2000/svg">
+                <!-- Main T vertical stroke with top bar -->
+                <path class="logo-part" d="M245.1,107.09l6.77-25.27c1.05-3.92-1.9-7.77-5.96-7.77H112.48c-4.19,0-7.86,2.82-8.95,6.86l-6.77,25.27c-1.05,3.92,1.9,7.77,5.96,7.77h37.54c4.06,0,7.01,3.85,5.96,7.77l-23.6,88.07c-1.05,3.92,1.9,7.77,5.96,7.77h26.16c4.19,0,7.86-2.82,8.95-6.86l24.09-89.89c1.08-4.05,4.75-6.86,8.95-6.86h39.42c4.19,0,7.86-2.82,8.95-6.86Z" fill="#f7b434"></path>
+                
+                <!-- Top left dot -->
+                <path class="logo-part" d="M84.19,107.09l6.77-25.27c1.05-3.92-1.9-7.77-5.96-7.77h-26.16c-4.19,0-7.86,2.82-8.95,6.86l-6.77,25.27c-1.05,3.92,1.9,7.77,5.96,7.77h26.16c4.19,0,7.86-2.82,8.95-6.86Z" fill="#f7b434"></path>
+                
+                <!-- Bottom left dot -->
+                <path class="logo-part" d="M124.75,125.86h-26.16c-4.19,0-7.86,2.82-8.95,6.86l-6.77,25.27c-1.05,3.92,1.9,7.77,5.96,7.77h26.16c4.19,0,7.86-2.82,8.95-6.86l6.77-25.27c1.05-3.92-1.9-7.77-5.96-7.77Z" fill="#f7b434"></path>
+            </svg>
+        </div>
+    </div>
+
+
+
+</body>

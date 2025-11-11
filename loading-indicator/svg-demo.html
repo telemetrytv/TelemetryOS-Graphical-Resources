@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TelemetryOS Logo - SVG + CSS Demo</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="telemetryos-logo.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    .demo-nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      background: #1B2632;
+      border-bottom: 1px solid rgba(238, 233, 223, 0.15);
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 1001;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    }
+
+    .demo-nav-brand {
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: #F8B334;
+      text-decoration: none;
+    }
+
+    .demo-nav-links {
+      display: flex;
+      gap: 1.5rem;
+      align-items: center;
+    }
+
+    .demo-nav-link {
+      color: rgba(238, 233, 223, 0.7);
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: color 0.2s;
+    }
+
+    .demo-nav-link:hover {
+      color: #F8B334;
+    }
+
+    .demo-nav-link.active {
+      color: #F8B334;
+      font-weight: 600;
+    }
+
+    body {
+      font-family: 'Rubik', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+      padding: 100px 20px 40px 20px;
+      min-height: 100vh;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    body.dark-theme {
+      background: #2C3B4D;
+      color: #EEE9DF;
+    }
+
+    body.light-theme {
+      background: #EEE9DF;
+      color: #1B2632;
+    }
+
+    .light-theme .demo-nav {
+      background: #fff;
+      border-bottom-color: rgba(27, 38, 50, 0.2);
+    }
+
+    .light-theme .section {
+      background: #fff;
+      border-color: rgba(27, 38, 50, 0.2);
+    }
+
+    .light-theme code {
+      background: rgba(238, 233, 223, 0.4);
+      color: #d97706;
+    }
+
+    .light-theme .pre {
+      background: rgba(238, 233, 223, 0.4);
+    }
+
+    .light-theme .demo-label {
+      color: rgba(27, 38, 50, 0.7);
+    }
+
+    .light-theme .inline-example {
+      background: rgba(238, 233, 223, 0.4);
+    }
+
+    #theme-toggle-nav:hover {
+      background: rgba(238, 233, 223, 0.1);
+      border-color: #F8B334;
+    }
+
+    @media (max-width: 768px) {
+      .demo-nav {
+        flex-direction: column;
+        gap: 1rem;
+        padding: 1rem;
+      }
+
+      .demo-nav-links {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 1rem;
+      }
+
+      body {
+        padding-top: 160px;
+      }
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+      color: #F8B334;
+    }
+
+    .subtitle {
+      font-size: 1.1rem;
+      color: rgba(238, 233, 223, 0.7);
+      margin-bottom: 3rem;
+    }
+
+    .section {
+      background: #1B2632;
+      border-radius: 12px;
+      padding: 2rem;
+      margin-bottom: 2rem;
+      border: 1px solid rgba(238, 233, 223, 0.15);
+    }
+
+    .section h2 {
+      font-size: 1.5rem;
+      margin-bottom: 1.5rem;
+      color: #F8B334;
+    }
+
+    .demo-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 2rem;
+      padding: 2rem;
+      background: #2C3B4D;
+      border-radius: 8px;
+      align-items: center;
+      justify-items: center;
+    }
+
+    .demo-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .demo-label {
+      font-size: 0.875rem;
+      color: rgba(238, 233, 223, 0.7);
+      text-align: center;
+    }
+
+    code {
+      background: rgba(27, 38, 50, 0.6);
+      padding: 0.2em 0.5em;
+      border-radius: 4px;
+      font-size: 0.9em;
+      color: #F8B334;
+    }
+
+    pre {
+      background: rgba(27, 38, 50, 0.6);
+      padding: 1rem;
+      border-radius: 8px;
+      overflow-x: auto;
+      margin: 1rem 0;
+    }
+
+    pre code {
+      background: none;
+      padding: 0;
+    }
+
+    .inline-example {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 1.5rem;
+      background: #2C3B4D;
+      border-radius: 8px;
+      margin: 1rem 0;
+    }
+  </style>
+</head>
+<body>
+  <nav class="demo-nav">
+    <a href="index.html" class="demo-nav-brand">← TelemetryOS Logo</a>
+    <div class="demo-nav-links">
+      <a href="react-demo.html" class="demo-nav-link">React</a>
+      <a href="svg-demo.html" class="demo-nav-link active">SVG + CSS</a>
+      <a href="smil-demo.html" class="demo-nav-link">SMIL</a>
+      <button id="theme-toggle-nav" style="padding: 8px 16px; background: rgba(238, 233, 223, 0.1); color: #F8B334; border: 1px solid rgba(238, 233, 223, 0.2); border-radius: 6px; cursor: pointer; font-size: 0.9rem; transition: all 0.2s;">
+        <span id="theme-icon">☀️</span> <span id="theme-text">Light</span>
+      </button>
+    </div>
+  </nav>
+  <div class="container">
+    <h1>TelemetryOS Logo</h1>
+    <p class="subtitle">Standalone SVG + CSS for any project</p>
+
+    <!-- Basic Usage -->
+    <div class="section">
+      <h2>Basic Usage - Animated SVG (Simplest)</h2>
+      <p style="margin-bottom: 1rem; color: rgba(238, 233, 223, 0.85);">
+        Use the self-contained animated SVG with inline styles (no CSS file needed):
+      </p>
+      <pre><code>&lt;!-- Simple: Just use the animated SVG --&gt;
+&lt;img src="telemetryos-logo-animated.svg" alt="TelemetryOS" style="width: 200px;" /&gt;
+
+&lt;!-- Or with object tag for better control --&gt;
+&lt;object data="telemetryos-logo-animated.svg" type="image/svg+xml" style="width: 200px;"&gt;&lt;/object&gt;</code></pre>
+
+      <div class="demo-grid">
+        <div class="demo-item">
+          <img src="telemetryos-logo-animated.svg" alt="TelemetryOS" style="width: 200px;" />
+          <span class="demo-label">Animated SVG (200px)</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Advanced Usage with CSS -->
+    <div class="section">
+      <h2>Advanced Usage - SVG + External CSS</h2>
+      <p style="margin-bottom: 1rem; color: rgba(238, 233, 223, 0.85);">
+        For more control over animation speed and sizes, use the base SVG with external CSS:
+      </p>
+      <pre><code>&lt;link rel="stylesheet" href="telemetryos-logo.css"&gt;
+&lt;!-- Must use inline SVG or object tag for external CSS to work --&gt;
+&lt;div class="telemetry-logo-lg"&gt;
+  &lt;!-- Paste SVG code here --&gt;
+&lt;/div&gt;</code></pre>
+    </div>
+
+    <!-- Size Variants -->
+    <div class="section">
+      <h2>Size Variants - Responsive Scaling</h2>
+      <p style="margin-bottom: 1rem; color: rgba(238, 233, 223, 0.85);">
+        The animated SVG scales perfectly at any size using inline styles:
+      </p>
+
+      <div class="demo-grid">
+        <div class="demo-item">
+          <img src="telemetryos-logo-animated.svg" alt="TelemetryOS" style="width: 64px;" />
+          <span class="demo-label">Small (64px)</span>
+        </div>
+        <div class="demo-item">
+          <img src="telemetryos-logo-animated.svg" alt="TelemetryOS" style="width: 128px;" />
+          <span class="demo-label">Medium (128px)</span>
+        </div>
+        <div class="demo-item">
+          <img src="telemetryos-logo-animated.svg" alt="TelemetryOS" style="width: 200px;" />
+          <span class="demo-label">Large (200px)</span>
+        </div>
+        <div class="demo-item">
+          <img src="telemetryos-logo-animated.svg" alt="TelemetryOS" style="width: 300px;" />
+          <span class="demo-label">Extra Large (300px)</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Animation Note -->
+    <div class="section">
+      <h2>Animation Speed & Advanced Control</h2>
+      <p style="margin-bottom: 1rem; color: rgba(238, 233, 223, 0.85);">
+        The animated SVG has a fixed 2-second animation. For variable speeds or glow effects, you can:
+      </p>
+      <ul style="color: rgba(238, 233, 223, 0.85); line-height: 1.8; margin-left: 1.5rem;">
+        <li>Edit the <code>@keyframes</code> duration in the SVG file itself</li>
+        <li>Use the <strong>React component</strong> with <code>animationDuration</code> prop</li>
+        <li>Inline the SVG in HTML and apply external CSS classes</li>
+      </ul>
+
+      <div class="demo-grid" style="margin-top: 1.5rem;">
+        <div class="demo-item">
+          <img src="telemetryos-logo-animated.svg" alt="TelemetryOS" style="width: 150px;" />
+          <span class="demo-label">Standard Animation (2s)</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Inline Usage -->
+    <div class="section">
+      <h2>Inline Usage Example</h2>
+      <div class="inline-example">
+        <span style="font-size: 1.2rem;">Loading your data</span>
+        <img src="telemetryos-logo-animated.svg" alt="Loading" style="width: 48px;" />
+      </div>
+      <div class="inline-example">
+        <img src="telemetryos-logo-animated.svg" alt="Loading" style="width: 48px;" />
+        <span style="font-size: 1.2rem;">Processing request...</span>
+      </div>
+    </div>
+
+    <!-- Custom Size -->
+    <div class="section">
+      <h2>Custom Size with Inline Styles</h2>
+      <p style="margin-bottom: 1rem; color: rgba(238, 233, 223, 0.85);">
+        The animated SVG scales perfectly to any size:
+      </p>
+      <pre><code>&lt;img src="telemetryos-logo-animated.svg" alt="TelemetryOS" style="width: 150px;" /&gt;</code></pre>
+
+      <div class="demo-grid">
+        <div class="demo-item">
+          <img src="telemetryos-logo-animated.svg" alt="TelemetryOS" style="width: 80px;" />
+          <span class="demo-label">Custom 80px</span>
+        </div>
+        <div class="demo-item">
+          <img src="telemetryos-logo-animated.svg" alt="TelemetryOS" style="width: 150px;" />
+          <span class="demo-label">Custom 150px</span>
+        </div>
+        <div class="demo-item">
+          <img src="telemetryos-logo-animated.svg" alt="TelemetryOS" style="width: 250px;" />
+          <span class="demo-label">Custom 250px</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Usage Instructions -->
+    <div class="section">
+      <h2>Files Needed</h2>
+      <ul style="color: rgba(238, 233, 223, 0.85); line-height: 1.8; margin-left: 1.5rem;">
+        <li><code>telemetryos-logo.svg</code> - The logo graphic</li>
+        <li><code>telemetryos-logo.css</code> - Animation styles</li>
+      </ul>
+
+      <h2 style="margin-top: 2rem;">Quick Start</h2>
+      <pre><code>&lt;!-- In your HTML head --&gt;
+&lt;link rel="stylesheet" href="telemetryos-logo.css"&gt;
+
+&lt;!-- In your HTML body --&gt;
+&lt;object data="telemetryos-logo.svg" type="image/svg+xml" class="telemetry-logo-lg"&gt;&lt;/object&gt;
+
+&lt;!-- With glow effect --&gt;
+&lt;div class="telemetry-logo-container"&gt;
+  &lt;object data="telemetryos-logo.svg" type="image/svg+xml" class="telemetry-logo-lg"&gt;&lt;/object&gt;
+&lt;/div&gt;</code></pre>
+    </div>
+  </div>
+
+  <script>
+    // Theme toggle functionality
+    let currentTheme = 'dark';
+    document.body.className = 'dark-theme';
+
+    const themeToggle = document.getElementById('theme-toggle-nav');
+    const themeIcon = document.getElementById('theme-icon');
+    const themeText = document.getElementById('theme-text');
+
+    themeToggle.addEventListener('click', () => {
+      currentTheme = currentTheme === 'dark' ? 'light' : 'dark';
+      document.body.className = `${currentTheme}-theme`;
+
+      if (currentTheme === 'dark') {
+        themeIcon.textContent = '☀️';
+        themeText.textContent = 'Light';
+      } else {
+        themeIcon.textContent = '🌙';
+        themeText.textContent = 'Dark';
+      }
+    });
+  </script>
+</body>
+</html>

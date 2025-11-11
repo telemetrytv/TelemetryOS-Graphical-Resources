@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TelemetryOS Logo - SMIL Demo</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    .demo-nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      background: #1B2632;
+      border-bottom: 1px solid rgba(238, 233, 223, 0.15);
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 1001;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    }
+
+    .demo-nav-brand {
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: #F8B334;
+      text-decoration: none;
+    }
+
+    .demo-nav-links {
+      display: flex;
+      gap: 1.5rem;
+      align-items: center;
+    }
+
+    .demo-nav-link {
+      color: rgba(238, 233, 223, 0.7);
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: color 0.2s;
+    }
+
+    .demo-nav-link:hover {
+      color: #F8B334;
+    }
+
+    .demo-nav-link.active {
+      color: #F8B334;
+      font-weight: 600;
+    }
+
+    body {
+      font-family: 'Rubik', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+      padding: 100px 20px 40px 20px;
+      min-height: 100vh;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    body.dark-theme {
+      background: #2C3B4D;
+      color: #EEE9DF;
+    }
+
+    body.light-theme {
+      background: #EEE9DF;
+      color: #1B2632;
+    }
+
+    .light-theme .demo-nav {
+      background: #fff;
+      border-bottom-color: rgba(27, 38, 50, 0.2);
+    }
+
+    .light-theme .section {
+      background: #fff;
+      border-color: rgba(27, 38, 50, 0.2);
+    }
+
+    .light-theme code {
+      background: rgba(238, 233, 223, 0.4);
+      color: #d97706;
+    }
+
+    .light-theme pre {
+      background: rgba(238, 233, 223, 0.4);
+    }
+
+    .light-theme .demo-label {
+      color: rgba(27, 38, 50, 0.7);
+    }
+
+    .light-theme .inline-example {
+      background: rgba(238, 233, 223, 0.4);
+    }
+
+    .light-theme .demo-grid {
+      background: rgba(238, 233, 223, 0.3);
+    }
+
+    .light-theme .feature-badge {
+      background: #e6f4ea;
+      color: #1e7e34;
+    }
+
+    #theme-toggle-nav:hover {
+      background: rgba(238, 233, 223, 0.1);
+      border-color: #F8B334;
+    }
+
+    @media (max-width: 768px) {
+      .demo-nav {
+        flex-direction: column;
+        gap: 1rem;
+        padding: 1rem;
+      }
+
+      .demo-nav-links {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 1rem;
+      }
+
+      body {
+        padding-top: 160px;
+      }
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+      color: #F8B334;
+    }
+
+    .subtitle {
+      font-size: 1.1rem;
+      color: rgba(238, 233, 223, 0.7);
+      margin-bottom: 3rem;
+    }
+
+    .section {
+      background: #1B2632;
+      border-radius: 12px;
+      padding: 2rem;
+      margin-bottom: 2rem;
+      border: 1px solid rgba(238, 233, 223, 0.15);
+    }
+
+    .section h2 {
+      font-size: 1.5rem;
+      margin-bottom: 1.5rem;
+      color: #F8B334;
+    }
+
+    .demo-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 2rem;
+      padding: 2rem;
+      background: #2C3B4D;
+      border-radius: 8px;
+      align-items: center;
+      justify-items: center;
+    }
+
+    .demo-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .demo-label {
+      font-size: 0.875rem;
+      color: rgba(238, 233, 223, 0.7);
+      text-align: center;
+    }
+
+    code {
+      background: rgba(27, 38, 50, 0.6);
+      padding: 0.2em 0.5em;
+      border-radius: 4px;
+      font-size: 0.9em;
+      color: #F8B334;
+    }
+
+    pre {
+      background: rgba(27, 38, 50, 0.6);
+      padding: 1rem;
+      border-radius: 8px;
+      overflow-x: auto;
+      margin: 1rem 0;
+    }
+
+    pre code {
+      background: none;
+      padding: 0;
+    }
+
+    .inline-example {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 1.5rem;
+      background: #2C3B4D;
+      border-radius: 8px;
+      margin: 1rem 0;
+    }
+
+    .feature-badge {
+      display: inline-block;
+      background: #1e3a1e;
+      color: #4caf50;
+      padding: 0.25rem 0.75rem;
+      border-radius: 6px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-left: 0.5rem;
+    }
+
+    .comparison-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+      margin-top: 1.5rem;
+    }
+
+    .comparison-item {
+      background: #2C3B4D;
+      padding: 1.5rem;
+      border-radius: 8px;
+      border: 1px solid rgba(238, 233, 223, 0.15);
+    }
+
+    .comparison-item h3 {
+      color: #F8B334;
+      margin-bottom: 0.75rem;
+      font-size: 1.1rem;
+    }
+
+    .comparison-item ul {
+      color: rgba(238, 233, 223, 0.85);
+      line-height: 1.8;
+      margin-left: 1.5rem;
+    }
+
+    .light-theme .comparison-item {
+      background: rgba(238, 233, 223, 0.3);
+      border-color: rgba(27, 38, 50, 0.2);
+    }
+  </style>
+</head>
+<body>
+  <nav class="demo-nav">
+    <a href="index.html" class="demo-nav-brand">← TelemetryOS Logo</a>
+    <div class="demo-nav-links">
+      <a href="react-demo.html" class="demo-nav-link">React</a>
+      <a href="svg-demo.html" class="demo-nav-link">SVG + CSS</a>
+      <a href="smil-demo.html" class="demo-nav-link active">SMIL</a>
+      <button id="theme-toggle-nav" style="padding: 8px 16px; background: rgba(238, 233, 223, 0.1); color: #F8B334; border: 1px solid rgba(238, 233, 223, 0.2); border-radius: 6px; cursor: pointer; font-size: 0.9rem; transition: all 0.2s;">
+        <span id="theme-icon">☀️</span> <span id="theme-text">Light</span>
+      </button>
+    </div>
+  </nav>
+  <div class="container">
+    <h1>TelemetryOS Logo - SMIL</h1>
+    <p class="subtitle">Pure SVG animations with no CSS required<span class="feature-badge">NEW</span></p>
+
+    <!-- What is SMIL -->
+    <div class="section">
+      <h2>What is SMIL?</h2>
+      <p style="margin-bottom: 1rem; color: #ccc;">
+        <strong>SMIL (Synchronized Multimedia Integration Language)</strong> is a W3C standard for creating animations
+        directly in SVG files using declarative XML tags. Unlike CSS animations, SMIL is completely self-contained
+        within the SVG file.
+      </p>
+      <ul style="color: #ccc; line-height: 1.8; margin-left: 1.5rem;">
+        <li><strong>No external CSS required</strong> - animations defined in SVG markup</li>
+        <li><strong>Works in <code>&lt;img&gt;</code> tags</strong> - unlike inline SVG with CSS</li>
+        <li><strong>Declarative syntax</strong> - easier to understand than CSS keyframes</li>
+        <li><strong>Universal compatibility</strong> - works in all modern browsers</li>
+      </ul>
+    </div>
+
+    <!-- Basic Usage -->
+    <div class="section">
+      <h2>Basic Usage</h2>
+      <p style="margin-bottom: 1rem; color: #ccc;">
+        The SMIL variant works exactly like a regular image - no external files needed:
+      </p>
+      <pre><code>&lt;!-- Simple: Just use the SMIL SVG --&gt;
+&lt;img src="telemetryos-logo-smil.svg" alt="TelemetryOS" style="width: 200px;" /&gt;
+
+&lt;!-- Or with object tag --&gt;
+&lt;object data="telemetryos-logo-smil.svg" type="image/svg+xml" style="width: 200px;"&gt;&lt;/object&gt;</code></pre>
+
+      <div class="demo-grid">
+        <div class="demo-item">
+          <img src="telemetryos-logo-smil.svg" alt="TelemetryOS" style="width: 200px;" />
+          <span class="demo-label">SMIL Animated (200px)</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Size Variants -->
+    <div class="section">
+      <h2>Size Variants - Perfect Scaling</h2>
+      <p style="margin-bottom: 1rem; color: #ccc;">
+        SMIL animations scale perfectly to any size:
+      </p>
+
+      <div class="demo-grid">
+        <div class="demo-item">
+          <img src="telemetryos-logo-smil.svg" alt="TelemetryOS" style="width: 64px;" />
+          <span class="demo-label">Small (64px)</span>
+        </div>
+        <div class="demo-item">
+          <img src="telemetryos-logo-smil.svg" alt="TelemetryOS" style="width: 128px;" />
+          <span class="demo-label">Medium (128px)</span>
+        </div>
+        <div class="demo-item">
+          <img src="telemetryos-logo-smil.svg" alt="TelemetryOS" style="width: 200px;" />
+          <span class="demo-label">Large (200px)</span>
+        </div>
+        <div class="demo-item">
+          <img src="telemetryos-logo-smil.svg" alt="TelemetryOS" style="width: 300px;" />
+          <span class="demo-label">Extra Large (300px)</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Inline Usage -->
+    <div class="section">
+      <h2>Inline Usage Example</h2>
+      <div class="inline-example">
+        <span style="font-size: 1.2rem;">Loading your data</span>
+        <img src="telemetryos-logo-smil.svg" alt="Loading" style="width: 48px;" />
+      </div>
+      <div class="inline-example">
+        <img src="telemetryos-logo-smil.svg" alt="Loading" style="width: 48px;" />
+        <span style="font-size: 1.2rem;">Processing request...</span>
+      </div>
+    </div>
+
+    <!-- SMIL vs CSS Comparison -->
+    <div class="section">
+      <h2>SMIL vs CSS Animations</h2>
+      <p style="margin-bottom: 1rem; color: #ccc;">
+        Both approaches create the same visual result, but with different technical implementations:
+      </p>
+
+      <div class="comparison-grid">
+        <div class="comparison-item">
+          <h3>SMIL Animations</h3>
+          <ul>
+            <li><strong>100% self-contained</strong> - no external files</li>
+            <li>Uses <code>&lt;animate&gt;</code> and <code>&lt;animateTransform&gt;</code> tags</li>
+            <li>Works in <code>&lt;img&gt;</code> tags</li>
+            <li>Declarative XML syntax</li>
+            <li>Browser support: All modern browsers</li>
+          </ul>
+        </div>
+
+        <div class="comparison-item">
+          <h3>CSS Animations</h3>
+          <ul>
+            <li>Uses CSS <code>@keyframes</code> in <code>&lt;style&gt;</code> block</li>
+            <li>Familiar syntax for web developers</li>
+            <li>Also works in <code>&lt;img&gt;</code> tags (when inline)</li>
+            <li>Easier to customize with external CSS (when inlined)</li>
+            <li>Browser support: All modern browsers</li>
+          </ul>
+        </div>
+      </div>
+
+      <p style="margin-top: 1.5rem; color: #ccc;">
+        <strong>Which to choose?</strong> Both are excellent options. Choose SMIL if you prefer declarative XML syntax,
+        or CSS if you're more comfortable with keyframe animations. Both produce identical visual results.
+      </p>
+    </div>
+
+    <!-- Technical Details -->
+    <div class="section">
+      <h2>Technical Details</h2>
+      <p style="margin-bottom: 1rem; color: #ccc;">
+        The SMIL implementation uses these animation tags:
+      </p>
+      <ul style="color: #ccc; line-height: 1.8; margin-left: 1.5rem;">
+        <li><code>&lt;animateTransform type="scale"&gt;</code> - Scales elements smoothly</li>
+        <li><code>&lt;animateTransform type="translate"&gt;</code> - Moves elements up and down</li>
+        <li><code>&lt;animate attributeName="opacity"&gt;</code> - Fades elements in and out</li>
+        <li><code>additive="sum"</code> - Allows multiple transforms to combine</li>
+        <li><code>repeatCount="indefinite"</code> - Loops animations continuously</li>
+      </ul>
+
+      <p style="margin-top: 1.5rem; color: #ccc;">
+        <strong>Animation timing:</strong>
+      </p>
+      <ul style="color: #ccc; line-height: 1.8; margin-left: 1.5rem;">
+        <li>Main T: 2-second animation with no delay</li>
+        <li>Top dot: 2-second animation with 0.25s delay</li>
+        <li>Bottom dot: 2-second animation with 0.5s delay</li>
+      </ul>
+    </div>
+
+    <!-- Example SMIL Code -->
+    <div class="section">
+      <h2>Example SMIL Code</h2>
+      <p style="margin-bottom: 1rem; color: #ccc;">
+        Here's how the SMIL animations are structured:
+      </p>
+      <pre><code>&lt;g transform-origin="147.5 145.81"&gt;
+  &lt;!-- Scale animation --&gt;
+  &lt;animateTransform
+    attributeName="transform"
+    type="scale"
+    values="1; 1.15; 0.95; 1; 1"
+    keyTimes="0; 0.15; 0.3; 0.45; 1"
+    dur="2s"
+    repeatCount="indefinite"
+    additive="sum"
+  /&gt;
+
+  &lt;!-- Opacity animation --&gt;
+  &lt;animate
+    attributeName="opacity"
+    values="0.75; 1; 0.85; 0.75; 0.75"
+    keyTimes="0; 0.15; 0.3; 0.45; 1"
+    dur="2s"
+    repeatCount="indefinite"
+  /&gt;
+
+  &lt;path d="..." fill="#f7b434" /&gt;
+&lt;/g&gt;</code></pre>
+    </div>
+
+    <!-- When to Use SMIL -->
+    <div class="section">
+      <h2>When to Use SMIL</h2>
+      <ul style="color: #ccc; line-height: 1.8; margin-left: 1.5rem;">
+        <li><strong>Static websites</strong> - Drop-in animated logo with zero configuration</li>
+        <li><strong>Email signatures</strong> - Some email clients support animated SVG (test first!)</li>
+        <li><strong>Content management systems</strong> - Upload as a single file</li>
+        <li><strong>Documentation sites</strong> - Simple <code>&lt;img&gt;</code> tag usage</li>
+        <li><strong>Learning SVG animations</strong> - Declarative syntax is easier to understand</li>
+      </ul>
+
+      <p style="margin-top: 1.5rem; color: #ccc;">
+        <strong>When to use alternatives:</strong>
+      </p>
+      <ul style="color: #ccc; line-height: 1.8; margin-left: 1.5rem;">
+        <li><strong>React apps</strong> - Use <code>TelemetryOSLoader.jsx</code> component</li>
+        <li><strong>Need animation control</strong> - CSS with classes or React props</li>
+        <li><strong>Mobile apps</strong> - Use proper Lottie files from After Effects</li>
+      </ul>
+    </div>
+
+    <!-- Files Needed -->
+    <div class="section">
+      <h2>Files Needed</h2>
+      <ul style="color: #ccc; line-height: 1.8; margin-left: 1.5rem;">
+        <li><code>telemetryos-logo-smil.svg</code> - That's it! Everything is included.</li>
+      </ul>
+
+      <h2 style="margin-top: 2rem;">Quick Start</h2>
+      <pre><code>&lt;!-- Copy the SMIL SVG file to your project --&gt;
+&lt;!-- Use it like any image --&gt;
+&lt;img src="telemetryos-logo-smil.svg" alt="TelemetryOS" style="width: 200px;" /&gt;</code></pre>
+    </div>
+  </div>
+
+  <script>
+    // Theme toggle functionality
+    let currentTheme = 'dark';
+    document.body.className = 'dark-theme';
+
+    const themeToggle = document.getElementById('theme-toggle-nav');
+    const themeIcon = document.getElementById('theme-icon');
+    const themeText = document.getElementById('theme-text');
+
+    themeToggle.addEventListener('click', () => {
+      currentTheme = currentTheme === 'dark' ? 'light' : 'dark';
+      document.body.className = `${currentTheme}-theme`;
+
+      if (currentTheme === 'dark') {
+        themeIcon.textContent = '☀️';
+        themeText.textContent = 'Light';
+      } else {
+        themeIcon.textContent = '🌙';
+        themeText.textContent = 'Dark';
+      }
+    });
+  </script>
+</body>
+</html>

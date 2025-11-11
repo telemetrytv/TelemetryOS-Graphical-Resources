@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TelemetryOS Logo Animation Package</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Rubik', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+      background: #2C3B4D;
+      color: #EEE9DF;
+      padding: 40px 20px;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .container {
+      max-width: 900px;
+      width: 100%;
+    }
+
+    .logo-preview {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 3rem;
+      padding: 3rem;
+      background: #1B2632;
+      border-radius: 12px;
+      border: 1px solid rgba(238, 233, 223, 0.15);
+    }
+
+    h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      color: #F8B334;
+      text-align: center;
+    }
+
+    .subtitle {
+      font-size: 1.2rem;
+      color: rgba(238, 233, 223, 0.7);
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .implementations {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      margin-bottom: 3rem;
+    }
+
+    .card {
+      background: #1B2632;
+      border: 2px solid rgba(238, 233, 223, 0.15);
+      border-radius: 12px;
+      padding: 2rem;
+      transition: all 0.3s ease;
+      cursor: pointer;
+      text-decoration: none;
+      color: inherit;
+      display: block;
+    }
+
+    .card:hover {
+      border-color: #F8B334;
+      transform: translateY(-4px);
+      box-shadow: 0 8px 24px rgba(248, 179, 52, 0.2);
+    }
+
+    .card-icon {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      text-align: center;
+    }
+
+    .card h2 {
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+      color: #F8B334;
+    }
+
+    .card-meta {
+      font-size: 0.875rem;
+      color: rgba(238, 233, 223, 0.7);
+      margin-bottom: 1rem;
+    }
+
+    .card p {
+      color: rgba(238, 233, 223, 0.85);
+      line-height: 1.6;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 0.25rem 0.75rem;
+      border-radius: 4px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      margin-top: 1rem;
+    }
+
+    .badge-ready {
+      background: rgba(34, 197, 94, 0.2);
+      color: #22c55e;
+    }
+
+    .badge-reference {
+      background: rgba(251, 191, 36, 0.2);
+      color: #fbbf24;
+    }
+
+    .features {
+      background: #1B2632;
+      border-radius: 12px;
+      padding: 2rem;
+      border: 1px solid rgba(238, 233, 223, 0.15);
+      margin-bottom: 2rem;
+    }
+
+    .features h3 {
+      color: #F8B334;
+      margin-bottom: 1rem;
+    }
+
+    .features ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .features li {
+      padding: 0.5rem 0;
+      color: rgba(238, 233, 223, 0.85);
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .features li::before {
+      content: '✓';
+      color: #22c55e;
+      font-weight: bold;
+    }
+
+    .footer {
+      text-align: center;
+      color: rgba(238, 233, 223, 0.5);
+      margin-top: 3rem;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(238, 233, 223, 0.15);
+    }
+
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 2rem;
+      }
+
+      .implementations {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>TelemetryOS Logo Animation</h1>
+    <p class="subtitle">Choose your implementation</p>
+
+    <div class="logo-preview">
+      <img src="telemetryos-logo-smil.svg" alt="TelemetryOS" style="width: 150px; height: 150px;" />
+    </div>
+
+    <div class="implementations">
+      <a href="smil-demo.html" class="card">
+        <div class="card-icon">✨</div>
+        <h2>SMIL Animated SVG</h2>
+        <div class="card-meta">telemetryos-logo-smil.svg • 3.2KB</div>
+        <p>Pure declarative SVG animations with no CSS required. Simplest implementation - just use an img tag. <strong>Recommended for most use cases.</strong></p>
+        <span class="badge badge-ready">✓ Production Ready - RECOMMENDED</span>
+      </a>
+
+      <a href="react-demo.html" class="card">
+        <div class="card-icon">⚛️</div>
+        <h2>React Component</h2>
+        <div class="card-meta">TelemetryOSLoader.jsx • 5.3KB</div>
+        <p>Self-contained React component with inline CSS. Perfect for React and Next.js applications.</p>
+        <span class="badge badge-ready">✓ Production Ready</span>
+      </a>
+
+      <a href="svg-demo.html" class="card">
+        <div class="card-icon">🎨</div>
+        <h2>SVG + CSS</h2>
+        <div class="card-meta">telemetryos-logo.svg + .css • 4.3KB</div>
+        <p>Pure SVG with CSS animations. Works everywhere with zero dependencies. Great for static sites.</p>
+        <span class="badge badge-ready">✓ Production Ready</span>
+      </a>
+
+    </div>
+
+    <div class="features">
+      <h3>Package Features</h3>
+      <ul>
+        <li>Fully scalable vector animations</li>
+        <li>Customizable colors, sizes, and speeds</li>
+        <li>Smooth 60fps hardware-accelerated animations</li>
+        <li>Responsive and mobile-friendly</li>
+        <li>Comprehensive documentation and examples</li>
+        <li>Multiple implementation options for any use case</li>
+      </ul>
+    </div>
+
+    <div class="features">
+      <h3>Quick Comparison</h3>
+      <table style="width: 100%; color: rgba(238, 233, 223, 0.85); border-collapse: collapse;">
+        <thead>
+          <tr style="border-bottom: 1px solid rgba(238, 233, 223, 0.15);">
+            <th style="text-align: left; padding: 0.75rem; color: #F8B334;">Format</th>
+            <th style="text-align: left; padding: 0.75rem; color: #F8B334;">Best For</th>
+            <th style="text-align: left; padding: 0.75rem; color: #F8B334;">Size</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr style="border-bottom: 1px solid rgba(238, 233, 223, 0.08);">
+            <td style="padding: 0.75rem;"><strong>SMIL Animated SVG</strong></td>
+            <td style="padding: 0.75rem;"><strong>Most use cases (RECOMMENDED)</strong></td>
+            <td style="padding: 0.75rem;">3.2KB</td>
+          </tr>
+          <tr style="border-bottom: 1px solid rgba(238, 233, 223, 0.08);">
+            <td style="padding: 0.75rem;">React Component</td>
+            <td style="padding: 0.75rem;">React/Next.js apps</td>
+            <td style="padding: 0.75rem;">5.3KB</td>
+          </tr>
+          <tr style="border-bottom: 1px solid rgba(238, 233, 223, 0.08);">
+            <td style="padding: 0.75rem;">SVG + CSS</td>
+            <td style="padding: 0.75rem;">Static sites, vanilla JS</td>
+            <td style="padding: 0.75rem;">4.3KB</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="footer">
+      <p>TelemetryOS Logo Animation Package</p>
+      <p style="margin-top: 0.5rem; font-size: 0.875rem;">View <a href="README.md" style="color: #F8B334;">README.md</a> for detailed documentation</p>
+    </div>
+  </div>
+</body>
+</html>

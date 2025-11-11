@@ -1,0 +1,173 @@
+/**
+ * TelemetryOS Logo Animation Styles
+ *
+ * Usage:
+ * <link rel="stylesheet" href="telemetryos-logo.css">
+ * <img src="telemetryos-logo.svg" alt="TelemetryOS" class="telemetry-logo-animated" />
+ *
+ * Or inline in HTML:
+ * <object data="telemetryos-logo.svg" type="image/svg+xml" class="telemetry-logo-animated"></object>
+ */
+
+/* Base styles for the logo */
+.telemetry-logo {
+  width: 100%;
+  height: 100%;
+}
+
+/* Animated logo parts */
+.telemetry-logo-part {
+  transform-origin: center;
+}
+
+/* Main T vertical stroke - pulses and scales */
+.telemetry-main-t {
+  animation: telemetryMainTPulse 2s ease-in-out infinite;
+  animation-delay: 0s;
+}
+
+/* Top left dot - bounces and scales */
+.telemetry-dot-top {
+  animation: telemetryDotBounce 2s ease-in-out infinite;
+  animation-delay: 0.25s;
+}
+
+/* Bottom left dot - bounces and scales */
+.telemetry-dot-bottom {
+  animation: telemetryDotBounce 2s ease-in-out infinite;
+  animation-delay: 0.5s;
+}
+
+/* Main T pulse animation */
+@keyframes telemetryMainTPulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.75;
+  }
+  15% {
+    transform: scale(1.15);
+    opacity: 1;
+  }
+  30% {
+    transform: scale(0.95);
+    opacity: 0.85;
+  }
+  45% {
+    transform: scale(1);
+    opacity: 0.75;
+  }
+}
+
+/* Dot bounce animation */
+@keyframes telemetryDotBounce {
+  0%, 100% {
+    transform: scale(1) translateY(0);
+    opacity: 0.7;
+  }
+  15% {
+    transform: scale(1.25) translateY(-8px);
+    opacity: 1;
+  }
+  30% {
+    transform: scale(0.9) translateY(3px);
+    opacity: 0.8;
+  }
+  45% {
+    transform: scale(1) translateY(0);
+    opacity: 0.7;
+  }
+}
+
+/* Container wrapper with glow effect (optional) */
+.telemetry-logo-container {
+  position: relative;
+  display: inline-block;
+}
+
+.telemetry-logo-container::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 140%;
+  height: 140%;
+  background: radial-gradient(
+    circle,
+    rgba(247, 180, 52, 0.2) 0%,
+    transparent 70%
+  );
+  animation: telemetryGlow 2s ease-in-out infinite;
+  pointer-events: none;
+  z-index: -1;
+}
+
+@keyframes telemetryGlow {
+  0%, 100% {
+    opacity: 0.4;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  30% {
+    opacity: 0.7;
+    transform: translate(-50%, -50%) scale(1.12);
+  }
+  60% {
+    opacity: 0.4;
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+/* Size variants */
+.telemetry-logo-sm {
+  width: 64px;
+  height: 64px;
+}
+
+.telemetry-logo-md {
+  width: 128px;
+  height: 128px;
+}
+
+.telemetry-logo-lg {
+  width: 200px;
+  height: 200px;
+}
+
+.telemetry-logo-xl {
+  width: 300px;
+  height: 300px;
+}
+
+/* Animation speed variants */
+.telemetry-logo-slow .telemetry-main-t {
+  animation-duration: 3s;
+}
+
+.telemetry-logo-slow .telemetry-dot-top {
+  animation-duration: 3s;
+  animation-delay: 0.375s;
+}
+
+.telemetry-logo-slow .telemetry-dot-bottom {
+  animation-duration: 3s;
+  animation-delay: 0.75s;
+}
+
+.telemetry-logo-fast .telemetry-main-t {
+  animation-duration: 1s;
+}
+
+.telemetry-logo-fast .telemetry-dot-top {
+  animation-duration: 1s;
+  animation-delay: 0.125s;
+}
+
+.telemetry-logo-fast .telemetry-dot-bottom {
+  animation-duration: 1s;
+  animation-delay: 0.25s;
+}
+
+/* Paused state (for manual control) */
+.telemetry-logo-paused .telemetry-logo-part {
+  animation-play-state: paused;
+}

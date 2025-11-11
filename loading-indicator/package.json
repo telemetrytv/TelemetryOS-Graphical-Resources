@@ -1,0 +1,15 @@
+{
+  "name": "scratch",
+  "version": "1.0.0",
+  "description": "Complete animation package for the TelemetryOS logo with multiple formats for different use cases.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "puppeteer": "^24.29.1"
+  }
+}
